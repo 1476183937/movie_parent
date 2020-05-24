@@ -1,0 +1,248 @@
+package com.hnust.movie.controller;
+
+import com.hnust.movie.entity.po.*;
+import com.hnust.movie.entity.vo.*;
+import com.hnust.movie.service.*;
+import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * @Title:
+ * @Author: ggh
+ * @Date: 2020/5/13 11:44
+ */
+@Controller
+public class DataBaseController {
+
+    @Autowired
+    private MovieInfoService movieInfoService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private CategoryService categoryService;
+
+    @Autowired
+    private LocationService locationService;
+
+    @Autowired
+    private YearService yearService;
+
+    @Autowired
+    private RatingService ratingService;
+
+
+    @RequestMapping("/index/{is_comic}")
+    @ResponseBody
+    public ResultEntity<List<MovieInfo>> getMovieInfoForIndexPage(@PathVariable(value = "is_comic") int is_comic){
+
+        return movieInfoService.getMovieInfoForIndexPage(is_comic);
+
+    }
+
+    /**
+    *@title:
+    *@description:
+    *@param: uid
+    *@param: mid
+    *@author:ggh
+    *@updateTime: 2020/5/24 12:20
+    **/
+    @RequestMapping("/db/movie/rating")
+    @ResponseBody
+    public ResultEntity isScored(@RequestParam("uid") Long uid, @RequestParam("mid") Long mid){
+
+        Rating rating = ratingService.isScored(uid, mid);
+        if (rating == null){
+            return ResultEntity.failed("get failed");
+        }else{
+            return ResultEntity.successWithData(rating);
+        }
+
+    }
+
+
+    /**
+    *@title:
+    *@description: 添加评分
+    *@param: rating
+    *@author:ggh
+    *@updateTime: 2020/5/24 12:23
+    **/
+    @RequestMapping("/db/add/rating")
+    @ResponseBody
+    public ResultEntity addRating(@RequestBody Rating rating){
+
+        int result = ratingService.addRating(rating);
+
+        if (result > 0){
+            return ResultEntity.successNoData();
+        }else {
+            return ResultEntity.failed("insert failed");
+        }
+
+    }
+
+
+    /**
+    *@title: 
+    *@description: 获取所有分类信息，包含分类、地区、年份等
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/5/20 11:05
+    **/
+    @RequestMapping("/category/all")
+    @ResponseBody
+    public ResultEntity<CategorySearchVO> getAllCategoriesInfo(){
+
+        //所有类别
+        List<Category> categoryList = categoryService.getAll();
+
+        //所有地区
+        List<Location> locationList = locationService.getAll();
+
+        //所有年份
+        List<Year> yearList = yearService.getAll();
+
+        CategorySearchVO categorySearchVO = new CategorySearchVO();
+        categorySearchVO.setCategoryList(categoryList);
+        categorySearchVO.setLocationList(locationList);
+        categorySearchVO.setYearList(yearList);
+
+        return ResultEntity.successWithData(categorySearchVO);
+    }
+
+
+    /**
+    *@title:
+    *@description: 根据id获取电影详情数据
+    *@author:ggh
+    *@updateTime: 2020/5/14 10:23
+    **/
+    @RequestMapping("/detailInfo/{movieId}")
+    @ResponseBody
+    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId){
+
+        ResultEntity<MovieInfo> resultEntity = movieInfoService.getDetailByMovieId(movieId);
+
+        return resultEntity;
+    }
+
+
+    /**
+    *@title:
+    *@description: 根据电影id获取相关的评论数据
+    *@author:ggh
+    *@updateTime: 2020/5/14 18:29
+    **/
+    @RequestMapping("/detailInfo/comment/{movieId}")
+    @ResponseBody
+    public ResultEntity<List<CommentVO>> getCommentByMid(
+            @PathVariable("movieId") Long movieId,
+            @RequestParam(value = "startPage",required = false,defaultValue = "1") int startPage){
+
+//        System.out.println("movieId: "+movieId +"startPage: " + startPage);
+        //检查movieId的合法性
+        if (StringUtils.isBlank(movieId+"")){
+            return ResultEntity.failed("解析错误：movieId");
+        }
+        List<CommentVO> comments = commentService.selectCommentByMid(movieId, startPage);
+
+        ResultEntity<List<CommentVO>> listResultEntity = null;
+        if (comments != null){
+            listResultEntity = ResultEntity.successWithData(comments);
+            return listResultEntity;
+        }else {
+            return ResultEntity.failed("get comments fialed!!!");
+        }
+
+
+    }
+
+
+    /**
+    *@title:
+    *@description: 添加评论
+    *@author:ggh
+    *@updateTime: 2020/5/15 18:15
+    **/
+    @PostMapping("/comment/publishComment")
+    @ResponseBody
+    public ResultEntity addComment(@RequestBody Comment comment){
+
+        int result = commentService.insertComment(comment);
+        if (result>0){ //添加成功
+            return ResultEntity.successNoData();
+        }else {         //添加失败
+            return ResultEntity.failed("publish fail");
+        }
+
+    }
+
+    /**
+    *@title:
+    *@description:获取所有电影数据
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/5/18 21:48
+    **/
+    @RequestMapping("/get/all")
+    @ResponseBody
+    public ResultEntity<List<MovieInfo>> getAllMovieInfo(){
+
+        List<MovieInfo> movieInfos = movieInfoService.getAll();
+
+        return ResultEntity.successWithData(movieInfos);
+    }
+
+
+    /**
+    *@title:
+    *@description: 为导航栏中电影标签页获取电影列表数据
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/5/22 12:00
+    **/
+    @RequestMapping("/db/movies/list")
+    @ResponseBody
+    public ResultEntity getMovieListByMultipleCategory(){
+
+        ResultEntity<MovieListVO> movieInfoByCategory = movieInfoService.getMovieInfoByCategory();
+
+        if (movieInfoByCategory.getData() != null){
+            return movieInfoByCategory;
+        }else {
+            return ResultEntity.failed("get failed");
+        }
+
+
+    }
+
+    /**
+    *@title:
+    *@description: 为导航栏中动漫标签页获取动漫列表数据
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/5/22 12:01
+    **/
+    @RequestMapping("/db/comics/list")
+    @ResponseBody
+    public ResultEntity getComicListByMultipleCategory(){
+
+        ResultEntity<ComicListVO> comicByCategpry = movieInfoService.getComicByCategpry();
+
+        if (comicByCategpry != null){
+            return comicByCategpry;
+        }else {
+            return ResultEntity.failed("get failed");
+        }
+
+    }
+
+}

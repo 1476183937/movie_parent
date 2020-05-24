@@ -1,0 +1,42 @@
+<div class="tv-hd">
+    <h2>动漫 • 排行榜</h2>
+</div>
+<div class="tv-bd">
+    <ul class="v-rank clearfix">
+
+        <li th:each="comic,comicStat:${topComics.data.movieList}">
+            <i class="i-rank_num" th:texh="${comicStat.count}">1</i>
+            <em class="v-num">高清</em>
+            <span class="v-tit">
+                <a href="334.html" th:href="'/index/detail/'+${comic.mid}+'.html'" th:text="${comic.movieName}" title="神都蜜探">神都蜜探</a>
+            </span>
+        </li>
+
+        <!--<li>
+            <i class="i-rank_num">1</i>
+            <em class="v-num">全30集</em>
+            <span class="v-tit">
+                <a href="javascript:;" title="愤怒的小鸟之蓝弟弟">愤怒的小鸟之蓝弟弟</a>
+            </span>
+        </li>
+        <li><i class="i-rank_num">2</i><em class="v-num">更新至1集</em><span class="v-tit"><a
+                href="javascript:;" title="第一神拳OVA-间柴vs木村死刑执行-">第一神拳OVA-间柴vs木村死刑执行-</a></span></li>
+        <li><i class="i-rank_num">3</i><em class="v-num">更新至04集</em><span class="v-tit"><a
+                href="javascript:;" title="动态漫画·末日告白诗">动态漫画·末日告白诗</a></span></li>
+        <li><i class="i-rank_num">4</i><em class="v-num">更新至4集</em><span class="v-tit"><a
+                href="javascript:;" title="王爷是只大脑斧">王爷是只大脑斧</a></span></li>
+        <li><i class="i-rank_num">5</i><em class="v-num">更新至16集</em><span class="v-tit"><a
+                href="javascript:;" title="迷你大陆">迷你大陆</a></span></li>
+        <li><i class="i-rank_num">6</i><em class="v-num">更新至06集</em><span class="v-tit"><a
+                href="javascript:;" title="万圣街">万圣街</a></span></li>
+        <li><i class="i-rank_num">7</i><em class="v-num">24集全</em><span class="v-tit"><a
+                href="javascript:;" title="重启咲良田">重启咲良田</a></span></li>
+        <li><i class="i-rank_num">8</i><em class="v-num">更新至01集</em><span class="v-tit"><a
+                href="javascript:;" title="无敌铁金刚：冲击z编">无敌铁金刚：冲击z编</a></span></li>
+        <li><i class="i-rank_num">9</i><em class="v-num">12集全</em><span class="v-tit"><a
+                href="javascript:;" title="弁魔士赛希尔">弁魔士赛希尔</a></span></li>
+        <li><i class="i-rank_num">10</i><em class="v-num">更新至764集</em><span class="v-tit"><a
+                href="javascript:;" title="橙心动漫速报">橙心动漫速报</a></span></li>-->
+
+    </ul>
+</div>

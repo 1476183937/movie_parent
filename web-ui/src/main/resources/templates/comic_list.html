@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="referrer" content="no-referrer">
+    <title>迷你酷影</title>
+    <meta name="keywords" content="动漫,动漫大全,最新动漫,好看的动漫,日本动漫,动漫排行榜 - 免费在线电影">
+    <meta name="description"
+          content="为您提供新动漫、好看的动漫排行榜，免费高清在线观看热血动漫、卡通动漫、新番动漫、百合动漫、搞笑动漫、国产动漫、动漫电影等热门动漫。 - 提供最新最快的影视资讯和在线播放">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <link href="/css/app.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery.js"></script>
+    <link href="/css/swiper.min.css" rel="stylesheet" type="text/css">
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/iconfont.js"></script>
+
+    <script>
+        var maccms = {
+            "path": "",
+            "mid": "1",
+            "url": "343.pc16.cn",
+            "wapurl": "343.pc16.cn",
+            "mob_status": "2"
+        };
+    </script>
+
+    <script src="/js/home.js"></script>
+</head>
+<body>
+<header class="itopbar">
+
+    <div class="container">
+        <!--引入公共头部部分-->
+        <div th:insert="/common/head.html"></div>
+    </div>
+
+</header>
+<div class="icon">
+    <div class="container">
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>最新动漫</h2>
+                    <div class="imore">
+
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="tv-bd a_clist">
+
+                    <div class="aclcon1">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.latestComics[0].mid}+'.html'"  th:text="${multipleComicList.data.latestComics[0].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.latestComics[0].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.latestComics[0].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.latestComics[0].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(1,10)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.latestComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" th:text="${multipleComicList.data.latestComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon2 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.latestComics[1].mid}+'.html'"  th:text="${multipleComicList.data.latestComics[11].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.latestComics[11].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.latestComics[11].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.latestComics[11].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(12,21)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.latestComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" th:text="${multipleComicList.data.latestComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon3 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                            <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.latestComics[22].mid}+'.html'"  th:text="${multipleComicList.data.latestComics[22].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.latestComics[22].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.latestComics[22].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.latestComics[22].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(23,32)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.latestComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" th:text="${multipleComicList.data.latestComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>最新集数</h2>
+                </div>
+                <div class="tv-bd">
+                    <ul class="v-rank-zy clearfix">
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                            </span>
+                            <span class="s_des">全12集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
+                            </span>
+                            <span class="s_des">更新至5集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
+                            </span>
+                            <span class="s_des">更新至8集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
+                            </span>
+                            <span class="s_des">更新到14集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
+                            </span>
+                            <span class="s_des">更新至16集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="战国无双">战国无双</a>
+                            </span>
+                            <span class="s_des">更新至01集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
+                            </span>
+                            <span class="s_des">更新至7集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
+                            </span>
+                            <span class="s_des">全20集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
+                            </span>
+                            <span class="s_des">更新至17集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
+                            </span>
+                            <span class="s_des">更新至09集</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="sort_list clearfix">
+            <dl class="radio">
+                <dt>地<br>区</dt>
+                <dd>
+                    <a href="javascript:;">大陆</a>
+                    <a href="javascript:;">日本</a>
+                    <a href="javascript:;">欧美</a>
+                    <a href="javascript:;">其他</a>
+                </dd>
+            </dl>
+
+            <dl class="style">
+                <dt>分<br>类</dt>
+                <dd>
+                    <a href="javascript:;">情感</a>
+                    <a href="javascript:;">科幻</a>
+                    <a href="javascript:;">热血</a>
+                    <a href="javascript:;">推理</a>
+                    <a href="javascript:;">搞笑</a>
+                    <a href="javascript:;">冒险</a>
+                    <a href="javascript:;">萝莉</a>
+                    <a href="javascript:;">校园</a>
+                    <a href="javascript:;">动作</a>
+                    <a href="javascript:;">机战</a>
+                    <a href="javascript:;">运动</a>
+                    <a href="javascript:;">战争</a>
+                    <a href="javascript:;">少年</a>
+                    <a href="javascript:;">少女</a>
+                    <a href="javascript:;">社会</a>
+                    <a href="javascript:;">原创</a>
+                    <a href="javascript:;">亲子</a>
+                    <a href="javascript:;">益智</a>
+                    <a href="javascript:;">励志</a>
+                    <a href="javascript:;">其他</a></dd>
+            </dl>
+            <dl class="radio">
+                <dt>年<br>代</dt>
+                <dd>
+                    <a href="javascript:;">2018</a>
+                    <a href="javascript:;">2017</a>
+                    <a href="javascript:;">2016</a>
+                    <a href="javascript:;">2015</a>
+                    <a href="javascript:;">2014</a>
+                    <a href="javascript:;">2013</a>
+                    <a href="javascript:;">2012</a>
+                    <a href="javascript:;">2011</a>
+                    <a href="javascript:;">2010</a>
+                    <a href="javascript:;">2009</a>
+                    <a href="javascript:;">2008</a>
+                    <a href="javascript:;">2007</a>
+                    <a href="javascript:;">2006</a>
+                    <a href="javascript:;">2005</a>
+                    <a href="javascript:;">2004</a>
+                </dd>
+            </dl>
+            <dl class="recommend">
+                <dt>推<br>荐</dt>
+                <dd>
+                    <a href="javascript:;" title="愤怒的小鸟之蓝弟弟">愤怒的小鸟之蓝弟弟</a>
+                    <a href="javascript:;" title="第一神拳OVA-间柴vs木村死刑执行-">第一神拳OVA-间柴vs木村死刑执行-</a>
+                    <a href="javascript:;" title="动态漫画·末日告白诗">动态漫画·末日告白诗</a>
+                    <a href="javascript:;" title="王爷是只大脑斧">王爷是只大脑斧</a>
+                    <a href="javascript:;" title="迷你大陆">迷你大陆</a></dd>
+            </dl>
+        </section>
+
+        <section class="imain clearfix">
+
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>国产动漫</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+
+                    <div class="aclcon1">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[0].mid}+'.html'"  th:text="${multipleComicList.data.chineseComics[0].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.chineseComics[0].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.chineseComics[0].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.chineseComics[0].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(1,10)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.chineseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" th:text="${multipleComicList.data.chineseComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon2 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[1].mid}+'.html'"  th:text="${multipleComicList.data.chineseComics[11].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.chineseComics[11].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.chineseComics[11].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.chineseComics[11].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(12,21)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.chineseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" th:text="${multipleComicList.data.chineseComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon3 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[22].mid}+'.html'"  th:text="${multipleComicList.data.chineseComics[22].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.chineseComics[22].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.chineseComics[22].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.chineseComics[22].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(23,32)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.chineseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" th:text="${multipleComicList.data.chineseComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-r">
+
+                <div class="tv-hd">
+                    <h2>最新集数</h2>
+                </div>
+
+                <div class="tv-bd">
+                    <ul class="v-rank-zy clearfix">
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                            </span>
+                            <span class="s_des">全12集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
+                            </span>
+                            <span class="s_des">更新至5集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
+                            </span>
+                            <span class="s_des">更新至8集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
+                            </span>
+                            <span class="s_des">更新到14集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
+                            </span>
+                            <span class="s_des">更新至16集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="战国无双">战国无双</a>
+                            </span>
+                            <span class="s_des">更新至01集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
+                            </span>
+                            <span class="s_des">更新至7集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
+                            </span>
+                            <span class="s_des">全20集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
+                            </span>
+                            <span class="s_des">更新至17集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
+                            </span>
+                            <span class="s_des">更新至09集</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="imain clearfix">
+
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>日本动漫</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+
+                    <div class="aclcon1">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[0].mid}+'.html'"  th:text="${multipleComicList.data.japaneseComics[0].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.japaneseComics[0].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.japaneseComics[0].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.japaneseComics[0].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(1,10)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.japaneseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" th:text="${multipleComicList.data.japaneseComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon2 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[1].mid}+'.html'"  th:text="${multipleComicList.data.japaneseComics[11].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.japaneseComics[11].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.japaneseComics[11].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.japaneseComics[11].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(12,21)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.japaneseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" th:text="${multipleComicList.data.japaneseComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon3 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[22].mid}+'.html'"  th:text="${multipleComicList.data.japaneseComics[22].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.japaneseComics[22].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.japaneseComics[22].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.japaneseComics[22].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(23,32)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.japaneseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" th:text="${multipleComicList.data.japaneseComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>最新集数</h2>
+                </div>
+
+                <div class="tv-bd">
+                    <ul class="v-rank-zy clearfix">
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                            </span>
+                            <span class="s_des">全12集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
+                            </span>
+                            <span class="s_des">更新至5集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
+                            </span>
+                            <span class="s_des">更新至8集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
+                            </span>
+                            <span class="s_des">更新到14集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
+                            </span>
+                            <span class="s_des">更新至16集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="战国无双">战国无双</a>
+                            </span>
+                            <span class="s_des">更新至01集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
+                            </span>
+                            <span class="s_des">更新至7集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
+                            </span>
+                            <span class="s_des">全20集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
+                            </span>
+                            <span class="s_des">更新至17集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
+                            </span>
+                            <span class="s_des">更新至09集</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="imain clearfix">
+
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>欧美动漫</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+
+                    <div class="aclcon1">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[0].mid}+'.html'"  th:text="${multipleComicList.data.europeanAndAmericanComics[0].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.europeanAndAmericanComics[0].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.europeanAndAmericanComics[0].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.europeanAndAmericanComics[0].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(1,10)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.europeanAndAmericanComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" th:text="${multipleComicList.data.europeanAndAmericanComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon2 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[1].mid}+'.html'"  th:text="${multipleComicList.data.europeanAndAmericanComics[11].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.europeanAndAmericanComics[11].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.europeanAndAmericanComics[11].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.europeanAndAmericanComics[11].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(12,21)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.europeanAndAmericanComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" th:text="${multipleComicList.data.europeanAndAmericanComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="aclcon3 hide">
+
+                        <div class="tv-l">
+                            <div class="tvhots">
+                                <div class="v-pic">
+                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
+                                    <div class="v-tips">更新至2集</div>
+                                    <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit">
+                                        <em class="em-tit">
+                                            <a href="javascript:;" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[22].mid}+'.html'"  th:text="${multipleComicList.data.europeanAndAmericanComics[22].movieName}" title="快把我哥带走">快把我哥带走</a></em>
+                                        <em class="em-score" th:text="${multipleComicList.data.europeanAndAmericanComics[22].ratingNum} + '分'">1.0分</em>
+                                    </p>
+                                    <p class="s-des">作者：
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.europeanAndAmericanComics[22].directors}">丹增卓嘎</a>&nbsp;
+                                    </p>
+                                    <p class="s-des">类别：
+
+                                        <a href="javascript:;" target="_blank" th:text="${multipleComicList.data.europeanAndAmericanComics[22].categories}">丹增卓嘎</a>&nbsp;
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tv-r">
+
+                            <ul class="tv-list">
+
+                                <li th:each="index:${#numbers.sequence(23,32)}">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                             th:src="${multipleComicList.data.europeanAndAmericanComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                        <div class="v-tips">高清</div>
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                    <span class="v-tit">
+                                        <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" th:text="${multipleComicList.data.europeanAndAmericanComics[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                    </span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>最新集数</h2>
+                </div>
+
+                <div class="tv-bd">
+                    <ul class="v-rank-zy clearfix">
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                            </span>
+                            <span class="s_des">全12集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
+                            </span>
+                            <span class="s_des">更新至5集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
+                            </span>
+                            <span class="s_des">更新至8集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
+                            </span>
+                            <span class="s_des">更新到14集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
+                            </span>
+                            <span class="s_des">更新至16集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="战国无双">战国无双</a>
+                            </span>
+                            <span class="s_des">更新至01集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
+                            </span>
+                            <span class="s_des">更新至7集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
+                            </span>
+                            <span class="s_des">全20集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
+                            </span>
+                            <span class="s_des">更新至17集</span>
+                        </li>
+                        <li>
+                            <span class="s_tit">
+                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
+                            </span>
+                            <span class="s_des">更新至09集</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</div>
+<!-- 页脚 -->
+<footer class="ifoot">
+    <nav class="bnav">
+        <a href="movie_list.html" title="电影">热播电影</a>
+        <a href="" title="动漫">热播动漫</a>
+        <a href="index2.html" title="留言求片">留言求片</a>
+    </nav>
+    <p>免责声明:本网站所有内容均系收集于各大网站，本站只提供WEB页面服务，并不提供影片资源储存也不参与录制与上传，若本站收录内容无意侵犯了贵公司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢合作。</p>
+    <p class="en">343.pc16.cn站长邮箱</p>
+    <p class="en">统计代码</p>
+</footer>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

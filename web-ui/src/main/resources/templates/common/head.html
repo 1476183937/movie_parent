@@ -1,0 +1,41 @@
+<h1 class="ilogo"><a href="" title="logo">
+    <img src="/image/logo.png"  alt="免费电影"><span>免费电影</span></a>
+</h1>
+<nav class="sitenav">
+    <a href="/">首页</a>
+    <a href="/movie-list.html" th:class="${category=='movie'}?'cur'">电影</a>
+    <!--                <a href="2.html">连续剧</a>-->
+    <!--                <a href="3.html">综艺</a>-->
+    <a href="/comic-list.html" th:class="${category=='comic'}?'cur'">动漫</a>
+    <!--                <a href="5.html">资讯</a>-->
+    <!--                <a href="index1.html">专题</a>-->
+    <!--                <a href="index2.html">留言</a>-->
+</nav>
+<div class="itr">
+    <div class="mod">
+        <a href="javascript:;" class="mac_history">
+            <i class="iconfont">&#xe62b;</i>看过
+            <span class="caret"></span>
+        </a>
+    </div>
+    <div class="mod">
+        <a href="javascript:;" class="mac_user">
+            <i class="iconfont">&#xe62c;</i>会员
+        </a>
+    </div>
+</div>
+<span class="searchstart-on">
+    <i class="iconfont">&#xe61e;</i>
+</span>
+<span class="searchstart-off">
+    <i class="iconfont">&#xe622;</i>
+</span>
+<!--action="/index.php/vod/search.html"-->
+<form name="formsearch" class="searchform" action="/search.html"  autocomplete="off">
+    <input id="keyword" class="ipt" placeholder="输入影片片名或演员名称。" name="kw" type="text"  required="">
+    <input type="submit" id="searchbutton" value="" class="hide">
+<!--    onclick="$('.searchform').submit();"-->
+    <a href="javascript:;" id="searchBtn" class="ibtn" title="搜索" >
+        <i class="iconfont">&#xe61e;</i> 搜索
+    </a>
+</form>

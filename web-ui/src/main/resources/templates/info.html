@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>修改资料 - 会员中心 - 免费电影 - 苹果CMS</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../static/css/home.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/member.css" type="text/css" rel="stylesheet">
+    <script src="template/helen_ten/js/tab.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/jquery.lazyload.js"></script>
+    <script src="../static/js/jquery.autocomplete.js"></script>
+    <script src="template/helen_ten/js/jquery.superslide.js"></script>
+    <script src="template/helen_ten/js/jquery.lazyload.js"></script>
+    <script>var maccms={"path":"","mid":"6","url":"343.pc16.cn","wapurl":"343.pc16.cn","mob_status":"2"};</script>
+    <script src="../static/js/home.js"></script>
+    <script src="template/helen_ten/js/formValidator-4.0.1.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.imageupload.js"></script>
+
+</head>
+<body>
+<div class="header">
+    <div class="layout fn-clear">
+        <div class="logo">
+            <a href="/"><img width="157" height="42" src="/template/helen_ten/images/logo.png" alt=""></a>
+        </div>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="/">返回首页</a></li>
+            <li class="nav-item"><a class="nav-link">111111</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index.php/user/logout.html">退出</a></li>
+        </ul>
+    </div>
+</div>
+<!-- // i-header end -->
+
+
+<!-- 会员中心 -->
+<div id="member" class="fn-clear">
+    <div id="left">
+        <div class="tou"><img src="/../static/images/touxiang.png" alt="会员头像"><p>111111<br>默认会员</p></div>
+        <ul>
+            <li class="hover"><a href="/index.php/user/index.html">我的资料</a></li>
+            <li><a href="/index.php/user/favs.html">我的收藏</a></li>
+            <li><a href="/index.php/user/plays.html">播放记录</a></li>
+            <li><a href="/index.php/user/downs.html">下载记录</a></li>
+            <li><a href="/index.php/user/buy.html">在线充值</a></li>
+            <li><a href="/index.php/user/upgrade.html">升级会员</a></li>
+            <li><a href="/index.php/user/orders.html">充值记录</a></li>
+        </ul>
+    </div>
+    <div id="right">
+        <h2>我的资料</h2>
+        <div id="tab">
+            <div class="list">
+                <ul class="fn-clear">
+                    <li><a href="/index.php/user/index.html">基本资料</a></li>
+                    <li class="cur">修改信息</li>
+                    <li><a href="/index.php/user/popedom.html">我的权限</a></li>
+                </ul>
+            </div>
+            <div id="listCon">
+
+                <!-- 修改信息 -->
+                <div class="cur">
+                    <form id="fm" name="fm" method="post" action="">
+                        <p><span class="xiang">用户名：</span>111111</p>
+                        <p><span class="xiang">原始密码：</span><input type="password" name="user_pwd" class="member-input"></p>
+                        <p><span class="xiang">新密码：</span><input type="password" name="user_pwd1" class="member-input"><span class="tishi">不修改请留空</span></p>
+                        <p><span class="xiang">重复密码：</span><input type="password" name="user_pwd2" class="member-input"></p>
+                        <p><span class="xiang">QQ号码：</span><input type="text" name="user_qq" class="member-input" value=""></p>
+                        <p><span class="xiang">邮箱：</span><input type="text" name="user_email" class="member-input" value="">[<a href="/index.php/user/bind.html?ac=email">绑定</a>]</p>
+
+                        <p><span class="xiang">找回密码问题：</span><input type="text" name="user_question" class="member-input" value=""></p>
+                        <p><span class="xiang">找回密码答案：</span><input type="text" name="user_answer" class="member-input" value=""></p>
+                        <p><span class="xiang"></span><input type="button" id="btn_submit" class="search-button" value="保存"><span class="wjmm"><a href="/index.php/user/findpass.html">忘记密码了？</a></span></p>
+                        <p><span class="xiang"></span></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $('.btn_unbind').click(function(){
+        var ac = $(this).attr('ac');
+        if(ac!='email' && ac!='phone'){
+            alert('参数错误');
+        }
+        if(confirm('确认解除绑定吗？此操作不可恢复？')) {
+            $.ajax({
+                url: "/index.php/user/unbind.html",
+                type: "post",
+                dataType: "json",
+                data: {ac: ac},
+                beforeSend: function () {
+                    //开启loading
+                },
+                success: function (r) {
+                    alert(r.msg);
+                    if(r.code==1){
+                        location.href="/index.php/user/info.html";
+                    }
+                },
+                complete: function () {
+                    //结束loading
+                }
+            });
+        }
+    });
+
+    $("#btn_submit").click(function() {
+        var data = $("#fm").serialize();
+        $.ajax({
+            url: "/index.php/user/info.html",
+            type: "post",
+            dataType: "json",
+            data: data,
+            beforeSend: function () {
+                //开启loading
+                //$(".loading_box").css("display","block");
+                $("#btn_submit").css("background","#fd6a6a").val("loading...");
+            },
+            success: function (r) {
+                alert(r.msg);
+                if(r.code==1){
+                    location.href="/index.php/user/info.html";
+                }
+            },
+            complete: function () {
+                //结束loading
+                //$(".loading_box").css("display","none");
+                $("#btn_submit").css("background","#fa4646").val("提交");
+            }
+        });
+    });
+
+</script>
+<!-- // sign-content end -->
+<div class="footer">
+    <div class="layout">
+        <!--<div class="foot-nav">
+            <a href="{maccms:link_gbook}" target="_blank" title="给我留言">给我留言</a>-<a href="{maccms:link_map_vod}" target="_blank" title="网站地图">网站地图</a>-<a href="{maccms:link_map_rss}" target="_blank" title="RSS订阅">RSS订阅</a>-<a href="{maccms:link_map_baidu}" target="_blank" title="BaiduRSS">BaiduRSS</a>-<a href="{maccms:link_map_google}" target="_blank" title="GoogleRSS">GoogleRSS</a>
+        </div>-->
+        <!-- // foot-nav End -->
+        <div class="copyright">
+            <p>
+                本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传
+            </p>
+            <p>
+                若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢
+            </p>
+            <p>
+                Copyright © 2008-2018 <a class="color" href="http://343.pc16.cn">免费电影 - 苹果CMS343.pc16.cn</a>
+            </p>
+        </div>
+        <!-- // maxBox End -->
+    </div>
+</div>
+<!-- // footer end -->
+
+</body>
+</html>

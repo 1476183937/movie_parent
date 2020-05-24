@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hnust.movie.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.hnust.movie.entity.po.Comment" >
+    <id column="comment_id" property="commentId" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="BIGINT" />
+    <result column="mid" property="mid" jdbcType="BIGINT" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="like_num" property="likeNum" jdbcType="INTEGER" />
+    <result column="dislike_num" property="dislikeNum" jdbcType="INTEGER" />
+    <result column="extend1" property="extend1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    comment_id, uid, mid, content, date, deleted, like_num, dislike_num, extend1
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hnust.movie.entity.po.CommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from m_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_comment
+    where comment_id = #{commentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from m_comment
+    where comment_id = #{commentId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hnust.movie.entity.po.CommentExample" >
+    delete from m_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hnust.movie.entity.po.Comment" >
+    insert into m_comment (comment_id, uid, mid, 
+      content, date, deleted,
+      like_num, dislike_num, extend1
+      )
+    values (#{commentId,jdbcType=VARCHAR}, #{uid,jdbcType=BIGINT}, #{mid,jdbcType=BIGINT}, 
+      #{content,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{deleted,jdbcType=INTEGER},
+      #{like_num,jdbcType=INTEGER}, #{dislike_num,jdbcType=INTEGER}, #{extend1,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hnust.movie.entity.po.Comment" >
+    insert into m_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="like_num != null" >
+        like_num,
+      </if>
+      <if test="dislike_num != null" >
+        dislike_num,
+      </if>
+      <if test="extend1 != null" >
+        extend1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="like_num != null" >
+        #{like_num,jdbcType=INTEGER},
+      </if>
+      <if test="dislike_num != null" >
+        #{dislike_num,jdbcType=INTEGER},
+      </if>
+      <if test="extend1 != null" >
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hnust.movie.entity.po.CommentExample" resultType="java.lang.Integer" >
+    select count(*) from m_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update m_comment
+    <set >
+      <if test="record.commentId != null" >
+        comment_id = #{record.commentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=BIGINT},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.date != null" >
+        date = #{record.date,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleted != null" >
+        deleted = #{record.deleted,jdbcType=INTEGER},
+      </if>
+      <if test="record.like_num != null" >
+        like_num = #{record.like_num,jdbcType=INTEGER},
+      </if>
+      <if test="record.dislike_num != null" >
+        dislike_num = #{record.dislike_num,jdbcType=INTEGER},
+      </if>
+      <if test="record.extend1 != null" >
+        extend1 = #{record.extend1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update m_comment
+    set comment_id = #{record.commentId,jdbcType=VARCHAR},
+      uid = #{record.uid,jdbcType=BIGINT},
+      mid = #{record.mid,jdbcType=BIGINT},
+      content = #{record.content,jdbcType=VARCHAR},
+      date = #{record.date,jdbcType=VARCHAR},
+      deleted = #{record.deleted,jdbcType=INTEGER},
+      like_num = #{record.like_num,jdbcType=INTEGER},
+      dislike_num = #{record.dislike_num,jdbcType=INTEGER},
+      extend1 = #{record.extend1,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnust.movie.entity.po.Comment" >
+    update m_comment
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="mid != null" >
+        mid = #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="like_num != null" >
+        like_num = #{like_num,jdbcType=INTEGER},
+      </if>
+      <if test="dislike_num != null" >
+        dislike_num = #{dislike_num,jdbcType=INTEGER},
+      </if>
+      <if test="extend1 != null" >
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnust.movie.entity.po.Comment" >
+    update m_comment
+    set uid = #{uid,jdbcType=BIGINT},
+      mid = #{mid,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR},
+      deleted = #{deleted,jdbcType=INTEGER},
+      like_num = #{like_num,jdbcType=INTEGER},
+      dislike_num = #{dislike_num,jdbcType=INTEGER},
+      extend1 = #{extend1,jdbcType=VARCHAR}
+    where comment_id = #{commentId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.hnust</groupId>
+  <artifactId>movie_parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>common</module>
+      <module>cache-service</module>
+      <module>database-service</module>
+      <module>search-service</module>
+      <module>manager-service</module>
+      <module>web-ui</module>
+        <module>recommend</module>
+    </modules>
+
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <java.version>1.8</java.version>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <junit.version>4.12</junit.version>
+      <log4j.version>1.2.17</log4j.version>
+      <lombok.version>1.16.18</lombok.version>
+      <mysql.version>5.1.47</mysql.version>
+      <druid.verison>1.1.16</druid.verison>
+      <mybatis.spring.boot.verison>1.3.0</mybatis.spring.boot.verison>
+      <fastjson.version>1.2.46</fastjson.version>
+      <mybatis.version>1.3.1</mybatis.version>
+      <Hoxton.version>Hoxton.SR1</Hoxton.version>
+      <jdbc.version>2.0.7.RELEASE</jdbc.version>
+
+
+      <zkclient.version>0.10</zkclient.version>
+      <nekohtml.version>1.9.20</nekohtml.version>
+      <xml-apis.version>1.4.01</xml-apis.version>
+      <batik-ext.version>1.9.1</batik-ext.version>
+      <jsoup.version>1.11.2</jsoup.version>
+      <httpclient.version>4.5.5</httpclient.version>
+      <commons-lang3.version>3.7</commons-lang3.version>
+      <mapper-starter.version>1.2.3</mapper-starter.version>
+      <jedis.version>2.9.0</jedis.version>
+      <jna.version>5.3.1</jna.version>
+      <beanUtils.version>1.9.3</beanUtils.version>
+      <alibaba.cloud.version>2.2.0.RELEASE</alibaba.cloud.version>
+      <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+      <jest.version>6.3.1</jest.version>
+  </properties>
+
+
+
+  <dependencyManagement>
+  <dependencies>
+
+    <dependency>
+      <groupId>xml-apis</groupId>
+      <artifactId>xml-apis</artifactId>
+      <version>${xml-apis.version}</version>
+    </dependency>
+
+    <!--spring boot 2.2.2-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-dependencies</artifactId>
+      <version>${spring-boot.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <!--spring cloud Hoxton.SR1-->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>${Hoxton.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <!--spring cloud alibaba 2.1.0.RELEASE-->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+      <version>${alibaba.cloud.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <!-- MySql -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+    <!-- Druid -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>${druid.verison}</version>
+    </dependency>
+    <!-- mybatis-springboot整合 -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis.spring.boot.verison}</version>
+    </dependency>
+    <!--lombok-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+    <!--junit-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+    <!-- log4j -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+
+    <!--feign-->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+      <version>${alibaba.cloud.version}</version>
+    </dependency>
+
+    <!-- nacos 作为服务注册中心 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+      <version>${alibaba.cloud.version}</version>
+    </dependency>
+    <!-- nacos 作为配置中心 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+      <version>${alibaba.cloud.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+      <version>${alibaba.cloud.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    <!--jdbc-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <version>${jdbc.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>io.seata</groupId>
+      <artifactId>seata-spring-boot-starter</artifactId>
+      <version>1.1.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.typesafe</groupId>
+          <artifactId>config</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-alibaba-seata</artifactId>
+      <version>${alibaba.cloud.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>io.seata</groupId>
+          <artifactId>seata-spring-boot-starter</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.101tec</groupId>
+      <artifactId>zkclient</artifactId>
+      <version>${zkclient.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>${jsoup.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>${httpclient.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>tk.mybatis</groupId>
+      <artifactId>mapper-spring-boot-starter</artifactId>
+      <version>${mapper-starter.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>${jedis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>${beanUtils.version}</version>
+    </dependency>
+
+
+    <!--引入es相关依赖：elasticsearch、jest、jna-->
+    <!--<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>-->
+
+    <!-- https://mvnrepository.com/artifact/io.searchbox/jest -->
+    <dependency>
+      <groupId>io.searchbox</groupId>
+      <artifactId>jest</artifactId>
+      <version>${jest.version}</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+    <!--<dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+      <version>${jna.version}</version>
+    </dependency>-->
+
+    </dependencies>
+
+  </dependencyManagement>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <fork>true</fork>
+          <addResources>true</addResources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>

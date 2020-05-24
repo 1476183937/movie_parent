@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="referrer" content="no-referrer">
+    <title>免费电影</title>
+    <meta name="keywords" content="电影,电影大全,电影天堂,最新电影,好看的电影,电影排行榜 - 免费在线电影">
+    <meta name="description" content="为您提供更新电影、好看的电影排行榜及电影迅雷下载，免费在线观看伦理电影、动作片、喜剧片、爱情片、搞笑片等全新电影。 - 提供最新最快的影视资讯和在线播放">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <link href="/css/app.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery.js"></script>
+    <link href="/css/swiper.min.css" rel="stylesheet" type="text/css">
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/iconfont.js"></script>
+    <script>var maccms = {
+        "path": "",
+        "mid": "1",
+        "url": "343.pc16.cn",
+        "wapurl": "343.pc16.cn",
+        "mob_status": "2"
+    };</script>
+    <script src="/js/home.js"></script>
+</head>
+<body>
+
+
+<header class="itopbar">
+
+    <div class="container">
+        <!--引入公共头部部分-->
+        <div th:insert="/common/head.html"></div>
+
+    </div>
+</header>
+<div class="icon">
+    <div class="container">
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>最新电影</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多<i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.latestMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.latestMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.latestMovies[0].ratingNum} + '分'">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.latestMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+<!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.latestMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                th:src="${multipleMoviesList.data.latestMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.latestMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.latestMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.latestMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.latestMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.latestMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.latestMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.latestMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.latestMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.latestMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.latestMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.latestMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.latestMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.latestMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.latestMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.latestMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-r">
+
+                <!--引入电影排行榜模块-->
+                <div th:insert="/common/rankingOfMovie.html"></div>
+
+            </div>
+        </section>
+
+        <section class="sort_list clearfix">
+
+            <dl class="radio">
+                <dt>地<br>区</dt>
+                <dd>
+                    <a href="12.html">大陆</a>
+                    <a href="13.html">香港</a>
+                    <a href="14.html">台湾</a>
+                    <a href="15.html">美国</a>
+                    <a href="16.html">法国</a>
+                    <a href="17.html">英国</a>
+                    <a href="18.html">日本</a>
+                    <a href="19.html">韩国</a>
+                    <a href="1101.html">德国</a>
+                    <a href="1112.html">泰国</a>
+                    <a href="1121.html">印度</a>
+                    <a href="113.html">意大利</a>
+                    <a href="114.html">西班牙</a>
+                    <a href="115.html">加拿大</a>
+                    <a href="1161.html">其他</a>
+                </dd>
+            </dl>
+
+            <dl class="style">
+                <dt>分<br>类</dt>
+                <dd>
+                    <a href="117.html">喜剧</a>
+                    <a href="118.html">爱情</a>
+                    <a href="119.html">恐怖</a>
+                    <a href="120.html">动作</a>
+                    <a href="121.html">科幻</a>
+                    <a href="122.html">剧情</a>
+                    <a href="123.html">战争</a>
+                    <a href="124.html">警匪</a>
+                    <a href="125.html">犯罪</a>
+                    <a href="126.html">动画</a>
+                    <a href="127.html">奇幻</a>
+                    <a href="128.html">武侠</a>
+                    <a href="129.html">冒险</a>
+                    <a href="130.html">枪战</a>
+                    <a href="119.html">恐怖</a>
+                    <a href="131.html">悬疑</a>
+                    <a href="132.html">惊悚</a>
+                    <a href="133.html">经典</a>
+                    <a href="134.html">青春</a>
+                    <a href="135.html">文艺</a>
+                    <a href="136.html">微电影</a>
+                    <a href="137.html">古装</a>
+                    <a href="1381.html">历史</a>
+                    <a href="1391.html">运动</a>
+                    <a href="140.html">农村</a>
+                    <a href="1411.html">儿童</a>
+                    <a href="142.html">网络电影</a>
+                </dd>
+            </dl>
+
+            <dl class="radio">
+                <dt>年<br>代</dt>
+                <dd>
+                    <a href="2018.html">2018</a>
+                    <a href="2017.html">2017</a>
+                    <a href="2016.html">2016</a>
+                    <a href="2015.html">2015</a>
+                    <a href="2014.html">2014</a>
+                    <a href="2013.html">2013</a>
+                    <a href="2012.html">2012</a>
+                    <a href="2011.html">2011</a>
+                    <a href="2010.html">2010</a>
+                </dd>
+            </dl>
+
+            <dl class="recommend">
+                <dt>推<br>荐</dt>
+                <dd>
+                    <a href="334.html" title="神都蜜探">神都蜜探</a>
+                    <a href="163.html" title="益西卓玛">益西卓玛</a>
+                    <a href="421.html" title="太子殿下之冷香">太子殿下之冷香</a>
+                    <a href="169.html" title="香魂女">香魂女</a> <a href="171.html" title="狂龙伏妖">狂龙伏妖</a>
+                </dd>
+            </dl>
+
+        </section>
+
+        <section class="imain clearfix">
+
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>动作片</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i></a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i></a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.actionMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.actionMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.actionMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.actionMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.actionMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.actionMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.actionMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.actionMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.actionMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.actionMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.actionMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.actionMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.actionMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.actionMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.actionMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.actionMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.actionMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.actionMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.actionMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.actionMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.actionMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>动作片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="334.html" title="神都蜜探">神都蜜探</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="206.html" title="地藏龙神农巨兽">地藏龙神农巨兽</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit"><a href="329.html" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="419.html" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>喜剧片</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.comedyMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.comedyMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.comedyMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.comedyMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.comedyMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.comedyMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.comedyMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.comedyMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.comedyMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.comedyMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.comedyMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.comedyMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.comedyMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.comedyMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.comedyMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.comedyMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.comedyMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.comedyMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.comedyMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.comedyMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.comedyMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>喜剧片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="173.html" title="快递侠">快递侠</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="393.html" title="一路不消停">一路不消停</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                            </span>
+                        </li>
+                        <li><i class="i-rank_num">5</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="170.html" title="滚动的钢蛋">滚动的钢蛋</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">6</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="172.html" title="勇闯女人岛">勇闯女人岛</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">7</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit"><a href="391.html" title="龙咁威">龙咁威</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">8</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit"><a href="177.html" title="惩戒">惩戒</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>爱情片</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i></a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.loveMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.loveMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.loveMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.loveMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.loveMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.loveMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.loveMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.loveMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.loveMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.loveMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.loveMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.loveMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.loveMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.loveMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.loveMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.loveMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.loveMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.loveMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.loveMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.loveMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.loveMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>爱情片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="173.html" title="快递侠">快递侠</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="393.html" title="一路不消停">一路不消停</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">5</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="170.html" title="滚动的钢蛋">滚动的钢蛋</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">6</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="172.html" title="勇闯女人岛">勇闯女人岛</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">7</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="391.html" itle="龙咁威">龙咁威</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">8</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="177.html" title="惩戒">惩戒</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>科幻片</h2>
+                    <div class="imore"><a href="javascript:;" class="a_change">换一换
+                        <i class="iconfont">&#xe62d;</i></a>
+                        <a href="/category/search">更多
+                            <i class="iconfont">&#xe613;</i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.scienceMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.scienceMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.scienceMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.scienceMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.scienceMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.scienceMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.scienceMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.scienceMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.scienceMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.scienceMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.scienceMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.scienceMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.scienceMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.scienceMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.scienceMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.scienceMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.scienceMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.scienceMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.scienceMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.scienceMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.scienceMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>科幻片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="173.html" title="快递侠">快递侠</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="393.html" title="一路不消停">一路不消停</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">5</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="170.html" title="滚动的钢蛋">滚动的钢蛋</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">6</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="172.html" title="勇闯女人岛">勇闯女人岛</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">7</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="391.html" title="龙咁威">龙咁威</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">8</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="177.html" title="惩戒">惩戒</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>恐怖片</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i>
+                        </a>
+                        <a href="/category/search">更多<i class="iconfont">&#xe613;</i></a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.terrorMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.terrorMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.terrorMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.terrorMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.terrorMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.terrorMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.terrorMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.terrorMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.terrorMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.terrorMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.terrorMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.terrorMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.terrorMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.terrorMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.terrorMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.terrorMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.terrorMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.terrorMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.terrorMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.terrorMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.terrorMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>恐怖片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="173.html"title="快递侠">快递侠</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="393.html" title="一路不消停">一路不消停</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">5</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="170.html" title="滚动的钢蛋">滚动的钢蛋</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">6</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="172.html" title="勇闯女人岛">勇闯女人岛</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">7</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="391.html" title="龙咁威">龙咁威</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">8</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="177.html" title="惩戒">惩戒</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>剧情片</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i></a>
+                        <a  href="/category/search">更多<i class="iconfont">&#xe613;</i></a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.featureMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.featureMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.featureMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.featureMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.featureMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.featureMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.featureMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.featureMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.featureMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.featureMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.featureMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.featureMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.featureMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.featureMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.featureMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.featureMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.featureMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.featureMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.featureMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.featureMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.featureMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>剧情片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="173.html" title="快递侠">快递侠</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="393.html" title="一路不消停">一路不消停</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">5</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="170.html" title="滚动的钢蛋">滚动的钢蛋</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">6</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="172.html" title="勇闯女人岛">勇闯女人岛</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">7</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="391.html" title="龙咁威">龙咁威</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">8</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="177.html" title="惩戒">惩戒</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="imain clearfix">
+            <div class="col-l">
+                <div class="tv-hd">
+                    <h2>战争片</h2>
+                    <div class="imore">
+                        <a href="javascript:;" class="a_change">换一换
+                            <i class="iconfont">&#xe62d;</i></a>
+                        <a href="/category/search">更多<i class="iconfont">&#xe613;</i></a>
+                    </div>
+                </div>
+
+                <div class="tv-bd a_clist">
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
+                                             th:src="${multipleMoviesList.data.warMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
+                                        <div class="v-tips">超清</div>
+                                        <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit"><a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[0].mid}+'.html'"  th:text="${multipleMoviesList.data.warMovies[0].movieName}" title="益西卓玛">益西卓玛</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.warMovies[0].ratingNum}">5.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.warMovies[0].mainActors}">丹增卓嘎</a>&nbsp;&nbsp;
+                                            <!--                                            <a href="拉琼.html" target="_blank">拉琼</a>&nbsp;&nbsp;-->
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" th:text="${multipleMoviesList.data.warMovies[0].directors}" target="_blank">谢飞</a>&nbsp;&nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(1,10)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.warMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.warMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon2 hide">
+
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
+                                             th:src="${multipleMoviesList.data.warMovies[11].imgUrls}" class="thumb" alt="龙咁威">
+                                        <div class="v-tips">高清</div>
+                                        <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[11].mid}+'.html'" th:text="${multipleMoviesList.data.warMovies[11].movieName}" title="龙咁威">龙咁威</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.warMovies[11].ratingNum} + '分'">6.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.warMovies[11].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.warMovies[11].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(12,21)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.warMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.warMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">
+                                    <div class="v-pic">
+                                        <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
+                                             th:src="${multipleMoviesList.data.warMovies[22].imgUrls}" class="thumb" alt="左情右义">
+                                        <div class="v-tips">超清</div>
+                                        <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
+                                    </div>
+                                    <div class="v-txt">
+                                        <p class="v-tit">
+                                            <em class="em-tit">
+                                                <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[22].mid}+'.html'" th:text="${multipleMoviesList.data.warMovies[22].movieName}" title="左情右义">左情右义</a></em>
+                                            <em class="em-score" th:text="${multipleMoviesList.data.warMovies[22].ratingNum} + '分'">2.0分</em>
+                                        </p>
+                                        <p class="s-des">演员：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.warMovies[22].mainActors}">丹增卓嘎</a>
+                                        </p>
+                                        <p class="s-des">导演：
+                                            <a href="javascript:;" target="_blank" th:text="${multipleMoviesList.data.warMovies[22].directors}">丹增卓嘎</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">
+
+                                    <li th:each="index:${#numbers.sequence(23,32)}">
+                                        <div class="v-pic">
+                                            <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
+                                                 th:src="${multipleMoviesList.data.warMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
+                                            <div class="v-tips">高清</div>
+                                            <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
+                                        </div>
+                                        <div class="v-txt">
+                                            <span class="v-tit">
+                                                <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" th:text="${multipleMoviesList.data.warMovies[index].movieName}" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                            </span>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>战争片 • 排行榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">
+                        <li>
+                            <i class="i-rank_num">1</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="173.html" title="快递侠">快递侠</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">2</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">3</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="393.html" title="一路不消停">一路不消停</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">4</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">5</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="170.html" title="滚动的钢蛋">滚动的钢蛋</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">6</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="172.html" title="勇闯女人岛">勇闯女人岛</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">7</i>
+                            <em class="v-num">高清</em>
+                            <span class="v-tit">
+                                <a href="391.html" title="龙咁威">龙咁威</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="i-rank_num">8</i>
+                            <em class="v-num">超清</em>
+                            <span class="v-tit">
+                                <a href="177.html" title="惩戒">惩戒</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="imain clearfix">
+            <div class="rank_list clearfix">
+                <dl>
+                    <dt class="yellow"><i class="rank_icon"></i>热播榜</dt>
+                    <dd>
+                        <ul class="v-rank clearfix">
+                            <li>
+                                <i class="i-rank_num">1</i>
+                                <em class="v-num">高清</em>
+                                <span class="v-tit">
+                                    <a href="334.html" title="神都蜜探">神都蜜探</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">2</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="163.html" title="益西卓玛">益西卓玛</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">3</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="421.html" title="太子殿下之冷香">太子殿下之冷香</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">4</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="169.html" title="香魂女">香魂女</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">5</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a
+                                    href="171.html" title="狂龙伏妖">狂龙伏妖</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">6</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a
+                                    href="173.html" title="快递侠">快递侠</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">7</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="429.html" title="江湖喜剧人2">江湖喜剧人2</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">8</i>
+                                <em class="v-num">高清</em>
+                                <span class="v-tit">
+                                    <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">9</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="207.html" title="左情右义">左情右义</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">10</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="167.html" title="本命年">本命年</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt class="blue"><i class="rank_icon"></i>北美榜</dt>
+                    <dd>
+                        <ul class="v-rank clearfix">
+                            <li>
+                                <i class="i-rank_num">1</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit"><a
+                                    href="427.html" title="本杰明·巴顿奇事（普通话）">本杰明·巴顿奇事（普通话）</a></span></li>
+                            <li>
+                                <i class="i-rank_num">2</i>
+                                <em class="v-num">高清</em>
+                                <span class="v-tit">
+                                    <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">3</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="404.html" title="理查德·朱维尔的哀歌">理查德·朱维尔的哀歌</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">4</i>
+                                <em class="v-num">高清</em>
+                                <span class="v-tit">
+                                    <a href="329.html" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">5</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="109.html" title="搏击之王：反击">搏击之王：反击</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">6</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="71.html" title="勇敢者游戏2：再战巅峰">勇敢者游戏2：再战巅峰</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt class="green"><i class="rank_icon"></i>好评榜</dt>
+                    <dd>
+                        <ul class="v-rank clearfix">
+                            <li>
+                                <i class="i-rank_num">1</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="109.html" title="搏击之王：反击">搏击之王：反击</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">2</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="419.html" title="终结者：黑暗命运">终结者：黑暗命运</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">3</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="187.html" title="一路疯逃">一路疯逃</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">4</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="111.html" title="我的演技派男友">我的演技派男友</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">5</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="141.html" title="逆博孤城">逆博孤城</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">6</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="173.html" title="快递侠">快递侠</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">7</i>
+                                <em class="v-num">高清</em>
+                                <span class="v-tit">
+                                    <a href="317.html" title="唐人街探案2">唐人街探案2</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">8</i>
+                                <em class="v-num">高清</em>
+                                <span class="v-tit">
+                                    <a href="334.html" title="神都蜜探">神都蜜探</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">9</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="429.html" title="江湖喜剧人2">江湖喜剧人2</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="i-rank_num">10</i>
+                                <em class="v-num">超清</em>
+                                <span class="v-tit">
+                                    <a href="168.html" title="我们的田野">我们的田野</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt class="red">
+                        <i class="rank_icon"></i>大陆榜</dt>
+                    <dd>
+                        <ul class="v-rank clearfix">
+                            <li>
+                                <i class="i-rank_num">1</i>
+                                <em class="v-num">蓝光</em>
+                                <span class="v-tit">
+                                    <a href="420.html" title="怒火威龙">怒火威龙</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- 页脚 -->
+<!--<footer class="ifoot">-->
+    <div th:insert="/common/footer.html"></div>
+<!--</footer>-->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+
+</html>

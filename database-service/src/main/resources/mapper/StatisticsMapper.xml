@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hnust.movie.mapper.StatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.hnust.movie.entity.po.Statistics" >
+    <id column="sid" property="sid" jdbcType="BIGINT" />
+    <id column="mid" property="mid" jdbcType="BIGINT" />
+    <result column="rating_num" property="ratingNum" jdbcType="BIGINT" />
+    <result column="collect_num" property="collectNum" jdbcType="BIGINT" />
+    <result column="play_num" property="playNum" jdbcType="BIGINT" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sid, mid, rating_num, collect_num, play_num, time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hnust.movie.entity.po.StatisticsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from m_statistics
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.hnust.movie.entity.po.StatisticsKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_statistics
+    where sid = #{sid,jdbcType=BIGINT}
+      and mid = #{mid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.hnust.movie.entity.po.StatisticsKey" >
+    delete from m_statistics
+    where sid = #{sid,jdbcType=BIGINT}
+      and mid = #{mid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hnust.movie.entity.po.StatisticsExample" >
+    delete from m_statistics
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hnust.movie.entity.po.Statistics" >
+    insert into m_statistics (sid, mid, rating_num, 
+      collect_num, play_num, time
+      )
+    values (#{sid,jdbcType=BIGINT}, #{mid,jdbcType=BIGINT}, #{ratingNum,jdbcType=BIGINT}, 
+      #{collectNum,jdbcType=BIGINT}, #{playNum,jdbcType=BIGINT}, #{time,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hnust.movie.entity.po.Statistics" >
+    insert into m_statistics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="ratingNum != null" >
+        rating_num,
+      </if>
+      <if test="collectNum != null" >
+        collect_num,
+      </if>
+      <if test="playNum != null" >
+        play_num,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="ratingNum != null" >
+        #{ratingNum,jdbcType=BIGINT},
+      </if>
+      <if test="collectNum != null" >
+        #{collectNum,jdbcType=BIGINT},
+      </if>
+      <if test="playNum != null" >
+        #{playNum,jdbcType=BIGINT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hnust.movie.entity.po.StatisticsExample" resultType="java.lang.Integer" >
+    select count(*) from m_statistics
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update m_statistics
+    <set >
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=BIGINT},
+      </if>
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=BIGINT},
+      </if>
+      <if test="record.ratingNum != null" >
+        rating_num = #{record.ratingNum,jdbcType=BIGINT},
+      </if>
+      <if test="record.collectNum != null" >
+        collect_num = #{record.collectNum,jdbcType=BIGINT},
+      </if>
+      <if test="record.playNum != null" >
+        play_num = #{record.playNum,jdbcType=BIGINT},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update m_statistics
+    set sid = #{record.sid,jdbcType=BIGINT},
+      mid = #{record.mid,jdbcType=BIGINT},
+      rating_num = #{record.ratingNum,jdbcType=BIGINT},
+      collect_num = #{record.collectNum,jdbcType=BIGINT},
+      play_num = #{record.playNum,jdbcType=BIGINT},
+      time = #{record.time,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnust.movie.entity.po.Statistics" >
+    update m_statistics
+    <set >
+      <if test="ratingNum != null" >
+        rating_num = #{ratingNum,jdbcType=BIGINT},
+      </if>
+      <if test="collectNum != null" >
+        collect_num = #{collectNum,jdbcType=BIGINT},
+      </if>
+      <if test="playNum != null" >
+        play_num = #{playNum,jdbcType=BIGINT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=BIGINT}
+      and mid = #{mid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnust.movie.entity.po.Statistics" >
+    update m_statistics
+    set rating_num = #{ratingNum,jdbcType=BIGINT},
+      collect_num = #{collectNum,jdbcType=BIGINT},
+      play_num = #{playNum,jdbcType=BIGINT},
+      time = #{time,jdbcType=VARCHAR}
+    where sid = #{sid,jdbcType=BIGINT}
+      and mid = #{mid,jdbcType=BIGINT}
+  </update>
+</mapper>

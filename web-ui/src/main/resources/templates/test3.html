@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/test.js"></script>
+
+
+    <!--<script>
+
+
+        $(function () {
+
+
+            $("body").on("click","#btn2",function () {
+                var value = $("#testVal").attr("value");
+                var url = "/test1?val="+value;
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    data: {},
+                    success: function (data) {
+                        alert("成功了22")
+                        console.log(data)
+                        // $("#outer").html(data);
+                        // $("#outer").text = ""
+                        $("#outer").html("")
+                        $("#outer").html(data)
+
+                    }
+                })
+            })
+
+            $("#btn1").click(function () {
+                // alert("111")
+                var value = $("#testVal").attr("value");
+                console.log("1: "+value)
+                console.log("2: "+$("#testVal").val())
+                var url = "/test1?val="+value;
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    data: {},
+                    success: function (data) {
+                        alert("成功了")
+                        console.log(data)
+                        // $("#outer").html(data);
+                        // $("#outer").text = ""
+                        $("#outer").html("")
+                        $("#outer").html("<div>"+data+"</div>")
+                        // $.getScript("/js/jquery.js")
+
+                    }
+                })
+            })
+
+        })
+
+    </script>-->
+
+</head>
+<body>
+
+<div id="head">fff</div>
+<div id="footer"></div>
+
+<div id="outer">
+    <div th:insert="test1.html"></div>
+</div>
+<input type="button" id="btn1" value="切换">
+
+</body>
+</html>
