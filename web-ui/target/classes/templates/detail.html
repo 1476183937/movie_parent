@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" name="referrer" content="no-referrer">
+		<title>伏虎武松详情介绍-伏虎武松在线观看-伏虎武松迅雷下载 - 免费电影 - 苹果CMS</title>
+		<meta name="keywords" content="伏虎武松在线收看,伏虎武松迅雷下载">
+		<meta name="description" content="伏虎武松剧情:坏家伙迈克尔·伍兹想用一架能进犯的遥控赛车来搞粉碎，打算用一场年夜爆炸将除他本身之外的一切人都奉上西天志良颠末千难万险，最终崩溃了他的阴谋，将罪犯绳之...">
+<!--		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">-->
+
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--		<link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">-->
+
+		<link href="/css/app.css" rel="stylesheet" type="text/css">
+		<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+		<script src="/js/jquery.js"></script>
+		<script src="/js/iconfont.js"></script>
+		<script src="/layer/layer.js"></script>
+		<script>var maccms={"path":"","mid":"1","url":"343.pc16.cn","wapurl":"343.pc16.cn","mob_status":"2"};</script>
+
+	</head>
+	<body>
+	<header class="itopbar">
+
+		<div class="container">
+
+			<div th:insert="/common/head.html"></div>
+
+		</div>
+	</header>
+		<div class="icon">
+			<section class="detail_top">
+				<div class="detail_top_con container">
+					<div class="v_path clearfix">当前位置： <a href="/index">首页</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<a href='javascript:;'>剧情片</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<a
+						 th:href="${movieInfo.data?.movieName}" th:value="${movieInfo.data?.mid}" id="movieUrl">伏虎武松</a></div>
+					<div class="clearfix">
+						<div class="poster_placeholder">
+							<div class="v-pic">
+								<img th:src="${movieInfo.data?.imgUrls}" alt="伏虎武松">
+								<a href="" class="v-playBtn"><i></i></a>
+							</div>
+							<p class="p_fun">
+								<a href="#mac_comment" target="_self"><i class="iconfont"></i>评论<em th:text="${count}">(520)</em></a>
+								<i class="i_line"></i>
+								<a onclick="MAC.Fav(location.href,document.name);" href="javascript:void(0);" class="js-addFavorite"><i class="iconfont"></i>收藏</a>
+							</p>
+						</div>
+						<div class="txt_intro_con">
+							<div class="tit">
+								<h1 class="clearfix"  th:utext="${movieInfo.data?.movieName}">伏虎武松</h1>
+								<p class="p_txt">
+									<em class="em_num"></em>
+									<em class="em_score"  th:utext="${movieInfo.data?.ratingNum}+' 分'">5.0<i>分</i></em>
+									<em class="hide">播放：<span class="mac_hits hits"
+										 data-mid="1" data-id="420" data-type="hits"></span>
+									</em>
+								</p>
+							</div>
+							<ul class="txt_list clearfix">
+								<li class="clearfix"  th:utext="'主演：' + ${movieInfo.data?.mainActors}"><em class="em_tit"	>主演：</em>未知</li>
+								<li class="clearfix"><em class="em_tit">导演：</em>
+									<a href="javascript:;" target="_blank"  th:utext="${movieInfo.data?.directors}">徐虾</a>&nbsp;&nbsp;
+									<em class="em_tit">地区：</em>
+									<a href="javascript:;" target="_blank"  th:utext="${movieInfo.data?.location}">大陆</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<em class="em_tit">类型：</em>
+									<a href="javascript:;" target="_blank"  th:utext="${movieInfo.data?.categories}">剧情</a>&nbsp;&nbsp;
+								</li>
+								<li class="li_intro clearfix"  th:utext="'简介：' + ${movieInfo.data?.summery}"><em class="em_tit">简介：</em>
+									坏家伙迈克尔·伍兹想用一架能进犯的遥控赛车来搞粉碎，打算用一场年夜爆炸将除他本身之外的一切人都奉上西天志良颠末千难万险，最终崩溃了他的阴谋，将罪犯绳之...
+								</li>
+							</ul>
+						</div>
+						<div class="play_source">
+							<!-- 选择播放源 -->
+							<div class="play_source_tab clearfix" id="playNumTab"> <a href="javascript:void(0);" th:href="'/play/'+${movieInfo.data?.mid}+'.html'" target="_self" class="cur"
+								 rel="nofollow" apiname="qiyi" id="api_qiyi" alt="奇艺视频"><img width="22" height="22" src="/image/qiyi.png">奇艺视频</a>
+								<i class="iLine"></i>
+							</div>
+							<!-- 选择播放源 -->
+
+							<div class="v_con_box">
+								<ul class="play_num_list clearfix hide show">
+<!--									<li><a href="javascript:;">蓝光</a></li>-->
+									<li><a href="javascript:;" th:href="'/play/'+${movieInfo.data?.mid}+'.html'">蓝光</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <span id="pf">评分：</span>
+
+			<div id="test3" style="margin-left: 50px" class="layui-inline">
+
+				<ul class="layui-rate">
+					<li id="one" class="layui-inline"><i  class="layui-icon layui-icon-rate-solid"></i></li>
+					<li id="two" class="layui-inline"><i class="layui-icon layui-icon-rate-solid"></i></li>
+					<li><i id="three" class="layui-icon layui-icon-rate-half"></i></li>
+					<li class="layui-inline"><i class="layui-icon layui-icon-rate"></i></li>
+					<li class="layui-inline"><i class="layui-icon layui-icon-rate"></i></li>
+				</ul>
+			</div>
+
+
+			<section class="idetail container">
+				<div class="col-l">
+					<div class="tv-hd v-border">
+						<h2><span>剧情介绍</span></h2>
+					</div>
+					<div class="tv-bd">
+						<div class="infor_intro"  th:utext="'简介：' + ${movieInfo.data?.summery}">
+							简介：坏家伙迈克尔·伍兹想用一架能进犯的遥控赛车来搞粉碎，打算用一场年夜爆炸将除他本身之外的一切人都奉上西天志良颠末千难万险，最终崩溃了他的阴谋，将罪犯绳之...
+						</div>
+					</div>
+					<div class="tv-hd v-border">
+						<h2><span>推荐影片</span></h2>
+					</div>
+					<div class="tv-bd">
+						<ul class="tv-list tv-hotlist">
+
+							<li th:if="${similarMovie.data.movieList}" th:each="movie:${similarMovie.data?.movieList}">
+								<div class="v-pic">
+									<img src="/image/03.jpg" th:src="${movie.imgUrls}" class="thumb" th:alt="${movie.movieName}" alt="环太平洋：雷霆再起">
+									<div class="v-tips">超清</div>
+									<a href="detail.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:title="${movie.movieName}" title="环太平洋：雷霆再起" class="v-playBtn"><i></i></a>
+								</div>
+								<div class="v-txt">
+									<span class="v-tit">
+										<a href="detail.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:title="${movie.movieName}" title="环太平洋：雷霆再起">环太平洋：雷霆再起</a>
+									</span>
+								</div>
+							</li>
+
+							<span th:if="${similarMovie.data==null}">暂无相关推荐</span>
+
+						</ul>
+					</div>
+					<div class="tv-hd v-border">
+						<h2><span>影片评论</span></h2><span class="s_num">共有<em id="countInPic" th:utext="'('+${commentResult.data.count}+')'">0</em>条影评</span>
+					</div>
+
+					<!--引入评论模块，注意：必须要在后面引入comment.js-->
+					<div th:replace="/common/comment.html"></div>
+					<!--引入评论模块的js-->
+					<script src="/js/comment.js"></script>
+
+
+				</div>
+
+				<div class="col-r">
+					<!--引入月周电影排行榜模块-->
+					<div th:insert="/common/rankingOfMW.html"></div>
+
+				</div>
+			</section>
+		</div>
+		<span style="display:none" class="mac_ulog_set" alt="设置内容页浏览记录" data-type="1" data-mid="1" data-id="420" data-sid="0"
+		 data-nid="0"></span>
+		<span style="display:none" class="mac_history_set" alt="设置History历史记录" data-name="[剧情片]伏虎武松" data-pic="https://pic2.iqiyipic.com/image/20191126/de/6b/v_62817272_m_601_m3_180_236.jpg
+"></span>
+		<!-- 页脚 -->
+		<footer class="ifoot">
+			<nav class="bnav">
+				<a href="movie_list.html" title="电影">热播电影</a>
+				<a href="comic_list.html" title="动漫">热播动漫</a>
+				<a href="index2.html" title="留言求片">留言求片</a>
+			</nav>
+			<p>免责声明:本网站所有内容均系收集于各大网站，本站只提供WEB页面服务，并不提供影片资源储存也不参与录制与上传，若本站收录内容无意侵犯了贵公司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢合作。</p>
+			<p class="en">343.pc16.cn站长邮箱</p>
+			<p class="en">统计代码</p>
+		</footer>
+		 <script src="/js/app.js"></script>
+
+	<script src="/layui/layui.js" charset="utf-8"></script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	<script>
+
+        $(function () {
+            $("#pf").click(function () {
+                alert("aaa")
+            })
+
+            /*$("#test3").click(function () {
+                alert("jjjj")
+            })*/
+
+
+            /*$("#test3 ul li i").on("click",function () {
+                alert("kkk")
+            })
+
+            $("body").on("click","#one",function () {
+                alert("hhhh")
+            })*/
+
+            /*$("#one").click(function () {
+                alert("bbb")
+            })*/
+
+        })
+
+		layui.use(['rate'], function(){
+			var rate = layui.rate;
+
+
+			//半星效果
+			rate.render({
+				elem: '#test3'
+				,value: 2.5 //初始值
+				,half: true //开启半星
+                ,choose: function(value){
+				    alert(value)
+					alert($("#hiden_movieId").attr("value"))
+                    $.ajax({
+                        type: 'POST',
+                        url: "/detail/add/rating",
+                        data: JSON.stringify({
+                            "mid": $("#hiden_movieId").attr("value"),
+                            "rating": value,
+                        }),
+                        async: false,
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+
+                            if (data.result === 'SUCCESS') {
+                                layer.msg('评分成功！', {icon: 1});
+
+                            } else {
+                                layer.msg(data.message, {icon: 2});
+                            }
+
+                        },
+                        error: function () {
+                            layer.msg('评分失败！请稍后重试', {icon: 2});
+                        },
+                        dataType: "json",
+                    })
+                }
+
+			})
+
+		});
+
+    </script>
+
+	</body>
+</html>

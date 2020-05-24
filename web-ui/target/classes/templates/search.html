@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="referrer" content="no-referrer">
+    <meta charset="utf-8">
+    <title>搜索-免费电影</title>
+    <meta name="keywords"
+          content="-免费电影">
+    <meta name="description"
+          content="免费电影">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <link href="/template/helen_ten/css/home.css" rel="stylesheet" type="text/css">
+    <link href="/css/app.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery.js"></script>
+    <script>var maccms = {
+        "path": "",
+        "mid": "1",
+        "url": "343.pc16.cn",
+        "wapurl": "343.pc16.cn",
+        "mob_status": "2"
+    };</script>
+    <script src="/js/home.js"></script>
+
+    <script language="JavaScript">
+        $(function () {
+            $("body").on("click","#searchBtn",function (){
+                var kw = $("#keyword").val();
+
+                window.location.href = "/search.html?kw="+kw+"&from=1&size=10"
+            })
+        })
+    </script>
+</head>
+
+<body class="isearch">
+<header class="itopbar">
+
+    <div class="container">
+
+        <div th:insert="/common/head.html"></div>
+
+    </div>
+</header>
+<div class="icon">
+    <section class="idetail isear container">
+        <div class="col-l">
+            <div class="tv-hd v-border">
+                <h2><span><em></em></span>相关视频</h2>
+                <span class="s_num" th:text="'共有 ' + ${movieInfoResult.data.total} +' 部'">
+                    <!--共有
+                    <em class="mac_total" th:utext="${movieInfoResult.data.total}"></em>
+                    部-->
+                </span>
+            </div>
+            <div class="tv-bd search-list">
+
+                <div th:each="movieInfo:${movieInfoResult.data.movieInfoList}">
+
+                    <div class="item clearfix">
+                        <div class="item_pic">
+<!--                            <a th:href="'/index/detail/'+${movieInfo.mid}+'.html'"></a>-->
+                            <img th:src="${movieInfo.imgUrls}"  alt="爱书的下克上 第2季">
+                            <span class="v-tips">
+                                <em>更新至2集</em>
+                            </span>
+                            <a href="javascript:;" th:href="'/index/detail/'+${movieInfo.mid}+'.html'" class="v-playBtn">
+                                <i></i>
+                            </a>
+                        </div>
+                        <div class="item_txt">
+                            <div class="intro_con">
+                                <div class="tit">
+                                    <span class="s_score" th:text="${movieInfo.ratingNum} +'分'">1.0分</span>
+                                    <span class="s_tit">
+                                        <a href="javascript:;" th:href="'/play/'+${movieInfo.mid}+'.html'">
+                                            <strong style="color: #1b1b1b" th:utext="${movieInfo.movieName}">爱书的下克上 第2季</strong>
+                                        </a>
+                                    </span>
+                                    <span class="s_type">[动漫]</span>
+                                </div>
+                                <ul class="txt_list clearfix">
+                                    <li class="clearfix">
+                                        <em class="em_tit">导演：</em><em th:text="${movieInfo.directors}">未知</em>
+                                        <em class="em_tit"> 年代：</em><em th:text="${movieInfo.releaseDate}">未知</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <em class="em_tit"> 语言：</em>
+                                        <em th:text="${movieInfo.language}">
+                                            <!--<a href="javascript:;" target="_blank">职场</a>&nbsp;-->&nbsp;
+                                        </em>
+                                    </li>
+                                    <li class="clearfix">
+                                        <em class="em_tit">主演：</em>
+                                        <em th:text="${movieInfo.mainActors}">未知</em>
+                                    </li>
+                                    <li class="li_intro clearfix">
+                                        <em class="em_tit">简介：</em>
+                                        <div class="p_intro" th:text="${movieInfo.summery}">
+                                            从小就是个超级书痴的女大学生丽乃，爱书爱到希望在书堆里死去该说是“梦想成真”吗？好不容易应征上图书馆工作的她，没想到却在地震时被掉落的书给活埋……
+                                            当她再度醒过来，发现自己竟然转生到了陌生的异世界，变
+                                        </div>
+                                    </li>
+                                </ul>
+                                <p class="p_bottom">
+                                    <a href="javascript:;" th:href="'/play/'+${movieInfo.mid}+'.html'" class="v_yellow_btn">
+                                        <i class="iconfont">&#xe630;</i> 立即播放</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="v-page clearfix">
+                    共388条数据&nbsp;当前:1/39页&nbsp;
+                    <a href="/search.html" th:href="'/search.html?kw=' + ${movieInfoResult.data.kw} + '&from=1&size=10'" class="pagelink_a">首页</a>&nbsp;
+                    <a href="javascript:;" th:href="'/search.html?kw=' + ${movieInfoResult.data.kw} + '&from='+${movieInfoResult.data.prePage}+'&size=10'" class="pagelink_a">上一页</a>&nbsp;
+
+
+                    <span th:if="${movieInfoResult.data.startPage} gt 1">...</span>
+                    <a th:each="page:${#numbers.sequence(movieInfoResult.data.startPage,movieInfoResult.data.endPage)}"
+                       th:text="${page}"
+                       th:style="${page==movieInfoResult.data.currentPage}?'background-color: #00b38b; color: #fff; border-color: #00b38b'"
+                       th:href="'/search.html?kw=' + ${movieInfoResult.data.kw} + '&from='+${page}+'&size=10'"  >
+                    </a>
+                    <span th:if="${movieInfoResult.data.endPage} lt ${movieInfoResult.data.totaltPage}">...</span>
+
+                    <a href="javascript:;" th:href="'/search.html?kw=' + ${movieInfoResult.data.kw} + '&from='+${movieInfoResult.data.nextPage}+'&size=10'" class="pagelink_a">下一页</a>&nbsp;
+                    <a href="javascript:;" th:href="'/search.html?kw=' + ${movieInfoResult.data.kw} + '&from='+${movieInfoResult.data.totaltPage}+'&size=10'" class="pagelink_a">尾页</a>&nbsp;
+                </div>
+            </div>
+        </div>
+
+        <div class="col-r">
+
+            <!--引入公共电影排行榜模块-->
+            <div th:insert="/common/rankingOfMovie.html"></div>
+
+            <!--引入公共动漫排行榜模块-->
+            <div th:insert="/common/rankingOfComic.html"></div>
+
+        </div>
+
+    </section>
+</div>
+<script>
+    // $('.mac_total').html('388');
+</script>
+<!-- 页脚 -->
+<div th:insert="/common/footer.html"></div>
+
+
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

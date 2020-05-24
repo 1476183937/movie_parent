@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hnust.movie.mapper.MovieInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.hnust.movie.entity.po.MovieInfo" >
+    <id column="mid" property="mid" jdbcType="BIGINT" />
+    <result column="movie_name" property="movieName" jdbcType="VARCHAR" />
+    <result column="img_urls" property="imgUrls" jdbcType="VARCHAR" />
+    <result column="directors" property="directors" jdbcType="VARCHAR" />
+    <result column="screen_writer" property="screenWriter" jdbcType="VARCHAR" />
+    <result column="main_actors" property="mainActors" jdbcType="VARCHAR" />
+    <result column="categories" property="categories" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="release_date" property="releaseDate" jdbcType="VARCHAR" />
+    <result column="run_time" property="runTime" jdbcType="VARCHAR" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+    <result column="summery" property="summery" jdbcType="VARCHAR" />
+    <result column="rating_num" property="ratingNum" jdbcType="REAL" />
+    <result column="off_shelf" property="offShelf" jdbcType="INTEGER" />
+    <result column="hot_degree" property="hotDegree" jdbcType="INTEGER" />
+    <result column="view_num" property="viewNum" jdbcType="BIGINT" />
+    <result column="play_url" property="playUrl" jdbcType="VARCHAR" />
+    <result column="extend2" property="extend2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    mid, movie_name, img_urls, directors, screen_writer, main_actors, categories, location, 
+    language, release_date, run_time, alias, summery, rating_num, off_shelf, hot_degree, 
+    view_num, play_url, extend2
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hnust.movie.entity.po.MovieInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from m_movie_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_movie_info
+    where mid = #{mid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from m_movie_info
+    where mid = #{mid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hnust.movie.entity.po.MovieInfoExample" >
+    delete from m_movie_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hnust.movie.entity.po.MovieInfo" >
+    insert into m_movie_info (mid, movie_name, img_urls, 
+      directors, screen_writer, main_actors, 
+      categories, location, language, 
+      release_date, run_time, alias, 
+      summery, rating_num, off_shelf, 
+      hot_degree, view_num, play_url, 
+      extend2)
+    values (#{mid,jdbcType=BIGINT}, #{movieName,jdbcType=VARCHAR}, #{imgUrls,jdbcType=VARCHAR}, 
+      #{directors,jdbcType=VARCHAR}, #{screenWriter,jdbcType=VARCHAR}, #{mainActors,jdbcType=VARCHAR}, 
+      #{categories,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{releaseDate,jdbcType=VARCHAR}, #{runTime,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, 
+      #{summery,jdbcType=VARCHAR}, #{ratingNum,jdbcType=REAL}, #{offShelf,jdbcType=INTEGER}, 
+      #{hotDegree,jdbcType=INTEGER}, #{viewNum,jdbcType=BIGINT}, #{playUrl,jdbcType=VARCHAR}, 
+      #{extend2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hnust.movie.entity.po.MovieInfo" >
+    insert into m_movie_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="movieName != null" >
+        movie_name,
+      </if>
+      <if test="imgUrls != null" >
+        img_urls,
+      </if>
+      <if test="directors != null" >
+        directors,
+      </if>
+      <if test="screenWriter != null" >
+        screen_writer,
+      </if>
+      <if test="mainActors != null" >
+        main_actors,
+      </if>
+      <if test="categories != null" >
+        categories,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="releaseDate != null" >
+        release_date,
+      </if>
+      <if test="runTime != null" >
+        run_time,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+      <if test="summery != null" >
+        summery,
+      </if>
+      <if test="ratingNum != null" >
+        rating_num,
+      </if>
+      <if test="offShelf != null" >
+        off_shelf,
+      </if>
+      <if test="hotDegree != null" >
+        hot_degree,
+      </if>
+      <if test="viewNum != null" >
+        view_num,
+      </if>
+      <if test="playUrl != null" >
+        play_url,
+      </if>
+      <if test="extend2 != null" >
+        extend2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mid != null" >
+        #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="movieName != null" >
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrls != null" >
+        #{imgUrls,jdbcType=VARCHAR},
+      </if>
+      <if test="directors != null" >
+        #{directors,jdbcType=VARCHAR},
+      </if>
+      <if test="screenWriter != null" >
+        #{screenWriter,jdbcType=VARCHAR},
+      </if>
+      <if test="mainActors != null" >
+        #{mainActors,jdbcType=VARCHAR},
+      </if>
+      <if test="categories != null" >
+        #{categories,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null" >
+        #{releaseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="runTime != null" >
+        #{runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="summery != null" >
+        #{summery,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingNum != null" >
+        #{ratingNum,jdbcType=REAL},
+      </if>
+      <if test="offShelf != null" >
+        #{offShelf,jdbcType=INTEGER},
+      </if>
+      <if test="hotDegree != null" >
+        #{hotDegree,jdbcType=INTEGER},
+      </if>
+      <if test="viewNum != null" >
+        #{viewNum,jdbcType=BIGINT},
+      </if>
+      <if test="playUrl != null" >
+        #{playUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null" >
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hnust.movie.entity.po.MovieInfoExample" resultType="java.lang.Integer" >
+    select count(*) from m_movie_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update m_movie_info
+    <set >
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=BIGINT},
+      </if>
+      <if test="record.movieName != null" >
+        movie_name = #{record.movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgUrls != null" >
+        img_urls = #{record.imgUrls,jdbcType=VARCHAR},
+      </if>
+      <if test="record.directors != null" >
+        directors = #{record.directors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.screenWriter != null" >
+        screen_writer = #{record.screenWriter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainActors != null" >
+        main_actors = #{record.mainActors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categories != null" >
+        categories = #{record.categories,jdbcType=VARCHAR},
+      </if>
+      <if test="record.location != null" >
+        location = #{record.location,jdbcType=VARCHAR},
+      </if>
+      <if test="record.language != null" >
+        language = #{record.language,jdbcType=VARCHAR},
+      </if>
+      <if test="record.releaseDate != null" >
+        release_date = #{record.releaseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.runTime != null" >
+        run_time = #{record.runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alias != null" >
+        alias = #{record.alias,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summery != null" >
+        summery = #{record.summery,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ratingNum != null" >
+        rating_num = #{record.ratingNum,jdbcType=REAL},
+      </if>
+      <if test="record.offShelf != null" >
+        off_shelf = #{record.offShelf,jdbcType=INTEGER},
+      </if>
+      <if test="record.hotDegree != null" >
+        hot_degree = #{record.hotDegree,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewNum != null" >
+        view_num = #{record.viewNum,jdbcType=BIGINT},
+      </if>
+      <if test="record.playUrl != null" >
+        play_url = #{record.playUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extend2 != null" >
+        extend2 = #{record.extend2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update m_movie_info
+    set mid = #{record.mid,jdbcType=BIGINT},
+      movie_name = #{record.movieName,jdbcType=VARCHAR},
+      img_urls = #{record.imgUrls,jdbcType=VARCHAR},
+      directors = #{record.directors,jdbcType=VARCHAR},
+      screen_writer = #{record.screenWriter,jdbcType=VARCHAR},
+      main_actors = #{record.mainActors,jdbcType=VARCHAR},
+      categories = #{record.categories,jdbcType=VARCHAR},
+      location = #{record.location,jdbcType=VARCHAR},
+      language = #{record.language,jdbcType=VARCHAR},
+      release_date = #{record.releaseDate,jdbcType=VARCHAR},
+      run_time = #{record.runTime,jdbcType=VARCHAR},
+      alias = #{record.alias,jdbcType=VARCHAR},
+      summery = #{record.summery,jdbcType=VARCHAR},
+      rating_num = #{record.ratingNum,jdbcType=REAL},
+      off_shelf = #{record.offShelf,jdbcType=INTEGER},
+      hot_degree = #{record.hotDegree,jdbcType=INTEGER},
+      view_num = #{record.viewNum,jdbcType=BIGINT},
+      play_url = #{record.playUrl,jdbcType=VARCHAR},
+      extend2 = #{record.extend2,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnust.movie.entity.po.MovieInfo" >
+    update m_movie_info
+    <set >
+      <if test="movieName != null" >
+        movie_name = #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrls != null" >
+        img_urls = #{imgUrls,jdbcType=VARCHAR},
+      </if>
+      <if test="directors != null" >
+        directors = #{directors,jdbcType=VARCHAR},
+      </if>
+      <if test="screenWriter != null" >
+        screen_writer = #{screenWriter,jdbcType=VARCHAR},
+      </if>
+      <if test="mainActors != null" >
+        main_actors = #{mainActors,jdbcType=VARCHAR},
+      </if>
+      <if test="categories != null" >
+        categories = #{categories,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null" >
+        release_date = #{releaseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="runTime != null" >
+        run_time = #{runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="summery != null" >
+        summery = #{summery,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingNum != null" >
+        rating_num = #{ratingNum,jdbcType=REAL},
+      </if>
+      <if test="offShelf != null" >
+        off_shelf = #{offShelf,jdbcType=INTEGER},
+      </if>
+      <if test="hotDegree != null" >
+        hot_degree = #{hotDegree,jdbcType=INTEGER},
+      </if>
+      <if test="viewNum != null" >
+        view_num = #{viewNum,jdbcType=BIGINT},
+      </if>
+      <if test="playUrl != null" >
+        play_url = #{playUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null" >
+        extend2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mid = #{mid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnust.movie.entity.po.MovieInfo" >
+    update m_movie_info
+    set movie_name = #{movieName,jdbcType=VARCHAR},
+      img_urls = #{imgUrls,jdbcType=VARCHAR},
+      directors = #{directors,jdbcType=VARCHAR},
+      screen_writer = #{screenWriter,jdbcType=VARCHAR},
+      main_actors = #{mainActors,jdbcType=VARCHAR},
+      categories = #{categories,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      release_date = #{releaseDate,jdbcType=VARCHAR},
+      run_time = #{runTime,jdbcType=VARCHAR},
+      alias = #{alias,jdbcType=VARCHAR},
+      summery = #{summery,jdbcType=VARCHAR},
+      rating_num = #{ratingNum,jdbcType=REAL},
+      off_shelf = #{offShelf,jdbcType=INTEGER},
+      hot_degree = #{hotDegree,jdbcType=INTEGER},
+      view_num = #{viewNum,jdbcType=BIGINT},
+      play_url = #{playUrl,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=VARCHAR}
+    where mid = #{mid,jdbcType=BIGINT}
+  </update>
+</mapper>

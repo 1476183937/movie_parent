@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="referrer" content="no-referrer">
+		<title>电影 - 免费电影</title>
+		<meta name="keywords" content="电影,电影大全,电影天堂,最新电影,好看的电影,电影排行榜 - 免费在线电影">
+		<meta name="description" content="为您提供更新电影、好看的电影排行榜及电影迅雷下载，免费在线观看伦理电影、动作片、喜剧片、爱情片、搞笑片等全新电影。">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+		<link href="/css/app.css" rel="stylesheet" type="text/css">
+		<script src="/js/jquery.js"></script>
+		<link href="/css/swiper.min.css" rel="stylesheet" type="text/css">
+		<script src="/js/swiper.min.js"></script>
+		<script src="/js/iconfont.js"></script>
+		<script>var maccms={"path":"","mid":"1","url":"343.pc16.cn","wapurl":"343.pc16.cn","mob_status":"2"};</script>
+		<script src="/js/home.js"></script>
+	</head>
+	<body>
+	<header class="itopbar">
+
+		<div class="container">
+			<!-- 引入公共头部 -->
+			<div th:insert="/common/head.html"></div>
+		</div>
+	</header>
+
+		<div class="icon">
+			<div class="container">
+<!--				pcid=0&category=喜剧&area=大陆&year=2020&letter=A&sort=人气-->
+				<input type="hidden" id="pcid" th:value="${selectedCategory.pcid}">
+				<input type="hidden" id="category" th:value="${selectedCategory.category}">
+				<input type="hidden" id="area" th:value="${selectedCategory.area}">
+				<input type="hidden" id="year" th:value="${selectedCategory.year}">
+				<input type="hidden" id="letter" th:value="${selectedCategory.letter}">
+				<input type="hidden" id="sort" th:value="${selectedCategory.sort}">
+				<section class="iselect clearfix">
+					<a href="/category/search?pcid=0" class="cur" th:class="${selectedCategory.pcid==0}?'cur'" title="电影" id="movie"><em>电影</em><i class="i_arrow"></i></a>
+					<a href="/category/search?pcid=1" title="动漫" th:class="${selectedCategory.pcid==1}?'cur'" id="comic"><em>动漫</em><i class="i_arrow"></i></a>
+					<div class="onsel pull-right">已选择
+						<span th:text="${selectedCategory.pcid==0}?'电影':'动漫'">电影</span>
+					</div>
+				</section>
+
+				<ul class="select_list clearfix">
+					<li class="mshow">
+						<span class="v-tit">频道：</span>
+						<p class="p_select">
+							<a href="" class="cur">电影</a>
+							<a href="21.html">连续剧</a>
+							<a href="32.html">综艺</a>
+							<a href="javascript:;">动漫</a>
+							<a href="javascript:;">资讯</a></p>
+					</li>
+					<li class="clearfix">
+						<span class="v-tit">分类：</span>
+						<p class="p_select" id="c_select">
+							<a href="javascript:;" th:class="${selectedCategory.category=='全部'}?'cur'" th:value="全部">全部</a>
+<!--							<a href="javascript:;" th:each="category:${categoryList}" th:text="${category.categoryName}" th:value="${category.cid}"></a>-->
+							<a href="javascript:;" th:each="category:${categoryList}" th:class="${selectedCategory.category==category.categoryName}?'cur'" th:text="${category.categoryName}" th:value="${category.categoryName}"></a>
+
+						</p>
+					</li>
+					<li>
+						<span class="v-tit">地区：</span>
+
+						<div class="p_select" id="l_select">
+							<a href="javascript:;"  th:class="${selectedCategory.area=='全部'}?'cur'" th:value="全部">全部</a>
+<!--							<a href="javascript:;" th:each="location:${locationList}" th:text="${location.location}" th:value="${location.lid}"></a>-->
+							<a href="javascript:;" th:each="location:${locationList}" th:text="${location.location}" th:class="${selectedCategory.area==location.location}?'cur'" th:value="${location.location}"></a>
+
+						</div>
+
+					</li>
+					<li>
+						<span class="v-tit" >年份：</span>
+						<div class="p_select" id="y_select">
+							<a href="javascript:;" th:class="${selectedCategory.year=='全部'}?'cur'" th:value="全部">全部</a>
+
+<!--							<a href="javascript:;" th:each="year:${yearList}" th:text="${year.year}" th:value="${year.yid}"></a>-->
+							<a href="javascript:;" th:each="year:${yearList}" th:text="${year.year}" th:value="${year.year}" th:class="${selectedCategory.year==year.year}?'cur'"></a>
+
+						</div>
+					</li>
+
+					<li class="mhide">
+						<span class="v-tit">字母：</span>
+						<p class="p_select" id="b_select">
+							<a href="javascript:;" th:class="${selectedCategory.letter=='全部'}?'cur'" th:value="全部">全部</a>
+							<a href="javascript:;" th:value="A" th:class="${selectedCategory.letter=='A'}?'cur'">A</a>
+							<a href="javascript:;" th:value="B" th:class="${selectedCategory.letter=='B'}?'cur'">B</a>
+							<a href="javascript:;" th:value="C" th:class="${selectedCategory.letter=='C'}?'cur'">C</a>
+							<a href="javascript:;" th:value="D" th:class="${selectedCategory.letter=='D'}?'cur'">D</a>
+							<a href="javascript:;" th:value="E" th:class="${selectedCategory.letter=='E'}?'cur'">E</a>
+							<a href="javascript:;" th:value="F" th:class="${selectedCategory.letter=='F'}?'cur'">F</a>
+							<a href="javascript:;" th:value="G" th:class="${selectedCategory.letter=='G'}?'cur'">G</a>
+							<a href="javascript:;" th:value="H" th:class="${selectedCategory.letter=='H'}?'cur'">H</a>
+							<a href="javascript:;" th:value="I" th:class="${selectedCategory.letter=='I'}?'cur'">I</a>
+							<a href="javascript:;" th:value="J" th:class="${selectedCategory.letter=='J'}?'cur'">J</a>
+							<a href="javascript:;" th:value="K" th:class="${selectedCategory.letter=='K'}?'cur'">K</a>
+							<a href="javascript:;" th:value="L" th:class="${selectedCategory.letter=='L'}?'cur'">L</a>
+							<a href="javascript:;" th:value="M" th:class="${selectedCategory.letter=='M'}?'cur'">M</a>
+							<a href="javascript:;" th:value="N" th:class="${selectedCategory.letter=='N'}?'cur'">N</a>
+							<a href="javascript:;" th:value="O" th:class="${selectedCategory.letter=='O'}?'cur'">O</a>
+							<a href="javascript:;" th:value="P" th:class="${selectedCategory.letter=='P'}?'cur'">P</a>
+							<a href="javascript:;" th:value="Q" th:class="${selectedCategory.letter=='Q'}?'cur'">Q</a>
+							<a href="javascript:;" th:value="R" th:class="${selectedCategory.letter=='R'}?'cur'">R</a>
+							<a href="javascript:;" th:value="S" th:class="${selectedCategory.letter=='S'}?'cur'">S</a>
+							<a href="javascript:;" th:value="T" th:class="${selectedCategory.letter=='T'}?'cur'">T</a>
+							<a href="javascript:;" th:value="U" th:class="${selectedCategory.letter=='U'}?'cur'">U</a>
+							<a href="javascript:;" th:value="V" th:class="${selectedCategory.letter=='V'}?'cur'">V</a>
+							<a href="javascript:;" th:value="W" th:class="${selectedCategory.letter=='W'}?'cur'">W</a>
+							<a href="javascript:;" th:value="X" th:class="${selectedCategory.letter=='X'}?'cur'">X</a>
+							<a href="javascript:;" th:value="Y" th:class="${selectedCategory.letter=='Y'}?'cur'">Y</a>
+							<a href="javascript:;" th:value="Z" th:class="${selectedCategory.letter=='Z'}?'cur'">Z</a>
+							<a href="javascript:;" th:value="0-9" th:class="${selectedCategory.letter=='0-9'}?'cur'">0-9</a>
+						</p>
+					</li>
+				</ul>
+
+				<section class="select_con">
+					<div class="v-hd clearfix">
+						<p class="p_tab">
+							<a href="javascript:;" title="按更新" th:href="${updateUrl}" th:class="${selectedCategory.sort=='releaseDate'}?'cur'">按更新</a>
+							<a href="javascript:;" th:href="${hotDegreeUrl}" th:class="${selectedCategory.sort=='hotDegree'}?'cur'" title="按人气">按人气</a>
+							<a href="javascript:;" title="按推荐" th:class="${selectedCategory.sort=='recommend'}?'cur'" th:href="${recommendUrl}">按推荐</a></p>
+						<span class="s_num">共有<em class="mac_total" th:text="${movieInfoList.data.total}"></em>部影片</span>
+						<div class="p_btn">
+						</div>
+					</div>
+					<div class="v-bd clearfix">
+						<div class="v_con_box">
+							<ul class="tv-list clearfix">
+
+								<li th:each="movieInfo:${movieInfoList.data.movieInfoList}">
+
+									<div class="v-pic">
+										<img src="/image/03.jpg" th:src="${movieInfo.imgUrls}" class="thumb" alt="杀入警察局"> <span class="v-tips">蓝光</span>
+										<a class="v-playBtn" href="detail.html" th:href="'/index/detail/'+${movieInfo.mid}+'.html'" title="杀入警察局"><i></i></a>
+									</div>
+									<div class="v-txt">
+										<p class="v-tit"><a title="杀入警察局" href="365.html" th:text="${movieInfo.movieName}" th:href="'/index/detail/'+${movieInfo.mid}+'.html'">杀入警察局</a></p>
+										<p class="s-des" th:text="'演员: '+${movieInfo.mainActors}">演员：未知</p>
+										<p class="s-des">导演：<a href="吕嘉华.html" target="_blank" th:text="${movieInfo.directors}">吕嘉华</a>&nbsp;&nbsp;</p>
+									</div>
+
+								</li>
+
+
+							</ul>
+
+                            <div class="v-page clearfix">共97条数据&nbsp;当前:2/3页&nbsp;
+                                <a href="javascript:;" th:href="${lastUrl}" class="pagelink_a">首页</a>&nbsp;
+                                <a href="javascript:;" th:href="${lastUrl}+'&from='+${movieInfoList.data.prePage}" class="pagelink_a">上一页</a>&nbsp;
+
+								<span th:if="${movieInfoList.data.startPage} gt 1">...</span>
+								<a th:each="page:${#numbers.sequence(movieInfoList.data.startPage,movieInfoList.data.endPage)}"
+								   th:text="${page}"
+								   th:style="${page==movieInfoList.data.currentPage}?'background-color: #00b38b; color: #fff; border-color: #00b38b'"
+								   th:href="${lastUrl}+'&from='+${page}"  >
+								</a>
+
+								<span th:if="${movieInfoList.data.endPage} lt ${movieInfoList.data.totaltPage}">...</span>
+
+								<!--<a th:each="page:${#numbers.sequence(1,movieInfoList.data.totaltPage)}"
+								   th:text="${page}"
+								   th:style="${page==movieInfoList.data.currentPage}?'background-color: #00b38b; color: #fff; border-color: #00b38b'"
+								   th:href="${lastUrl}+'&from='+${page}"  >
+								</a>-->
+
+								<!--<a class="pagelink_b" href="/index.php/vod/show/id/1/page/1.html">1</a>&nbsp;
+                                <span class="pagenow">2</span>&nbsp;
+                                <a class="pagelink_b" href="/index.php/vod/show/id/1/page/3.html">3</a>&nbsp;-->
+
+                                <a href="javascript:;" th:href="${lastUrl}+'&from='+${movieInfoList.data.nextPage}" class="pagelink_a">下一页</a>&nbsp;
+                                <a href="javascript:;" th:href="${lastUrl}+'&from='+${movieInfoList.data.totaltPage}" class="pagelink_a">尾页</a>&nbsp;
+                            </div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+
+		<script>
+			// $('.mac_total').html('34');
+			$(function () {
+
+
+				$.getUrl = function(pcid,category,area,year,letter,sort){
+					var url = "/category/search?"
+					url.toString().length=="/category/search?".length
+
+					if (pcid != '0'){
+						if (url.toString().length == "/category/search?".length) {
+							url = url + 'pcid='+pcid
+						}else {
+							url = url + '&pcid='+pcid
+						}
+					}
+					if (category != '全部'){
+
+						if (url.length == "/category/search?".length) {
+							url = url + 'category='+category
+						}else {
+							url = url + '&category='+category
+						}
+
+					}
+
+					if (area != '全部'){
+
+						if (url.length == "/category/search?".length) {
+							url = url + 'area='+area
+						}else {
+							url = url + '&area='+area
+						}
+
+					}
+
+					if (year != '全部'){
+
+						if (url.length == "/category/search?".length) {
+							url = url + 'year='+year
+						}else {
+							url = url + '&year='+year
+						}
+
+					}
+
+					if (letter != '全部'){
+
+						if (url.length == "/category/search?".length) {
+							url = url + 'letter='+letter
+						}else {
+							url = url + '&letter='+letter
+						}
+
+					}
+
+					if (sort != '更新'){
+
+						if (url.length == "/category/search?".length) {
+							url = url + 'sort='+sort
+						}else {
+							url = url + '&sort='+sort
+						}
+
+					}
+
+					return url
+				}
+
+				$("body").on("click", "#c_select a",function () {
+					var category = $(this).attr("value");
+
+					var pcid = $("#pcid").attr("value");
+					// var category = $("#category").attr("value");
+					var area = $("#area").attr("value");
+					var year = $("#year").attr("value");
+					var letter = $("#letter").attr("value");
+					var sort = $("#sort").attr("value");
+
+					var url1 = $.getUrl(pcid,category, area, year,letter, sort);
+
+					window.location.href = url1
+					// alert(url1)
+
+					$(this).addClass('cur')
+
+				})
+
+				$("body").on("click", "#l_select a",function () {
+					var location = $(this).attr("value");
+					// var lastUrl = $("#lastUrl").attr("value");
+
+					var pcid = $("#pcid").attr("value");
+					var category = $("#category").attr("value");
+					// var area = $("#area").attr("value");
+					var year = $("#year").attr("value");
+					var letter = $("#letter").attr("value");
+					var sort = $("#sort").attr("value");
+
+					var url1 = $.getUrl(pcid,category, location, year,letter, sort);
+
+					window.location.href = url1
+					// alert(url1)
+
+					$(this).addClass('cur')
+
+				})
+
+				$("body").on("click", "#y_select a",function () {
+					var year = $(this).attr("value");
+
+
+					var pcid = $("#pcid").attr("value");
+					var category = $("#category").attr("value");
+					var area = $("#area").attr("value");
+					// var year = $("#year").attr("value");
+					var letter = $("#letter").attr("value");
+					var sort = $("#sort").attr("value");
+
+					var url1 = $.getUrl(pcid,category, area, year,letter, sort);
+
+					window.location.href = url1
+					// alert(url1)
+
+					$(this).addClass('cur')
+
+				})
+
+				$("body").on("click", "#b_select a",function () {
+					var letter = $(this).attr("value");
+
+					var pcid = $("#pcid").attr("value");
+					var category = $("#category").attr("value");
+					var area = $("#area").attr("value");
+					var year = $("#year").attr("value");
+					// var letter = $("#letter").attr("value");
+					var sort = $("#sort").attr("value");
+
+					var url1 = $.getUrl(pcid,category, area, year,letter, sort);
+					window.location.href = url1
+					// alert(url1)
+
+					$(this).addClass('cur')
+
+				})
+				// $("#y_select ")
+			})
+		</script>
+
+		<!-- 引入公共页脚 -->
+        <div th:insert="/common/footer.html"></div>
+
+		<script src="/js/lazyload.min.js"></script>
+		<script src="/js/app.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,24 @@
+server:
+  port: 80
+
+#日志级别
+#logging:
+#  level:
+#    root=info
+spring:
+  application:
+    name: web-ui
+  thymeleaf:
+    cache: false # 关闭thymeleaf的缓存(热部署)
+    mode: LEGACYHTML5 # 松校验
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+
+#设置feign客户端超时时间（OpenFeign默认支持ribbon）
+ribbon:
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 600000
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的实际
+  ConnectTimeout: 600000

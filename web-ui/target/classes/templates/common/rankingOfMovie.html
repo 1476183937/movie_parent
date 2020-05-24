@@ -1,0 +1,57 @@
+<div class="tv-hd">
+    <h2>电影 • 排行榜</h2>
+</div>
+<div class="tv-bd">
+    <ul class="v-rank clearfix">
+
+        <li th:each="movie,movieStat:${topMovies.data.movieList}">
+            <i class="i-rank_num" th:texh="${movieStat.count}">1</i>
+            <em class="v-num">高清</em>
+            <span class="v-tit">
+                <a href="334.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:text="${movie.movieName}" title="神都蜜探">神都蜜探</a>
+            </span>
+        </li>
+
+        <!--<li>
+            <i class="i-rank_num">1</i>
+            <em class="v-num">高清</em>
+            <span class="v-tit">
+                <a href="334.html" title="神都蜜探">神都蜜探</a>
+            </span>
+        </li>
+        <li>
+            <i class="i-rank_num">2</i>
+            <em class="v-num">超清</em>
+            <span class="v-tit">
+                <a href="163.html" title="益西卓玛">益西卓玛</a>
+            </span>
+        </li>
+        <li><i class="i-rank_num">3</i><em class="v-num">超清</em><span class="v-tit"><a href="421.html"
+                                                                                       title="太子殿下之冷香">太子殿下之冷香</a></span>
+        </li>
+        <li><i class="i-rank_num">4</i>
+            <em class="v-num">超清</em>
+            <span class="v-tit">
+                <a href="169.html" title="香魂女">香魂女</a>
+            </span>
+        </li>
+        <li><i class="i-rank_num">5</i><em class="v-num">超清</em><span class="v-tit"><a href="171.html"
+                                                                                       title="狂龙伏妖">狂龙伏妖</a></span>
+        </li>
+        <li><i class="i-rank_num">6</i><em class="v-num">超清</em><span class="v-tit"><a href="173.html"
+                                                                                       title="快递侠">快递侠</a></span>
+        </li>
+        <li><i class="i-rank_num">7</i><em class="v-num">超清</em><span class="v-tit"><a href="429.html"
+                                                                                       title="江湖喜剧人2">江湖喜剧人2</a></span>
+        </li>
+        <li><i class="i-rank_num">8</i><em class="v-num">高清</em><span class="v-tit"><a href="317.html"
+                                                                                       title="海滩救护队">海滩救护队</a></span>
+        </li>
+        <li><i class="i-rank_num">9</i><em class="v-num">超清</em><span class="v-tit"><a href="207.html"
+                                                                                       title="左情右义">左情右义</a></span>
+        </li>
+        <li><i class="i-rank_num">10</i><em class="v-num">超清</em><span class="v-tit"><a href="167.html"
+                                                                                        title="本命年">本命年</a></span>
+        </li>-->
+    </ul>
+</div>

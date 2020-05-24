@@ -1,0 +1,33 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: database-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动类
+    driver-class-name: com.mysql.jdbc.Driver
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/movie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+mybatis:
+  mapperLocations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+#设置feign客户端超时时间（OpenFeign默认支持ribbon）
+ribbon:
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 600000
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的实际
+  ConnectTimeout: 600000
+
+#logging:
+#  level:
+#    root: debug
