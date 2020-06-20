@@ -37,7 +37,7 @@ public class SimilarMovieRecommendationDaoImpl implements SimilarMovieRecommenda
         Update update = new Update();
 
         update.set("date",similarMovieRecommendation.getDate());
-        update.set("movieList",similarMovieRecommendation.getMovieList());
+        update.set("movieList",similarMovieRecommendation.getSimliarMovies());
 
         mongoTemplate.updateFirst(query, update,SimilarMovieRecommendation.class);
 

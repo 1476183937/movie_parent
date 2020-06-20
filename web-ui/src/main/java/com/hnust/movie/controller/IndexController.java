@@ -1,8 +1,10 @@
 package com.hnust.movie.controller;
 
+import com.hnust.movie.annotation.LoginRequired;
 import com.hnust.movie.common.CommonUtil;
 import com.hnust.movie.entity.po.Comment;
 import com.hnust.movie.entity.po.MovieInfo;
+import com.hnust.movie.entity.recommender.MovieInMongodb;
 import com.hnust.movie.entity.recommender.SimilarMovieRecommendation;
 import com.hnust.movie.entity.recommender.TopComics;
 import com.hnust.movie.entity.recommender.TopMovies;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Title:首页的controller
@@ -95,6 +99,7 @@ public class IndexController {
     *@updateTime: 2020/5/14 10:10
     **/
     @RequestMapping(value = {"/index","/"})
+    @LoginRequired(mustLogin = false)
     public String index(ModelMap modelMap){
 
         return "index";
@@ -111,6 +116,7 @@ public class IndexController {
     *@updateTime: 2020/5/18 10:29
     **/
     @RequestMapping("/index/detail/{movieId}.html")
+    @LoginRequired(mustLogin = false)
     public String detail(@PathVariable("movieId") Long movieId,
                          @RequestParam(value = "startPage", required = false,defaultValue = "1") int startPage,
                          ModelMap modelMap){
@@ -167,9 +173,10 @@ public class IndexController {
             //获取该电影的相似电影
             ResultEntity<SimilarMovieRecommendation> similarMovieRecommendation = recommendService.getSimilarMovieRecommendation(movieId);
 
-//            similarMovieRecommendation.getData().setMovieList(similarMovieRecommendation.getData().getMovieList().subList(0,10));
-//            similarMovieRecommendation.getData().getMovieList().subList(0,10);
 
+            List<MovieInMongodb> simliarMovies = similarMovieRecommendation.getData().getSimliarMovies();
+            List<MovieInMongodb> collect = simliarMovies.stream().limit(12).collect(Collectors.toList());
+            similarMovieRecommendation.getData().setSimliarMovies(collect);
 
             //TODO:暂时只显示前12条数据
             modelMap.addAttribute("similarMovie",similarMovieRecommendation);
@@ -190,12 +197,52 @@ public class IndexController {
     *@updateTime: 2020/5/18 12:01
     **/
     @RequestMapping(value = {"/movie-list.html","/movie/list"})
+    @LoginRequired(mustLogin = false)
     public String movieList(ModelMap modelMap){
 
+
+        //获取各类别的电影：最新电影、动作片、喜剧、爱情、科幻、恐怖、剧情、战争片
         ResultEntity<MovieListVO> multipleMoviesList = cacheService.getMultipleMoviesList();
 
+        //获取侧边栏显示的电影排行榜
+        ResultEntity<TopMovies> topMovies = recommendService.getTopMovies();
+
+        //获取侧边栏显示的动作片排行榜
+        ResultEntity actionTopMovies = recommendService.getTopMoviesOfCategory("动作");
+
+        //获取侧边栏显示的喜剧片排行榜
+        ResultEntity comedyTopMovies = recommendService.getTopMoviesOfCategory("喜剧");
+
+        //获取侧边栏显示的爱情片排行榜
+        ResultEntity loveTopMovies = recommendService.getTopMoviesOfCategory("爱情");
+
+        //获取侧边栏显示的科幻片排行榜
+        ResultEntity scienceTopMovies = recommendService.getTopMoviesOfCategory("科幻");
+
+        //获取侧边栏显示的恐怖片排行榜
+        ResultEntity terrorTopMovies = recommendService.getTopMoviesOfCategory("恐怖");
+
+        //获取侧边栏显示的剧情片排行榜
+        ResultEntity plotTopMovies = recommendService.getTopMoviesOfCategory("剧情");
+
+        //获取侧边栏显示的战争片排行榜
+        ResultEntity warTopMovies = recommendService.getTopMoviesOfCategory("战争");
+
+        modelMap.addAttribute("topMovies",topMovies);
+
+        //category表示是电影专栏
         modelMap.addAttribute("category","movie");
+        //放入主页面展示的数据
         modelMap.addAttribute("multipleMoviesList",multipleMoviesList);
+
+        //放入侧边栏要显示的数据
+        modelMap.addAttribute("actionTopMovies",actionTopMovies);
+        modelMap.addAttribute("comedyTopMovies",comedyTopMovies);
+        modelMap.addAttribute("loveTopMovies",loveTopMovies);
+        modelMap.addAttribute("scienceTopMovies",scienceTopMovies);
+        modelMap.addAttribute("terrorTopMovies",terrorTopMovies);
+        modelMap.addAttribute("plotTopMovies",plotTopMovies);
+        modelMap.addAttribute("warTopMovies",warTopMovies);
 
         return "movie_list";
     }
@@ -208,6 +255,7 @@ public class IndexController {
     *@updateTime: 2020/5/18 12:01
     **/
     @RequestMapping(value = {"/comic-list.html","/comic/list"})
+    @LoginRequired(mustLogin = false)
     public String comicList(ModelMap modelMap){
 
         ResultEntity<ComicListVO> multipleComicList = cacheService.getMultipleComicList();
@@ -222,7 +270,7 @@ public class IndexController {
 
 
 
-        @RequestMapping("/index/{is_comic}")
+    @RequestMapping("/index/{is_comic}")
 //    @ResponseBody
     public String getMovieInfoForIndexPage(@PathVariable("is_comic") int is_comic, ModelMap modelMap){
 

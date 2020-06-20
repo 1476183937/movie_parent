@@ -1,105 +1,144 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>用户登录</title>
-<meta name="keywords" content="免费在线电影">
-<meta name="description" content="提供最新最快的影视资讯和在线播放">
-	<link href="../static/css/member.css" type="text/css" rel="stylesheet">
-	<script src="../static/js/jquery.js"></script>
-	<script>var maccms={"path":"","mid":"6","url":"343.pc16.cn","wapurl":"343.pc16.cn","mob_status":"2"};</script>
+    <meta charset="UTF-8" name="referrer" content="no-referrer">
+    <title>用户登录</title>
+    <meta name="keywords" content="免费在线电影">
+    <meta name="description" content="提供最新最快的影视资讯和在线播放">
+    <link href="/css/member.css" type="text/css" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/layer/layer.js"></script>
+
+    <script>var maccms = {
+        "path": "",
+        "mid": "6",
+        "url": "343.pc16.cn",
+        "wapurl": "343.pc16.cn",
+        "mob_status": "2"
+    };</script>
 
 </head>
 <body>
 <div class="header">
-	<div class="layout fn-clear">
-		<div class="logo">
-			<a href="index.html"><img width="157" height="42" src="../static/picture/logo.png" alt=""></a>
-		</div>
-		<ul class="nav">
-			<li class="nav-item"><a class="nav-link" href="index.html">返回首页</a></li>
-		</ul>
-	</div>
+    <div class="layout fn-clear">
+        <div class="logo">
+            <a href="/index">
+                <img width="157" height="42" src="/picture/logo.png" alt="">
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="/index">返回首页</a></li>
+        </ul>
+    </div>
 </div>
 
 <div class="layout clearfix">
-	<div class="reg-w">
-		<form method="post" id="fm" action="./user_info.html">
-			<h4>账户信息</h4>
-			<div class="reg-group">
-				<label class="bd-r" style="letter-spacing: normal;">账号</label>
-				<input type="text" id="user_name" name="user_name" class="reg-control" placeholder="请输入您的登录账号">
-			</div>
+    <div class="reg-w">
 
-			<div class="reg-group">
-				<label>密码</label>
+        <input type="hidden" id="returnUrl" th:value="${returnUrl}">
 
-				<input type="password" id="user_pwd" name="user_pwd" class="reg-control" placeholder="请输入您的登录密码">
-			</div>
-			<div>
-				<input type="submit" id="btn_submit" class="btn-brand btn-sub" value="登录"/>
-<!--				<input type="button" id="btn_submit" class="btn-brand btn-sub" value="立即登录">-->
-			</div>
-		</form>
-	</div>
+        <form method="post" id="fm" action="">
+            <h4>账户信息</h4>
+            <div class="reg-group">
+                <label class="bd-r" style="letter-spacing: normal;">账号</label>
+                <input type="text" id="user_name" name="user_name" class="reg-control" placeholder="请输入您的登录账号">
+            </div>
+
+            <div class="reg-group">
+                <label>密码</label>
+
+                <input type="password" id="user_pwd" name="user_pwd" class="reg-control" placeholder="请输入您的登录密码">
+            </div>
+            <div>
+<!--                <input type="submit" id="btn_submit" class="btn-brand btn-sub" value="登录"/>-->
+
+                    <input type="button" id="btn_submit" class="btn-brand btn-sub" value="立即登录">
+            </div>
+        </form>
+    </div>
 </div>
 
-<!-- // sign-box#regbox end -->
 <script type="text/javascript">
 
-	$(function(){
-		$("body").bind('keyup',function(event) {
-			if(event.keyCode==13){ $('#btnLogin').click(); }
-		});
-		$('#btn_submit').click(function() {
-			if ($('#user_name').val()  == '') { alert('请输入用户！'); $("#user_name").focus(); return false; }
-			if ($('#user_pwd').val()  == '') { alert('请输入密码！'); $("#user_pwd").focus(); return false; }
-			if ($('#verify').val()  == '') { alert('请输入验证码！'); $("#verify").focus(); return false; }
+    $(function () {
+        $("body").bind('keyup', function (event) {
+            if (event.keyCode == 13) {
+                $('#btnLogin').click();
+            }
+        });
+        $('#btn_submit').click(function () {
+            if ($('#user_name').val() == '') {
 
-			$.ajax({
-				url: "/index.php/user/login.html",
-				type: "post",
-				dataType: "json",
-				data: $('#fm').serialize(),
-				beforeSend: function () {
-					$("#btn_submit").css("background","#fd6a6a").val("loading...");
-				},
-				success: function (r) {
-					if(r.code==1){
-						location.href="index.html";
-					}
-					else{
-						alert(r.msg);
-						$('#verify_img').click();
-					}
-				},
-				complete: function () {
-					$("#btn_submit").css("background","#fa4646").val("立即登录");
-				}
-			});
+                layer.msg('请输入用户名!', function () {
 
-		});
-	});
+                    return
+                });
+                return false
+
+            }
+            if ($('#user_pwd').val() == '') {
+                // alert('请输入密码！');
+
+                layer.msg('请输入密码!', function () {
+                    //关闭后的操作
+                    // $("#user_pwd").focus();
+                    return
+                });
+
+                return false
+            }
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/login",
+                data: {
+                    user_name: $('#user_name').val(),
+                    user_pwd: $('#user_pwd').val()
+                },
+                async: false,
+                success: function (data) {
+
+                    if (data.result === 'SUCCESS') {
+                       // alert("登录成功")
+
+                        var returnUrl = $("#returnUrl").attr("value")
+
+                        window.location.href=returnUrl
+                        // window.history.replaceState("", "", "/index/detail/" + mid + ".html?startPage=" + 1)
+                    } else {
+                        layer.msg(data.message, {icon: 2});
+                    }
+
+                },
+                error: function () {
+                    layer.msg('登录失败！请稍后重试', {icon: 2});
+                },
+                dataType: "json",
+            })
+
+        });
+    });
 
 </script>
 <!-- // sign-content end -->
 <div class="footer">
-	<div class="layout">
+    <div class="layout">
 
-		<!-- // foot-nav End -->
-		<div class="copyright">
-			<p>
-				本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传
-			</p>
-			<p>
-				若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢
-			</p>
-			<p>
-				Copyright &copy; 2008-2018 <a class="color" href="index1.html">免费电影</a>
-			</p>
-		</div>
-		<!-- // maxBox End -->
-	</div>
+        <!-- // foot-nav End -->
+        <div class="copyright">
+            <p>
+                本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传
+            </p>
+            <p>
+                若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢
+            </p>
+            <p>
+                Copyright &copy; 2008-2018 <a class="color" href="index1.html">免费电影</a>
+            </p>
+        </div>
+        <!-- // maxBox End -->
+    </div>
 </div>
 <!-- // footer end -->
 </body>

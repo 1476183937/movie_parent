@@ -1,5 +1,6 @@
 package com.hnust.movie.service;
 
+import com.hnust.movie.entity.po.MovieInfo;
 import com.hnust.movie.entity.vo.ResultEntity;
 
 /**
@@ -12,5 +13,7 @@ public interface CacheService {
     ResultEntity getMultipleMoviesList();
 
     ResultEntity getMultipleComicList();
+
+    ResultEntity getInfo(String key);
 
 }

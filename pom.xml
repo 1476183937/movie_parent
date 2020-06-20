@@ -9,13 +9,14 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>common</module>
+      <module>common</module>
       <module>cache-service</module>
       <module>database-service</module>
       <module>search-service</module>
       <module>manager-service</module>
       <module>web-ui</module>
-        <module>recommend</module>
+      <module>recommend</module>
+      <module>passport-service</module>
     </modules>
 
   <properties>

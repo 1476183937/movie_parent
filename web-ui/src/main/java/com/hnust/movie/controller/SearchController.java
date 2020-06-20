@@ -1,14 +1,18 @@
 package com.hnust.movie.controller;
 
+import com.hnust.movie.annotation.LoginRequired;
 import com.hnust.movie.entity.SelectedCategoryVO;
 import com.hnust.movie.entity.po.Category;
 import com.hnust.movie.entity.po.Location;
 import com.hnust.movie.entity.po.MovieInfo;
 import com.hnust.movie.entity.po.Year;
+import com.hnust.movie.entity.recommender.TopComics;
+import com.hnust.movie.entity.recommender.TopMovies;
 import com.hnust.movie.entity.vo.CategorySearchVO;
 import com.hnust.movie.entity.vo.ResultEntity;
 import com.hnust.movie.entity.vo.SearchResultVO;
 import com.hnust.movie.service.DatabaseService;
+import com.hnust.movie.service.RecommendService;
 import com.hnust.movie.service.SearchService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +41,9 @@ public class SearchController {
     @Autowired
     private DatabaseService databaseService;
 
+    @Autowired
+    private RecommendService recommendService;
+
     /**
     *@title:
     *@description: 根据关键字搜索
@@ -48,6 +55,7 @@ public class SearchController {
     *@updateTime: 2020/5/22 10:14
     **/
     @RequestMapping("/search.html")
+    @LoginRequired(mustLogin = false)
     public String search(@RequestParam(value = "kw", required = false) String kw,
                          @RequestParam(value = "from", defaultValue = "1", required = false) int from,
                          @RequestParam(value = "size", defaultValue = "10", required = false) int size,
@@ -56,6 +64,13 @@ public class SearchController {
         if (StringUtils.isNotBlank(kw)) {
 
             ResultEntity<SearchResultVO> movieInfoByKw = searchService.getMovieInfoByKw(kw, from, size);
+
+            ResultEntity<TopMovies> topMovies = recommendService.getTopMovies();
+
+            ResultEntity<TopComics> topComics = recommendService.getTopComics();
+
+            modelMap.addAttribute("topMovies",topMovies);
+            modelMap.addAttribute("topComics",topComics);
             modelMap.addAttribute("movieInfoResult", movieInfoByKw);
             return "search";
         } else {
@@ -65,6 +80,7 @@ public class SearchController {
     }
 
     @RequestMapping("/category/search")
+    @LoginRequired(mustLogin = false)
     //pcid=0&category=喜剧&area=大陆&year=2020&letter=A&sort=人气
     public String categorySearch(
             @RequestParam(value = "pcid", required = false, defaultValue = "0") int pcid,

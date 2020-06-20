@@ -9,9 +9,7 @@ import com.hnust.movie.util.RedisUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
@@ -43,8 +41,7 @@ public class CacheController {
     **/
     @RequestMapping("/movieInfo/get/{movieId}")
     @ResponseBody
-    public ResultEntity getMovieInfoFromCache(@PathVariable("movieId") Long movieId){
-
+    public ResultEntity<MovieInfo> getMovieInfoFromCache(@PathVariable("movieId") Long movieId){
 
         //1、获取jedis连接
         Jedis jedis = redisUtil.getJedis();
@@ -53,19 +50,19 @@ public class CacheController {
         //电影详情数据存储的为json数据
 
         //2、先从缓存中获取相应数据，
-        String movieInfos = jedis.get(movieId + ":info");
+        String movieInfos = jedis.get("movie:"+movieId + ":info");
 
         if (StringUtils.isNotBlank(movieInfos)){ //如果不为空
             //2.1、获取到了数据，就直接返回结果
             //解析
             MovieInfo movieInfo = JSONObject.parseObject(movieInfos, MovieInfo.class);
             //更新过期时间
-            jedis.expire(movieId+":info", 10*60);
+            jedis.expire("movie:"+movieId+":info", 10*60);
 
             return ResultEntity.successWithData(movieInfo);
 
         }else if ("".equals(movieInfos)){ //获取到了，但是内容是空的，也就是数据库也没有该条数据，照样返回
-            return ResultEntity.successNoData();
+            return ResultEntity.successWithData(null);
 
         }else {
             //2.2、如果没有获取到，就从数据库获取
@@ -85,19 +82,19 @@ public class CacheController {
                 ResultEntity<MovieInfo> detailInfo = databaseService.getDetailInfo(movieId);
                 //如果数据库也没有该条数据，就在缓存里存个空值，防止缓存穿透
                 if (detailInfo == null){
-                    jedis.setex(movieId+":info",5*60,"");
+                    jedis.setex("movie:"+movieId+":info",5*60,"");
                     //释放锁
                     //lua脚本
                     String script = "if redis.call('get', KEYS[1])==ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
                     //在获取值的时候获取到了就直接删除
                     jedis.eval(script, Collections.singletonList(lockKey),Collections.singletonList(token));
 
-                    return ResultEntity.successNoData();
+                    return ResultEntity.successWithData(null);
                 }
 
                 //存到缓存、设置过期时间
                 String jsonString = JSONObject.toJSONString(detailInfo.getData());
-                jedis.setex(movieId+":info", 10*60, jsonString);
+                jedis.setex("movie:"+movieId+":info", 10*60, jsonString);
 
 
                 //同时释放锁
@@ -172,5 +169,90 @@ public class CacheController {
 
         return movieListResult;
     }
+
+
+    /**
+    *@title:
+    *@description: 添加token到缓存
+    *@param: token
+    *@param: userId
+    *@author:ggh
+    *@updateTime: 2020/5/26 13:33
+    **/
+    @PostMapping("/cache/add/token")
+    @ResponseBody
+    public ResultEntity addTokenToCache(@RequestParam(value = "token",required = true)String token,@RequestParam(value = "userId",required = true)String userId){
+
+        Jedis jedis = redisUtil.getJedis();
+
+        if (jedis != null){
+            //加入缓存，设置过期时间为一天
+            String result = jedis.setex("user:" + userId + ":token", 60 * 60 * 24, token);
+
+            if ("OK".equals(result)){
+                return ResultEntity.successNoData();
+            }
+        }else{
+            return ResultEntity.failed("set failed");
+        }
+
+        return ResultEntity.failed("set failed");
+    }
+
+    /**
+    *@title:
+    *@description: 根据key获取相应的值
+    *@param: key
+    *@author:ggh
+    *@updateTime: 2020/5/26 13:58
+    **/
+    @RequestMapping("/cache/get")
+    @ResponseBody
+    public ResultEntity<String> get(@RequestParam(value = "key",required = true)String key){
+
+        //校验key是否为空
+        if (StringUtils.isBlank(key)) {
+            return ResultEntity.failed("key is null");
+        }
+
+        //获取值
+        ResultEntity resultEntity = cacheService.getInfo(key);
+
+        return resultEntity;
+    }
+
+
+    /**
+    *@title:
+    *@description: 设置kv对，同时设置过期时间
+    *@param: key
+    *@param: time：过期时间
+    *@param: value
+    *@author:ggh
+    *@updateTime: 2020/5/26 14:19
+    **/
+    @PostMapping("/cache/setex")
+    @ResponseBody
+    public ResultEntity<String> setex(@RequestParam(value = "key",required = true) String key,@RequestParam(value = "time",required = true) int time,@RequestParam(value = "value",required = true) String value){
+
+        Jedis jedis = redisUtil.getJedis();
+
+        try {
+            if (jedis != null){
+                String result = jedis.setex(key, time, value);
+
+                if ("OK".equals(result)){
+                    return ResultEntity.successNoData();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            jedis.close();
+        }
+
+        return ResultEntity.failed("set fail");
+    }
+
 
 }

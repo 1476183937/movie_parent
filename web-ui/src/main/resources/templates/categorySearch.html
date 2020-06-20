@@ -8,6 +8,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
 		<link href="/css/app.css" rel="stylesheet" type="text/css">
+<!--		<link rel="stylesheet" href="/css/user_base.css">-->
+		<link rel="stylesheet" href="/css/top.css">
+
 		<script src="/js/jquery.js"></script>
 		<link href="/css/swiper.min.css" rel="stylesheet" type="text/css">
 		<script src="/js/swiper.min.js"></script>
@@ -161,15 +164,6 @@
 
 								<span th:if="${movieInfoList.data.endPage} lt ${movieInfoList.data.totaltPage}">...</span>
 
-								<!--<a th:each="page:${#numbers.sequence(1,movieInfoList.data.totaltPage)}"
-								   th:text="${page}"
-								   th:style="${page==movieInfoList.data.currentPage}?'background-color: #00b38b; color: #fff; border-color: #00b38b'"
-								   th:href="${lastUrl}+'&from='+${page}"  >
-								</a>-->
-
-								<!--<a class="pagelink_b" href="/index.php/vod/show/id/1/page/1.html">1</a>&nbsp;
-                                <span class="pagenow">2</span>&nbsp;
-                                <a class="pagelink_b" href="/index.php/vod/show/id/1/page/3.html">3</a>&nbsp;-->
 
                                 <a href="javascript:;" th:href="${lastUrl}+'&from='+${movieInfoList.data.nextPage}" class="pagelink_a">下一页</a>&nbsp;
                                 <a href="javascript:;" th:href="${lastUrl}+'&from='+${movieInfoList.data.totaltPage}" class="pagelink_a">尾页</a>&nbsp;

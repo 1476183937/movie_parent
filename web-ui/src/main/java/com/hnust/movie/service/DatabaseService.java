@@ -1,11 +1,10 @@
 package com.hnust.movie.service;
 
-import com.hnust.movie.entity.po.Comment;
-import com.hnust.movie.entity.po.MovieInfo;
-import com.hnust.movie.entity.po.Rating;
+import com.hnust.movie.entity.po.*;
 import com.hnust.movie.entity.vo.CategorySearchVO;
 import com.hnust.movie.entity.vo.CommentVO;
 import com.hnust.movie.entity.vo.ResultEntity;
+import com.hnust.movie.entity.vo.UserCollectionVO;
 import com.sun.org.apache.regexp.internal.RE;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -27,6 +26,95 @@ public interface DatabaseService {
     @RequestMapping("/index/{is_comic}")
     @ResponseBody
     public ResultEntity<List<MovieInfo>> getMovieInfoForIndexPage(@PathVariable("is_comic") int is_comic);
+
+
+    /**
+     *@title:
+     *@description: 根据用户id和电影id查询相应的收藏记录
+     *@param: uid
+     *@param: mid
+     *@author:ggh
+     *@updateTime: 2020/5/29 11:32
+     **/
+    @RequestMapping("/db/get/collection/by")
+    @ResponseBody
+    public ResultEntity<UserCollection> getCollectionByUidAndMid(@RequestParam("uid") Long uid,
+                                                       @RequestParam("mid") Long mid);
+
+    /**
+     *@title:
+     *@description: 删除收藏记录
+     *@author:ggh
+     *@updateTime: 2020/5/29 11:32
+     **/
+    @RequestMapping("/db/delete")
+    @ResponseBody
+    public ResultEntity deleteCollection(@RequestParam("collectionId") String collectionId);
+
+    /**
+     *@title:
+     *@description: 更新收藏记录
+     *@author:ggh
+     *@updateTime: 2020/5/29 11:32
+     **/
+    @RequestMapping(value = "/db/delete",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultEntity updateCollection(@RequestBody UserCollection userCollection);
+
+    /**
+     *@title:
+     *@description: 查询用户收藏记录
+     *@param: uid:用户uid
+     *@author:ggh
+     *@updateTime: 2020/5/28 14:10
+     **/
+    @RequestMapping("/db/get/collection")
+    @ResponseBody
+    public ResultEntity<List<UserCollectionVO>> getCollections(@RequestParam("uid") Long uid);
+
+    /**
+     *@title:
+     *@description: 添加用户收藏记录
+     *@param: userCollection
+     *@author:ggh
+     *@updateTime: 2020/5/28 14:10
+     **/
+    @RequestMapping(value = "/db/add/collection",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultEntity addCollection(@RequestBody UserCollection userCollection);
+
+    /**
+     *@title:
+     *@description: 查询用户的观看历史
+     *@param: uid ：用户id
+     *@author:ggh
+     *@updateTime: 2020/5/28 13:43
+     **/
+    @RequestMapping("/db/get/history")
+    @ResponseBody
+    public ResultEntity<List<ScanHistory>> getHistory(@RequestParam("uid") Long uid);
+
+    /**
+     *@title:
+     *@description: 添加用户观看历史
+     *@param: scanHistory
+     *@author:ggh
+     *@updateTime: 2020/5/28 13:44
+     **/
+    @RequestMapping(value = "/db/add/history",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultEntity addHistory(@RequestBody ScanHistory scanHistory);
+
+    /**
+     *@title:
+     *@description: 删除用户观看历史记录
+     *@param: scanId
+     *@author:ggh
+     *@updateTime: 2020/5/29 11:40
+     **/
+    @RequestMapping("/db/delete/history")
+    @ResponseBody
+    public ResultEntity deleteHistory(@RequestParam("scanId") String scanId);
 
     /**
     *@title:

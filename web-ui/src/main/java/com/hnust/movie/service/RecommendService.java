@@ -1,5 +1,6 @@
 package com.hnust.movie.service;
 
+import com.hnust.movie.entity.recommender.SimilarMovieRecommendation;
 import com.hnust.movie.entity.vo.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -26,7 +27,7 @@ public interface RecommendService {
 
     @RequestMapping("/recommend/similar/movies/{mid}")
     @ResponseBody
-    public ResultEntity getSimilarMovieRecommendation(@PathVariable("mid") Long mid);
+    public ResultEntity<SimilarMovieRecommendation> getSimilarMovieRecommendation(@PathVariable("mid") Long mid);
 
     @RequestMapping("/recommend/month/movies")
     @ResponseBody

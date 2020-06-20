@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
     <link href="/css/app.css" rel="stylesheet" type="text/css">
+<!--    <link rel="stylesheet" href="/css/user_base.css">-->
+    <link rel="stylesheet" href="/css/top.css">
+
     <script src="/js/jquery.js"></script>
     <link href="/css/swiper.min.css" rel="stylesheet" type="text/css">
     <script src="/js/swiper.min.js"></script>
@@ -62,7 +65,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -114,7 +117,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -167,7 +170,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                             <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -295,27 +298,33 @@
             <dl class="radio">
                 <dt>地<br>区</dt>
                 <dd>
-                    <a href="javascript:;">大陆</a>
-                    <a href="javascript:;">日本</a>
-                    <a href="javascript:;">欧美</a>
-                    <a href="javascript:;">其他</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=战争'">战争</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=香港'">香港</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=台湾'">台湾</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=美国'">美国</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=意大利'">意大利</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=日本'">日本</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=韩国'">韩国</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=德国'">德国</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=泰国'">泰国</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&area=西班牙'">西班牙</a>
                 </dd>
             </dl>
 
             <dl class="style">
                 <dt>分<br>类</dt>
                 <dd>
-                    <a href="javascript:;">情感</a>
-                    <a href="javascript:;">科幻</a>
-                    <a href="javascript:;">热血</a>
-                    <a href="javascript:;">推理</a>
-                    <a href="javascript:;">搞笑</a>
-                    <a href="javascript:;">冒险</a>
-                    <a href="javascript:;">萝莉</a>
-                    <a href="javascript:;">校园</a>
-                    <a href="javascript:;">动作</a>
-                    <a href="javascript:;">机战</a>
-                    <a href="javascript:;">运动</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=喜剧'">喜剧</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=情色'">情色</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=科幻'">科幻</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=运动'">运动</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=恐怖'">恐怖</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=儿童'">儿童</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=灾难'">灾难</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=犯罪'">犯罪</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=奇幻'">奇幻</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&category=冒险'">冒险</a>
+               <!--     <a href="javascript:;">运动</a>
                     <a href="javascript:;">战争</a>
                     <a href="javascript:;">少年</a>
                     <a href="javascript:;">少女</a>
@@ -324,26 +333,23 @@
                     <a href="javascript:;">亲子</a>
                     <a href="javascript:;">益智</a>
                     <a href="javascript:;">励志</a>
-                    <a href="javascript:;">其他</a></dd>
+                    <a href="javascript:;">其他</a>-->
+                </dd>
             </dl>
             <dl class="radio">
                 <dt>年<br>代</dt>
                 <dd>
-                    <a href="javascript:;">2018</a>
-                    <a href="javascript:;">2017</a>
-                    <a href="javascript:;">2016</a>
-                    <a href="javascript:;">2015</a>
-                    <a href="javascript:;">2014</a>
-                    <a href="javascript:;">2013</a>
-                    <a href="javascript:;">2012</a>
-                    <a href="javascript:;">2011</a>
-                    <a href="javascript:;">2010</a>
-                    <a href="javascript:;">2009</a>
-                    <a href="javascript:;">2008</a>
-                    <a href="javascript:;">2007</a>
-                    <a href="javascript:;">2006</a>
-                    <a href="javascript:;">2005</a>
-                    <a href="javascript:;">2004</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2020'">2020</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2019'">2019</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2018'">2018</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2017'">2017</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2016'">2016</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2015'">2015</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2014'">2014</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2013'">2013</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2012'">2012</a>
+                    <a href="javascript:;" th:href="'/category/search?pcid=1&year=2011'">2011</a>
+
                 </dd>
             </dl>
             <dl class="recommend">
@@ -379,7 +385,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -431,7 +437,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -484,7 +490,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -632,7 +638,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -684,7 +690,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -737,7 +743,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -884,7 +890,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -936,7 +942,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
@@ -989,7 +995,7 @@
                         <div class="tv-l">
                             <div class="tvhots">
                                 <div class="v-pic">
-                                    <!--                                    <img data-src="image/11.jpg" class="thumb" alt="快把我哥带走">-->
+                                    <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
                                     <div class="v-tips">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>

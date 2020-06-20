@@ -27,7 +27,7 @@ public class Test {
 
     @org.junit.Test
     public void idTest(){
-        System.out.println(idGeneratorSnowflake.snowflakeId(0, 1));
+        System.out.println(idGeneratorSnowflake.snowflakeId(2, 2));
     }
 
     public static void main(String[] args) {

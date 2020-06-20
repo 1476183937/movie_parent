@@ -3,6 +3,7 @@ package com.hnust.movie.controller;
 import com.hnust.movie.entity.po.*;
 import com.hnust.movie.entity.vo.*;
 import com.hnust.movie.service.*;
+import javafx.geometry.Pos;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,178 @@ public class DataBaseController {
 
     @Autowired
     private RatingService ratingService;
+
+    @Autowired
+    private UserInfoService userInfoService;
+
+    @Autowired
+    private ScanHistoryService scanHistoryService;
+
+    @Autowired
+    private UserCollectionService userCollectionService;
+
+    /**
+    *@title:
+    *@description: 查询用户收藏记录
+    *@param: uid:用户uid
+    *@author:ggh
+    *@updateTime: 2020/5/28 14:10
+    **/
+    @RequestMapping("/db/get/collection")
+    @ResponseBody
+    public ResultEntity<List<UserCollectionVO>> getCollections(@RequestParam("uid") Long uid){
+
+        List<UserCollectionVO> userCollections = userCollectionService.getCollection(uid);
+
+        if (userCollections != null){
+            return ResultEntity.successWithData(userCollections);
+        }else{
+            return ResultEntity.failed("get failed");
+        }
+
+    }
+
+    /**
+    *@title:
+    *@description: 添加用户收藏记录
+    *@param: userCollection
+    *@author:ggh
+    *@updateTime: 2020/5/28 14:10
+    **/
+    @RequestMapping(value = "/db/add/collection",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultEntity addCollection(@RequestBody UserCollection userCollection){
+
+        int result = userCollectionService.addCollection(userCollection);
+        if (result > 0){
+            return ResultEntity.successNoData();
+        }else {
+            return ResultEntity.failed("add failed");
+        }
+
+    }
+
+    /**
+    *@title:
+    *@description: 根据用户id和电影id查询相应的收藏记录
+    *@param: uid
+    *@param: mid
+    *@author:ggh
+    *@updateTime: 2020/5/29 11:32
+    **/
+    @RequestMapping("/db/get/collection/by")
+    @ResponseBody
+    public ResultEntity<UserCollection> getCollectionByUidAndMid(@RequestParam("uid") Long uid,
+                                                       @RequestParam("mid") Long mid){
+
+        UserCollection userCollection = userCollectionService.getByUidAndMid(uid, mid);
+
+        if (userCollection != null){
+            return ResultEntity.successWithData(userCollection);
+        }else{
+            return ResultEntity.failed("get failed");
+        }
+
+    }
+
+
+    /**
+     *@title:
+     *@description: 删除收藏记录
+     *@author:ggh
+     *@updateTime: 2020/5/29 11:32
+     **/
+    @RequestMapping("/db/delete")
+    @ResponseBody
+    public ResultEntity deleteCollection(@RequestParam("collectionId") String collectionId){
+
+        int result = userCollectionService.deleteCollection(collectionId);
+
+        if (result >0){
+            return ResultEntity.successNoData();
+        }
+
+        return ResultEntity.failed("delete failed");
+    }
+
+    /**
+     *@title:
+     *@description: 更新收藏记录
+     *@author:ggh
+     *@updateTime: 2020/5/29 11:32
+     **/
+    @RequestMapping(value = "/db/delete",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultEntity updateCollection(@RequestBody UserCollection userCollection){
+
+        int result = userCollectionService.updateCollection(userCollection);
+        if (result > 0){
+            return ResultEntity.successNoData();
+        }
+
+        return ResultEntity.failed("update failed");
+    }
+
+
+    /**
+    *@title:
+    *@description: 查询用户的观看历史
+    *@param: uid ：用户id
+    *@author:ggh
+    *@updateTime: 2020/5/28 13:43
+    **/
+    @RequestMapping("/db/get/history")
+    @ResponseBody
+    public ResultEntity<List<ScanHistory>> getHistory(@RequestParam("uid") Long uid){
+
+        List<ScanHistory> scanHistories = scanHistoryService.getHistory(uid);
+
+        if (scanHistories != null){
+            return ResultEntity.successWithData(scanHistories);
+        }else {
+            return ResultEntity.failed("get failed");
+        }
+
+    }
+
+    /**
+    *@title:
+    *@description: 添加用户观看历史
+    *@param: scanHistory
+    *@author:ggh
+    *@updateTime: 2020/5/28 13:44
+    **/
+    @RequestMapping(value = "/db/add/history",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultEntity addHistory(@RequestBody ScanHistory scanHistory){
+
+        int result = scanHistoryService.addHistory(scanHistory);
+        if (result >0){
+            return ResultEntity.successNoData();
+        }else{
+            return ResultEntity.failed("add failed");
+        }
+
+    }
+
+    /**
+    *@title:
+    *@description: 删除用户观看历史记录
+    *@param: scanId
+    *@author:ggh
+    *@updateTime: 2020/5/29 11:40
+    **/
+    @RequestMapping("/db/delete/history")
+    @ResponseBody
+    public ResultEntity deleteHistory(@RequestParam("scanId") String scanId){
+
+        int result = scanHistoryService.deleteHistory(scanId);
+        if (result > 0){
+            return ResultEntity.successNoData();
+        }
+
+        return ResultEntity.failed("delete failed");
+    }
 
 
     @RequestMapping("/index/{is_comic}")
@@ -242,6 +415,27 @@ public class DataBaseController {
         }else {
             return ResultEntity.failed("get failed");
         }
+
+    }
+
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public ResultEntity<UserInfo> login(@RequestBody UserInfo userInfo){
+
+        if (StringUtils.isNotBlank(userInfo.getUsername()) && StringUtils.isNotBlank(userInfo.getPassword())) {
+
+            UserInfo info = userInfoService.login(userInfo);
+            if (info != null){
+                return ResultEntity.successWithData(info);
+            }else {
+                return ResultEntity.failed("login fail!");
+            }
+        }else{
+            return ResultEntity.failed("用户名或密码不能为空!");
+        }
+
+
 
     }
 

@@ -25,9 +25,8 @@ $(function () {
 
             $.ajax({
                 type: 'POST',
-                url: "/comment/publishComment",
+                url: "/comment/publishComment?returnUrl="+window.location.href,
                 data: JSON.stringify({
-                    "uid": "22960758",
                     "mid": $("#hiden_movieId").attr("value"),
                     "content": $("#commentContent").val(),
                 }),
@@ -99,8 +98,12 @@ $(function () {
                         window.history.replaceState("", "", "/index/detail/" + mid + ".html?startPage=" + 1)
 
 
-                    } else {
+                    } else if (data.message === 'REDIRECT_LOGIN') {
+                        //表示重定向到登录页面
+                        window.location.href = "/login.html?returnUrl="+window.location.href
+                    }else{
                         layer.msg('发表失败！请稍后重试', {icon: 2});
+
                     }
 
                 },

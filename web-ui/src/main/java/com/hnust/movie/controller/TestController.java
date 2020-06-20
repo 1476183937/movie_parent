@@ -1,11 +1,15 @@
 package com.hnust.movie.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.UUID;
 
 /**
@@ -16,6 +20,23 @@ import java.util.UUID;
 @Controller
 public class TestController {
 
+
+    @Resource
+    private KafkaTemplate<String , Object> kafkaTemplate;
+
+    @Value("${kafka.MovieRating.topic}")
+    private String topic;
+
+    @RequestMapping("/kafka/test")
+    @ResponseBody
+    public String kafkaTest(){
+
+        System.out.println(topic);
+        kafkaTemplate.send(topic,"12|22|33|44");
+
+        return "success";
+    }
+
     @RequestMapping("/test1")
     public String test1(@RequestParam(value = "val",required = false) String val, ModelMap modelMap){
         modelMap.addAttribute("test1Text",UUID.randomUUID().toString());
@@ -25,7 +46,6 @@ public class TestController {
 
         return "test1";
     }
-
 
 
     @RequestMapping("/test2")

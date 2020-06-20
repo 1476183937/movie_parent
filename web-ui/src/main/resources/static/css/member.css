@@ -53,8 +53,8 @@ input{font-family:"Microsoft Yahei",Simsun,sans-serif;font-size: 14px;}
 #member #right #listCon .wjmm {margin-bottom: -24px;display: inline-block;overflow: hidden;}
 
 #member #right .quanxian{background:#f7f7f7;margin:10px 0 15px;width:100px;text-align:center;border:1px #e2e2e2 solid;display: inline-block;}
-#member #right .you{display: inline-block;line-height:30px;height:30px;background:#5fb878 url(../image/duigou.png)no-repeat 61px center;background-size:29px 26px;color:#fff;width:82px;padding-left:10px;margin-left:20px;}
-#member #right .wu{display: inline-block;line-height:30px;height:30px;background:#e2e2e2 url(../image/cha.png)no-repeat 61px center;background-size:29px 26px;width:82px;padding-left:10px;margin-left:20px;}
+#member #right .you{display: inline-block;line-height:30px;height:30px;background:#5fb878 url(../images/duigou.png)no-repeat 61px center;background-size:29px 26px;color:#fff;width:82px;padding-left:10px;margin-left:20px;}
+#member #right .wu{display: inline-block;line-height:30px;height:30px;background:#e2e2e2 url(../images/cha.png)no-repeat 61px center;background-size:29px 26px;width:82px;padding-left:10px;margin-left:20px;}
 
 #member #right .table{background:#e2e2e2;}
 #member #right .table .pad{padding-left:10px;}
@@ -173,7 +173,7 @@ input, button, select, textarea {
 }
 
 .i-pers {
-    background: url(../image/pers.png) no-repeat;
+    background: url(../images/pers.png) no-repeat;
 }
 
 

@@ -365,72 +365,72 @@ public class ScanHistoryExample {
         }
 
         public Criteria andImageIsNull() {
-            addCriterion("image is null");
+            addCriterion("images is null");
             return (Criteria) this;
         }
 
         public Criteria andImageIsNotNull() {
-            addCriterion("image is not null");
+            addCriterion("images is not null");
             return (Criteria) this;
         }
 
         public Criteria andImageEqualTo(String value) {
-            addCriterion("image =", value, "image");
+            addCriterion("images =", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageNotEqualTo(String value) {
-            addCriterion("image <>", value, "image");
+            addCriterion("images <>", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageGreaterThan(String value) {
-            addCriterion("image >", value, "image");
+            addCriterion("images >", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageGreaterThanOrEqualTo(String value) {
-            addCriterion("image >=", value, "image");
+            addCriterion("images >=", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageLessThan(String value) {
-            addCriterion("image <", value, "image");
+            addCriterion("images <", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageLessThanOrEqualTo(String value) {
-            addCriterion("image <=", value, "image");
+            addCriterion("images <=", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageLike(String value) {
-            addCriterion("image like", value, "image");
+            addCriterion("images like", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageNotLike(String value) {
-            addCriterion("image not like", value, "image");
+            addCriterion("images not like", value, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageIn(List<String> values) {
-            addCriterion("image in", values, "image");
+            addCriterion("images in", values, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageNotIn(List<String> values) {
-            addCriterion("image not in", values, "image");
+            addCriterion("images not in", values, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageBetween(String value1, String value2) {
-            addCriterion("image between", value1, value2, "image");
+            addCriterion("images between", value1, value2, "image");
             return (Criteria) this;
         }
 
         public Criteria andImageNotBetween(String value1, String value2) {
-            addCriterion("image not between", value1, value2, "image");
+            addCriterion("images not between", value1, value2, "image");
             return (Criteria) this;
         }
 

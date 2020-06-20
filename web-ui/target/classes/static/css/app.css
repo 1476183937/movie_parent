@@ -541,12 +541,12 @@ input, input[type=submit], input[type=text] {
 
 .ibanner .swiper-button-next {
     right: 0;
-    background-image: url(../image/right_arrow_bg.png)
+    background-image: url(../images/right_arrow_bg.png)
 }
 
 .ibanner .swiper-button-prev {
     left: 0;
-    background-image: url(../image/left_arrow_bg.png)
+    background-image: url(../images/left_arrow_bg.png)
 }
 
 .col-l {
@@ -1094,7 +1094,7 @@ a.v-playBtn:hover i:before {
 }
 
 .detail_top, .iplaytop {
-    background: url(../image/detail_top_bg.jpg) center 0 no-repeat #59467e;
+    background: url(../images/detail_top_bg.jpg) center 0 no-repeat #59467e;
     padding: 0 0 20px;
 }
 
@@ -2218,7 +2218,7 @@ a.v-playBtn:hover i:before {
     width: 24px;
     height: 24px;
     font-size: 2.8rem;
-    background: url(../image/rank_icon_bg.png) no-repeat;
+    background: url(../images/rank_icon_bg.png) no-repeat;
 }
 
 .rank_list dl dd, .sel_list li dd {
@@ -5162,15 +5162,15 @@ textarea.form-control {
     display: block;
     width: 42px;
     height: 44px;
-    background: url("../image/face.png") center no-repeat;
+    background: url("../images/face.png") center no-repeat;
 }
 
 .mac_comment .icon-face:hover, .mac_comment .input_wrap .face.curr .icon-face {
-    background: url("../image/face-on.png") center no-repeat;
+    background: url("../images/face-on.png") center no-repeat;
 }
 
 .mac_comment .expression {
-    background: url("../image/emotion2.png") no-repeat 0px 0px;
+    background: url("../images/emotion2.png") no-repeat 0px 0px;
     margin: 6px 0px 0px 6px;
     width: 18px;
     height: 16px;
@@ -5179,7 +5179,7 @@ textarea.form-control {
 }
 
 .mac_comment .expression:hover {
-    background: url("../image/emotion2.png") no-repeat 0px -16px;
+    background: url("../images/emotion2.png") no-repeat 0px -16px;
 }
 
 .mac_comment .remaining-w {
@@ -5341,7 +5341,7 @@ textarea.form-control {
 }
 
 .mac_comment .item_con .bottom .reply {
-    background: url("../image/rpy2.png") no-repeat 0px 0px;
+    background: url("../images/rpy2.png") no-repeat 0px 0px;
     color: rgb(153, 153, 153);
     text-indent: 19px;
     font-size: 11px;
@@ -5655,19 +5655,19 @@ textarea.form-control {
 }
 
 .mac_comment i.icon-ding, .mac_digg i.icon-ding {
-    background: url("../image/up1.png") center no-repeat;
+    background: url("../images/up1.png") center no-repeat;
 }
 
 .mac_comment i.icon-ding:hover, .mac_digg i.icon-ding:hover {
-    background: url("../image/up2.png") center no-repeat;
+    background: url("../images/up2.png") center no-repeat;
 }
 
 .mac_comment i.icon-dw, .mac_digg i.icon-dw {
-    background: url("../image/dw1.png") center no-repeat;
+    background: url("../images/dw1.png") center no-repeat;
 }
 
 .mac_comment i.icon-dw:hover, .mac_digg i.icon-dw:hover {
-    background: url("../image/dw2.png") center no-repeat;
+    background: url("../images/dw2.png") center no-repeat;
 }
 
 
@@ -5709,17 +5709,17 @@ textarea.form-control {
 }
 
 .mac_login .mac_login_form .login_form_group input.mac_u_name {
-    background: url("../image/u_name.png") no-repeat 7px 8px;
+    background: url("../images/u_name.png") no-repeat 7px 8px;
 }
 
 .mac_login .mac_login_form .login_form_group input.mac_u_pwd {
-    background: url("../image/u_pwd.png") 8px 8px no-repeat;
+    background: url("../images/u_pwd.png") 8px 8px no-repeat;
 }
 
 .mac_login .mac_login_form .login_form_group input.mac_u_verify {
     float: left;
     width: 50%;
-    background: url("../image/u_verify.png") 8px 9px no-repeat;
+    background: url("../images/u_verify.png") 8px 9px no-repeat;
 }
 
 .mac_login .mac_login_form .login_form_group img.mac_verify_img {
@@ -5860,7 +5860,7 @@ textarea.form-control {
     cursor: pointer;
     font-weight: bold;
     display: block;
-    background: url("../image/nn.png") 0px 0 no-repeat;
+    background: url("../images/nn.png") 0px 0 no-repeat;
 }
 
 .mac_pop .pop-foot {

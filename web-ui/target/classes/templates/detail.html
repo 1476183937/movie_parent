@@ -10,9 +10,10 @@
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<!--		<link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">-->
 
 		<link href="/css/app.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/top.css">
+
 		<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
 		<script src="/js/jquery.js"></script>
 		<script src="/js/iconfont.js"></script>
@@ -29,21 +30,22 @@
 
 		</div>
 	</header>
+
 		<div class="icon">
 			<section class="detail_top">
 				<div class="detail_top_con container">
-					<div class="v_path clearfix">当前位置： <a href="/index">首页</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<a href='javascript:;'>剧情片</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<a
-						 th:href="${movieInfo.data?.movieName}" th:value="${movieInfo.data?.mid}" id="movieUrl">伏虎武松</a></div>
+					<div class="v_path clearfix">当前位置： <a href="/index">首页</a>&nbsp;&nbsp&nbsp;&nbsp;&raquo;&nbsp;&nbsp;<a
+						 th:href="'/index/detail/'+${movieInfo.data?.mid}+'.html'" th:value="${movieInfo.data?.mid}" th:text="${movieInfo.data?.movieName}" id="movieUrl">伏虎武松</a></div>
 					<div class="clearfix">
 						<div class="poster_placeholder">
 							<div class="v-pic">
 								<img th:src="${movieInfo.data?.imgUrls}" alt="伏虎武松">
-								<a href="" class="v-playBtn"><i></i></a>
+								<a href="javascript:;" th:href="'/play/'+${movieInfo.data?.mid}+'.html'" class="v-playBtn"><i></i></a>
 							</div>
 							<p class="p_fun">
 								<a href="#mac_comment" target="_self"><i class="iconfont"></i>评论<em th:text="${count}">(520)</em></a>
 								<i class="i_line"></i>
-								<a onclick="MAC.Fav(location.href,document.name);" href="javascript:void(0);" class="js-addFavorite"><i class="iconfont"></i>收藏</a>
+								<a href="javascript:void(0);" id="collect" class="js-addFavorite"><i class="iconfont"></i>收藏</a>
 							</p>
 						</div>
 						<div class="txt_intro_con">
@@ -74,7 +76,7 @@
 						<div class="play_source">
 							<!-- 选择播放源 -->
 							<div class="play_source_tab clearfix" id="playNumTab"> <a href="javascript:void(0);" th:href="'/play/'+${movieInfo.data?.mid}+'.html'" target="_self" class="cur"
-								 rel="nofollow" apiname="qiyi" id="api_qiyi" alt="奇艺视频"><img width="22" height="22" src="/image/qiyi.png">奇艺视频</a>
+								 rel="nofollow" apiname="qiyi" id="api_qiyi" alt="奇艺视频"><img width="22" height="22" src="/images/qiyi.png">奇艺视频</a>
 								<i class="iLine"></i>
 							</div>
 							<!-- 选择播放源 -->
@@ -90,7 +92,7 @@
 				</div>
 			</section>
 
-            <span id="pf">评分：</span>
+            <span id="pf" style="margin-left: 50px;font-size: x-large">评分：</span>
 
 			<div id="test3" style="margin-left: 50px" class="layui-inline">
 
@@ -120,20 +122,20 @@
 					<div class="tv-bd">
 						<ul class="tv-list tv-hotlist">
 
-							<li th:if="${similarMovie.data.movieList}" th:each="movie:${similarMovie.data?.movieList}">
+							<li th:if="${similarMovie.data.simliarMovies}" th:each="movie:${similarMovie.data?.simliarMovies}">
 								<div class="v-pic">
-									<img src="/image/03.jpg" th:src="${movie.imgUrls}" class="thumb" th:alt="${movie.movieName}" alt="环太平洋：雷霆再起">
+									<img src="/images/03.jpg" th:src="${movie.imgUrls}" class="thumb" th:alt="${movie.movieName}" alt="环太平洋：雷霆再起">
 									<div class="v-tips">超清</div>
 									<a href="detail.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:title="${movie.movieName}" title="环太平洋：雷霆再起" class="v-playBtn"><i></i></a>
 								</div>
 								<div class="v-txt">
 									<span class="v-tit">
-										<a href="detail.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:title="${movie.movieName}" title="环太平洋：雷霆再起">环太平洋：雷霆再起</a>
+										<a href="detail.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:text="${movie.movieName}" th:title="${movie.movieName}" title="环太平洋：雷霆再起">环太平洋：雷霆再起</a>
 									</span>
 								</div>
 							</li>
 
-							<span th:if="${similarMovie.data==null}">暂无相关推荐</span>
+							<span th:if="${similarMovie.data==null}" style="margin-left: 50px">暂无相关推荐</span>
 
 						</ul>
 					</div>
@@ -158,7 +160,7 @@
 		</div>
 		<span style="display:none" class="mac_ulog_set" alt="设置内容页浏览记录" data-type="1" data-mid="1" data-id="420" data-sid="0"
 		 data-nid="0"></span>
-		<span style="display:none" class="mac_history_set" alt="设置History历史记录" data-name="[剧情片]伏虎武松" data-pic="https://pic2.iqiyipic.com/image/20191126/de/6b/v_62817272_m_601_m3_180_236.jpg
+		<span style="display:none" class="mac_history_set" alt="设置History历史记录" data-name="[剧情片]伏虎武松" data-pic="https://pic2.iqiyipic.com/images/20191126/de/6b/v_62817272_m_601_m3_180_236.jpg
 "></span>
 		<!-- 页脚 -->
 		<footer class="ifoot">
@@ -171,39 +173,76 @@
 			<p class="en">343.pc16.cn站长邮箱</p>
 			<p class="en">统计代码</p>
 		</footer>
-		 <script src="/js/app.js"></script>
+
+
+	 <script src="/js/app.js"></script>
 
 	<script src="/layui/layui.js" charset="utf-8"></script>
 	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 	<script>
 
         $(function () {
-            $("#pf").click(function () {
-                alert("aaa")
-            })
 
-            /*$("#test3").click(function () {
-                alert("jjjj")
-            })*/
+        	$("#collect").on("click",function () {
+				var mid = $("#hiden_movieId").attr("value");
 
+				// alert(mid)
 
-            /*$("#test3 ul li i").on("click",function () {
-                alert("kkk")
-            })
+				$.ajax({
+					type: 'GET',
+					url: "/detail/add/collection?mid="+mid+"&returnUrl="+window.location.href,
+					data: {},
+					async: false,
+					contentType: 'application/json; charset=utf-8',
+					success: function (data) {
 
-            $("body").on("click","#one",function () {
-                alert("hhhh")
-            })*/
+						if (data.result === 'SUCCESS') {
+							layer.msg('收藏成功!', {icon: 1});
 
-            /*$("#one").click(function () {
-                alert("bbb")
-            })*/
+						} else if (data.message === 'REDIRECT') {
+							window.location.href = "/login.html"
+						}else if (data.message === 'COLLECTED') {
+							layer.msg("您已收藏过该电影了", {icon: 2});
+						}else{
+							layer.msg('收藏失败！请稍后重试', {icon: 2});
+						}
+
+					},
+					error: function () {
+						layer.msg('收藏失败！请稍后重试', {icon: 2});
+					},
+					dataType: "json",
+				})
+
+			})
+        	
+			$.ajaxSetup( {
+				complete: function (xhr, status) {
+					//拦截器实现超时跳转到登录页面
+					// 通过xhr取得响应头
+					var REDIRECT = xhr.getResponseHeader("REDIRECT_LOGIN");
+					// alert(REDIRECT);
+					//如果响应头中包含 REDIRECT 则说明是拦截器返回的
+					if (REDIRECT == "REDIRECT_LOGIN")
+					{
+						/*layer.msg('请先登录!', {icon: 1},function () {
+							return true
+						});*/
+						var win = window;
+						while (win != win.top)
+						{
+							win = win.top;
+						}
+						//重新跳转到拦截器中的路径
+						win.location.href = xhr.getResponseHeader("CONTEXTPATH");
+					}
+				}
+			});
 
         })
 
 		layui.use(['rate'], function(){
 			var rate = layui.rate;
-
 
 			//半星效果
 			rate.render({
@@ -211,11 +250,11 @@
 				,value: 2.5 //初始值
 				,half: true //开启半星
                 ,choose: function(value){
-				    alert(value)
-					alert($("#hiden_movieId").attr("value"))
+
+
                     $.ajax({
                         type: 'POST',
-                        url: "/detail/add/rating",
+                        url: "/detail/add/rating?returnUrl="+window.location.href,
                         data: JSON.stringify({
                             "mid": $("#hiden_movieId").attr("value"),
                             "rating": value,
@@ -225,11 +264,14 @@
                         success: function (data) {
 
                             if (data.result === 'SUCCESS') {
-                                layer.msg('评分成功！', {icon: 1});
+                                layer.msg('感谢您的评分!', {icon: 1});
 
-                            } else {
-                                layer.msg(data.message, {icon: 2});
-                            }
+                            } else if (data.message === 'REDIRECT') {
+                            	window.location.href = "/login.html"
+                            }else{
+								layer.msg(data.message, {icon: 2});
+
+							}
 
                         },
                         error: function () {

@@ -6,6 +6,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+*@title:
+*@description: 全局异常处理
+*@param: null
+*@author:ggh
+*@updateTime: 2020/5/26 11:15
+**/
 @ControllerAdvice
 public class GlobalExceptionHandler {
     public static final String DEFAULT_ERROR_VIEW = "error";
