@@ -18,9 +18,6 @@ spring:
 #      password: es
 
 
-#    jest:
-#      uris:
-
 
 #设置feign客户端超时时间（OpenFeign默认支持ribbon）
 ribbon:

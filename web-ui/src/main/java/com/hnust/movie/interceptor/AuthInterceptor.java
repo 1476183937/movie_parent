@@ -30,7 +30,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-
         //拦截下来的是一个静态资源，放行
         if (handler instanceof ResourceHttpRequestHandler) {
             System.out.println("preHandle这是一个静态资源方法！");
@@ -38,7 +37,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         }
         //获取请求方法上的注解
         LoginRequired methodAnnotation = ((HandlerMethod) handler).getMethodAnnotation(LoginRequired.class);
-
 
         //如果没有改注解，就不要拦截，放行
         if (methodAnnotation == null){
@@ -102,7 +100,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
                 StringBuffer url = request.getRequestURL();
 
                 //重定向登录页面,并设置返回url
-//                response.sendRedirect(request.getContextPath()+"/login.html?returnUrl="+url);
                 redirect(request,response);
 
                 //拦截下来，不放行
@@ -145,7 +142,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     public void redirect(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         //获取返回的url
-//        StringBuffer requestURL = request.getRequestURL();
         String returnUrl = "index";
         if (StringUtils.isNotBlank(request.getParameter("returnUrl"))){
             returnUrl = request.getParameter("returnUrl");

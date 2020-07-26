@@ -71,7 +71,7 @@ public class CacheController {
 
             //2.2.1、先获取分布式锁
             //生成锁的key
-            String lockKey = "info:" + movieId + "lock";
+            String lockKey = "info:" + movieId + ":lock";
 
             //EX表示秒，PX表示毫秒
             String lock = jedis.set(lockKey, token, "NX", "PX", 100 * 1000);

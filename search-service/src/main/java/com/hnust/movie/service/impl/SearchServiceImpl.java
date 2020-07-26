@@ -148,7 +148,6 @@ public class SearchServiceImpl implements SearchService {
 
         List<SearchResult.Hit<MovieInfo, Void>> hits = searchResult.getHits(MovieInfo.class);
 
-
         ArrayList<MovieInfo> movieInfos = new ArrayList<>();
 
         //遍历封装电影集合
@@ -173,7 +172,6 @@ public class SearchServiceImpl implements SearchService {
         }
         int totalPage = (int) (total/10);
         if (total % 10 != 0) {
-
             totalPage++;
         }
 
@@ -305,7 +303,6 @@ public class SearchServiceImpl implements SearchService {
 
             movieInfos.add(movieInfo);
         }
-
 
         //获取总记录数
         Long total = searchResult.getTotal();

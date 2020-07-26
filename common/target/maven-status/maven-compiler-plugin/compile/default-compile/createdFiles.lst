@@ -25,6 +25,7 @@ com\hnust\movie\entity\recommender\TopMovies.class
 com\hnust\movie\entity\po\CommentExample$Criteria.class
 com\hnust\movie\entity\po\ScanHistoryExample$GeneratedCriteria.class
 com\hnust\movie\entity\po\ScanHistory.class
+com\hnust\movie\entity\vo\UserActionLog.class
 com\hnust\movie\entity\recommender\TopMoviesOfCategory.class
 com\hnust\movie\entity\po\CategoryExample$Criteria.class
 com\hnust\movie\entity\po\UserCollection.class
@@ -78,6 +79,7 @@ com\hnust\movie\util\CookieUtil.class
 com\hnust\movie\entity\vo\MovieListVO.class
 com\hnust\movie\entity\vo\UserCollectionVO.class
 com\hnust\movie\entity\po\YearExample$GeneratedCriteria.class
+com\hnust\movie\util\LogUtils.class
 com\hnust\movie\entity\po\ScanHistoryExample.class
 com\hnust\movie\entity\po\Replay.class
 com\hnust\movie\entity\vo\CategorySearchVO.class

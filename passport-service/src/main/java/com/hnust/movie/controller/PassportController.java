@@ -94,7 +94,6 @@ public class PassportController {
 
             }else { //从缓存里没有获取到就从数据库获取
 
-
                 //调用数据库的登录功能
                 ResultEntity<UserInfo> resultEntity = databaseService.login(userInfo);
 
@@ -110,7 +109,6 @@ public class PassportController {
                     cacheService.setex("user:"+info.getUsername()+info.getPassword()+":info",60*60*24,JSONObject.toJSONString(info));
 
                 }
-
 
             }
 

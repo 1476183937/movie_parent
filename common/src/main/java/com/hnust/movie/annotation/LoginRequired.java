@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @Date: 2020/5/25 20:51
  */
 @Target(ElementType.METHOD)  //可以使用的地方：在方法上生效
-@Retention(RetentionPolicy.RUNTIME) //范围“在运行时有用
+@Retention(RetentionPolicy.RUNTIME) //范围在运行时有用
 public @interface LoginRequired {
 
     //用于指示是否必须登录，有的情况可以登录也可以不登录

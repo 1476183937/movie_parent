@@ -17,6 +17,7 @@
       <module>web-ui</module>
       <module>recommend</module>
       <module>passport-service</module>
+        <module>back-system</module>
     </modules>
 
   <properties>

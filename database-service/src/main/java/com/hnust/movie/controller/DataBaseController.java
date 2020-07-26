@@ -137,7 +137,7 @@ public class DataBaseController {
      *@author:ggh
      *@updateTime: 2020/5/29 11:32
      **/
-    @RequestMapping(value = "/db/delete",method = RequestMethod.POST)
+    @RequestMapping(value = "/db/update/collection",method = RequestMethod.POST)
     @ResponseBody
     public ResultEntity updateCollection(@RequestBody UserCollection userCollection){
 
@@ -221,7 +221,7 @@ public class DataBaseController {
 
     /**
     *@title:
-    *@description:
+    *@description:判断每个用户是否对某个电影评分过
     *@param: uid
     *@param: mid
     *@author:ggh

@@ -46,7 +46,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     @Override
     protected void addViewControllers(ViewControllerRegistry registry) {
 
-//        registry.addRedirectViewController("/login.html","/login.html");
         registry.addViewController("/login.html").setViewName("login");
 
         super.addViewControllers(registry);

@@ -45,6 +45,8 @@ F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\User
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\CategoryExample.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\CommentVO.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\TopMoviesOfCategory.java
+F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\UserActionLog.java
+F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\util\LogUtils.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\util\CookieUtil.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\AverageRating.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\UserRecommendation.java
