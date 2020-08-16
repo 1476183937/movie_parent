@@ -7,14 +7,12 @@ import com.hnust.movie.config.IdGeneratorSnowflake;
 import com.hnust.movie.entity.po.ScanHistory;
 import com.hnust.movie.entity.po.UserCollection;
 import com.hnust.movie.entity.po.UserInfo;
+import com.hnust.movie.entity.vo.LoginLog;
 import com.hnust.movie.entity.vo.ResultEntity;
 import com.hnust.movie.entity.vo.UserCollectionVO;
 import com.hnust.movie.service.DatabaseService;
 import com.hnust.movie.service.PassportService;
-import com.hnust.movie.util.CommonUtil;
-import com.hnust.movie.util.CookieUtil;
-import com.hnust.movie.util.DateUtil;
-import com.hnust.movie.util.JwtUtil;
+import com.hnust.movie.util.*;
 import com.sun.org.apache.bcel.internal.generic.FADD;
 import com.sun.org.apache.regexp.internal.RE;
 import org.apache.commons.lang.StringUtils;
@@ -43,6 +41,8 @@ import java.util.stream.Collectors;
  */
 @Controller
 public class UserContrller {
+
+    private static final org.slf4j.Logger loginLoger = org.slf4j.LoggerFactory.getLogger("LoginLogger");
 
 
     @Autowired
@@ -78,6 +78,14 @@ public class UserContrller {
 
 
 
+    /**
+    *@title:
+    *@description: 用户登录页面
+    *@param: returnUrl
+    *@param: modelMap
+    *@author:ggh
+    *@updateTime: 2020/7/29 12:05
+    **/
     @RequestMapping("/login.html")
     public String loginHtml(@RequestParam(value = "returnUrl",required = false,defaultValue = "/") String returnUrl,ModelMap modelMap){
 
@@ -87,6 +95,18 @@ public class UserContrller {
     }
 
 
+    /**
+    *@title:
+    *@description: 用户登录提交
+    *@param: user_name
+    *@param: user_pwd
+    *@param: returnUrl
+    *@param: request
+    *@param: response
+    *@param: modelMap
+    *@author:ggh
+    *@updateTime: 2020/7/29 12:05
+    **/
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
     public ResultEntity login(String user_name,
@@ -100,32 +120,33 @@ public class UserContrller {
         userInfo.setUsername(user_name);
         userInfo.setPassword(user_pwd);
 
-        ResultEntity<String> resultEntity = passportService.login(userInfo);
+        //获取ip
+        String ip = "";
+        ip = request.getHeader("x-forwarded-for");//获取通过ngnix转发的客户端ip
+        if (StringUtils.isBlank(ip)){
+            ip = request.getRemoteAddr(); //获取request里的ip
+
+            //如果request里也没有ip，就直接指定
+            if (StringUtils.isBlank(ip)){
+                ip = "127.0.0.1";
+            }
+        }
+
+        ResultEntity<String> resultEntity = passportService.login(userInfo,ip);
+
+
+        String userId = "";
 
         //存入cookie
         if ("SUCCESS".equals(resultEntity.getResult())){
 
             // bin/kafka-console-consumer.sh --bootstrap-server 39.105.36.4:9092 --topic rating22
 
-            //获取ip
-            String ip = request.getHeader("x-forwarded-for");//获取通过ngnix转发的客户端ip
-            if (StringUtils.isBlank(ip)){
-                ip = request.getRemoteAddr(); //获取request里的ip
-
-                //如果request里也没有ip，就直接指定
-                if (StringUtils.isBlank(ip)){
-                    ip = "127.0.0.1";
-                }
-            }
-
             Map<String, Object> userMap = JwtUtil.decode(resultEntity.getData(), "movie", ip);
 
             //往request域里存放信息
             if (userMap != null){
-
-//                modelMap.addAttribute("userId",userMap.get("userId"));
-//                modelMap.addAttribute("nickName",userMap.get("nickName"));
-//                modelMap.addAttribute("face",userMap.get("face"));
+                userId = userMap.get("userId").toString();
                 request.setAttribute("userId",userMap.get("userId"));
                 request.setAttribute("nickName",userMap.get("nickName"));
                 request.setAttribute("face",userMap.get("face"));
@@ -139,9 +160,19 @@ public class UserContrller {
             }
             token.setMaxAge(60*60*24);
             response.addCookie(token);
-//            CookieUtil.setCookie(request,response,"userToken",resultEntity.getData(),60*60*24,true);
+
+            //记录用户登录成功的日志
+            //4055023|192.168.177.1|fail|1592643884362
+            //用户id|ip|成功或失败|时间戳
+            LoginLog loginLog = new LoginLog(user_name, ip, "success", System.currentTimeMillis());
+            LogUtils.loginLog(loginLoger,loginLog);
 
         }else {
+
+            //记录登录失败的日志
+            LoginLog loginLog = new LoginLog(user_name, ip, "fail", System.currentTimeMillis());
+            LogUtils.loginLog(loginLoger,loginLog);
+
             return resultEntity;
         }
 
@@ -294,7 +325,6 @@ public class UserContrller {
         modelMap.addAttribute("allCollections",collections);
         modelMap.addAttribute("movieCollections",ResultEntity.successWithData(movieList));
         modelMap.addAttribute("comicCollections",ResultEntity.successWithData(comicList));
-
 
         /*if (condition == 0){ //查看全部收藏记录
             collectionsEntity = ResultEntity.successWithData(userCollectionList);

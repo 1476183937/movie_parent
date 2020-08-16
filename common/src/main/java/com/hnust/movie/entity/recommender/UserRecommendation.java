@@ -24,6 +24,6 @@ public class UserRecommendation implements Serializable {
     private String id;
     private Long uid;                          //用户id
     private String date;                       //统计时间
-    private List<MovieInMongodb> movieList;    //推荐电影列表
+    private List<MovieInfoMongodb> userResc;    //推荐电影列表
 
 }

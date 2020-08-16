@@ -4,10 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.hnust.movie.annotation.LoginRequired;
 import com.hnust.movie.config.IdGeneratorSnowflake;
 import com.hnust.movie.entity.po.*;
-import com.hnust.movie.entity.vo.CommentVO;
-import com.hnust.movie.entity.vo.CommentVO2;
-import com.hnust.movie.entity.vo.ResultEntity;
-import com.hnust.movie.entity.vo.UserActionLog;
+import com.hnust.movie.entity.recommender.UserRecommendation;
+import com.hnust.movie.entity.vo.*;
 import com.hnust.movie.service.CacheService;
 import com.hnust.movie.service.DatabaseService;
 import com.hnust.movie.service.PassportService;
@@ -30,6 +28,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.rmi.server.UID;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -88,12 +87,12 @@ public class detailController {
             modelMap.addAttribute("topMovieOfMonth",topMovieOfMonth);
             modelMap.addAttribute("topMovieOfWeek",topMovieOfWeek);
 
-
             int totalPage = 0, count = 0;
             ResultEntity<List<CommentVO>> commentByMid = null;
             ResultEntity<CommentVO> commentVOResultEntity = null;
 
-            ResultEntity<MovieInfo> movieInfoFromCache = cacheService.getMovieInfoFromCache(movieId);
+//            ResultEntity<MovieInfo> movieInfoFromCache = cacheService.getMovieInfoFromCache(movieId);
+            ResultEntity<MovieInfoInCache> movieInfoFromCache = cacheService.getMovieInfoFromCache(movieId);
 
             //如果没有得到数据或数据为空
             if (movieInfoFromCache.getData() == null || "".equals(movieInfoFromCache.getData()) ||
@@ -106,7 +105,6 @@ public class detailController {
                 modelMap.addAttribute("movieInfo",movieInfoFromCache);
 
                 //获取评论数据
-
                 commentByMid = databaseService.getCommentByMid(movieId, 1);
 
                 //计算总记录数
@@ -133,6 +131,7 @@ public class detailController {
                 //获取token
                 Cookie[] cookies = request.getCookies();
                 String userToken = "";
+                String userId = "";
                 if (cookies != null){
                     for (Cookie cookie : cookies) {
                         if ("userToken".equals(cookie.getName())){
@@ -140,6 +139,7 @@ public class detailController {
                             break;
                         }
                     }
+
 
                     //如果用户登录了就记录观看记录，没有登录就不记录了
                     if (StringUtils.isNotBlank(userToken)){
@@ -153,7 +153,7 @@ public class detailController {
                         Map userMap = JSONObject.parseObject(verify, Map.class);
 
                         //获取用户id
-                        String userId = "";
+
                         if ("success".equals(userMap.get("status"))){
                             if (userMap != null){
                                 userId = (String) userMap.get("userId");
@@ -183,21 +183,55 @@ public class detailController {
                         //添加记录
                         databaseService.addHistory(scanHistory);
 
-                        //记录用户行为日志
-                        UserActionLog actionLog = new UserActionLog(0L, userId, request.getSession().getId(),
-                                request.getRequestURL().toString(), "",
-                                "", "", "",
-                                "", "0", movieId + "",
-                                "", "", "",
-                                movieId + "");
-
-                        LogUtils.UserActionLog(userActionLog,actionLog);
-
                     }
+
 
                 }
 
+                //获取该用户的推荐列表
+                if (StringUtils.isNotBlank(userId)){
+                    //如果用户id不为空，就获取该用户对象的推荐电影数据
+                    ResultEntity<UserRecommendation> userRecommendation = recommendService.getUserRecommendationDao(Long.parseLong(userId));
+                    modelMap.addAttribute("userRecommendation",userRecommendation.getData().getUserResc());
 
+                }else{
+                    //如果该用户没有登录，就默认推荐最新电影给他
+                    ResultEntity<List<MovieInfoInCache>> latestAllMovies = databaseService.getLatestAllMovies(12);
+                    modelMap.addAttribute("userRecommendation",latestAllMovies.getData());
+                }
+
+                //生成集数相关的链接信息
+                String playUrls = movieInfoFromCache.getData().getPlayUrls();
+                String[] playUrlsSplit = playUrls.split("-");
+
+                String urlPrefix="";//前缀
+                String urlSuffix="";//前缀
+                ArrayList<String> urlList = new ArrayList<>();
+                if (playUrlsSplit.length ==3 ){
+                    //有多集的情况
+                    urlPrefix = playUrlsSplit[0];
+                    for (String s : playUrlsSplit[1].split("\\|")) {
+                        urlList.add(s);
+                    }
+                    urlSuffix = playUrlsSplit[2];
+                }else if (playUrlsSplit.length == 1){
+                    //只有一集的情况：如是电影的话就算一集的情况
+                    urlList.add(playUrlsSplit[0]);
+                }
+
+                modelMap.addAttribute("urlPrefix",urlPrefix);
+                modelMap.addAttribute("urlList",urlList);
+                modelMap.addAttribute("urlSuffix",urlSuffix);
+
+                //记录用户行为日志
+                UserActionLog actionLog = new UserActionLog(0L, userId, request.getSession().getId(),
+                        request.getRequestURL().toString(), "",
+                        "", "", "",
+                        "", "0", movieId + "",
+                        "", "", "",
+                        movieId + "");
+
+                LogUtils.UserActionLog(userActionLog,actionLog);
 
                 return "moviePlay";
             }
@@ -270,6 +304,7 @@ public class detailController {
                     String message = userId + "|" + rating.getMid() + "|" + rating.getRating()+"|"+date;
                     kafkaTemplate.send(topic,message);
 
+
                     return ResultEntity.successNoData();
                 }else {
                     return ResultEntity.failed("评分失败");
@@ -307,10 +342,7 @@ public class detailController {
         String userId = "";
         try {
 
-
             UserCollection userCollection = new UserCollection();
-
-            ResultEntity<MovieInfo> movieInfoFromCache = cacheService.getMovieInfoFromCache(mid);
 
             //获取ip
             String ip = CommonUtil.getIpByRequest(request);
@@ -349,6 +381,9 @@ public class detailController {
             //获取日期
             String date = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
 
+            //获取电影信息
+            ResultEntity<MovieInfoInCache> movieInfoFromCache = cacheService.getMovieInfoFromCache(mid);
+
             userCollection.setMid(mid);
             userCollection.setMovieName(movieInfoFromCache.getData().getMovieName());
             userCollection.setImage(movieInfoFromCache.getData().getImgUrls());
@@ -377,8 +412,6 @@ public class detailController {
             e.printStackTrace();
             return ResultEntity.failed("add failed");
         }
-
-
 
 
     }

@@ -3,15 +3,17 @@ F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\Comm
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\MovieInfo.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\LocationExample.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\Replay.java
+F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\MultipleRanking.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\util\HttpclientUtil.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\StatisticsExample.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\MovieListVO.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\SearchResultVO.java
+F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\MultipleRankings.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\UserCollectionExample.java
-F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\MovieInMongodb.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\util\DateUtil.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\SimilarMovieRecommendation.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\MovieInfoInCache.java
+F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\LoginLog.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\ResultEntity.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\TopMovieOfWeek.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\UserCollection.java
@@ -40,6 +42,7 @@ F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\Comm
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\CommentSupport.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\MovieInfoExample.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\TopMovies.java
+F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\recommender\MovieInfoMongodb.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\Location.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\vo\UserCollectionVO.java
 F:\IDEAProjects\movie_parent\common\src\main\java\com\hnust\movie\entity\po\CategoryExample.java

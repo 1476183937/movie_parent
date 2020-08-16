@@ -1,0 +1,6 @@
+com\hnust\movie\SearchStarter.class
+com\hnust\movie\controller\SearchController.class
+com\hnust\movie\entity\MovieInfoVO.class
+com\hnust\movie\service\DatabaseService.class
+com\hnust\movie\service\impl\SearchServiceImpl.class
+com\hnust\movie\service\SearchService.class

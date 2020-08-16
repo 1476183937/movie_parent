@@ -2,6 +2,7 @@ package com.hnust.movie.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hnust.movie.entity.po.MovieInfo;
+import com.hnust.movie.entity.vo.MovieInfoInCache;
 import com.hnust.movie.entity.vo.ResultEntity;
 import com.hnust.movie.service.CacheService;
 import com.hnust.movie.service.DatabaseService;
@@ -41,7 +42,8 @@ public class CacheController {
     **/
     @RequestMapping("/movieInfo/get/{movieId}")
     @ResponseBody
-    public ResultEntity<MovieInfo> getMovieInfoFromCache(@PathVariable("movieId") Long movieId){
+//    public ResultEntity<MovieInfo> getMovieInfoFromCache(@PathVariable("movieId") Long movieId){
+    public ResultEntity<MovieInfoInCache> getMovieInfoFromCache(@PathVariable("movieId") Long movieId){
 
         //1、获取jedis连接
         Jedis jedis = redisUtil.getJedis();
@@ -55,7 +57,8 @@ public class CacheController {
         if (StringUtils.isNotBlank(movieInfos)){ //如果不为空
             //2.1、获取到了数据，就直接返回结果
             //解析
-            MovieInfo movieInfo = JSONObject.parseObject(movieInfos, MovieInfo.class);
+//            MovieInfo movieInfo = JSONObject.parseObject(movieInfos, MovieInfo.class);
+            MovieInfoInCache movieInfo = JSONObject.parseObject(movieInfos, MovieInfoInCache.class);
             //更新过期时间
             jedis.expire("movie:"+movieId+":info", 10*60);
 
@@ -79,7 +82,8 @@ public class CacheController {
             if ("OK".equals(lock)){
                 //2.2.1.2、从数据库获取到了相应的数据，存到缓存里面，设置过期时间，并返回结果
 
-                ResultEntity<MovieInfo> detailInfo = databaseService.getDetailInfo(movieId);
+//                ResultEntity<MovieInfo> detailInfo = databaseService.getDetailInfo(movieId);
+                ResultEntity<MovieInfoInCache> detailInfo = databaseService.getDetailInfo(movieId);
                 //如果数据库也没有该条数据，就在缓存里存个空值，防止缓存穿透
                 if (detailInfo == null){
                     jedis.setex("movie:"+movieId+":info",5*60,"");

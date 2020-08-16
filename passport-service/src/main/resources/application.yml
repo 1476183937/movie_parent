@@ -1,10 +1,10 @@
 server:
   port: 8085
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: localhost:8848
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: localhost:8848
   application:
     name: passport-server
 

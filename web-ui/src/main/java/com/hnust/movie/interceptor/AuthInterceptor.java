@@ -32,7 +32,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
         //拦截下来的是一个静态资源，放行
         if (handler instanceof ResourceHttpRequestHandler) {
-            System.out.println("preHandle这是一个静态资源方法！");
+//            System.out.println("preHandle这是一个静态资源方法！");
             return true;
         }
         //获取请求方法上的注解

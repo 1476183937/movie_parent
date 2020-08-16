@@ -72,7 +72,8 @@ public class PassportController {
     **/
     @RequestMapping("/login")
     @ResponseBody
-    public ResultEntity<String> login(@RequestBody UserInfo userInfo, HttpServletRequest request){
+//    public ResultEntity<String> login(@RequestBody UserInfo userInfo, HttpServletRequest request){
+    public ResultEntity<String> login(@RequestBody UserInfo userInfo, @RequestParam("ip") String ip, HttpServletRequest request){
 
         String token = "";
 
@@ -116,7 +117,7 @@ public class PassportController {
                 //获取到用户信息后，生成token
 
                 //获取ip
-                String ip = request.getHeader("x-forwarded-for");//获取通过ngnix转发的客户端ip
+//                String ip = request.getHeader("x-forwarded-for");//获取通过ngnix转发的客户端ip
                 if (StringUtils.isBlank(ip)){
                     ip = request.getRemoteAddr(); //获取request里的ip
 

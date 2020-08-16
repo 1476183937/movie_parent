@@ -1,6 +1,7 @@
 package com.hnust.movie.service;
 
 import com.hnust.movie.entity.po.MovieInfo;
+import com.hnust.movie.entity.vo.MovieInfoInCache;
 import com.hnust.movie.entity.vo.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,8 @@ public interface CacheService {
      **/
     @RequestMapping("/movieInfo/get/{movieId}")
     @ResponseBody
-    public ResultEntity<MovieInfo> getMovieInfoFromCache(@PathVariable("movieId") Long movieId);
+//    public ResultEntity<MovieInfo> getMovieInfoFromCache(@PathVariable("movieId") Long movieId);
+    public ResultEntity<MovieInfoInCache> getMovieInfoFromCache(@PathVariable("movieId") Long movieId);
 
 
     /**

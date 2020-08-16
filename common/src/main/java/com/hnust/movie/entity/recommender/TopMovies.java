@@ -24,6 +24,6 @@ public class TopMovies implements Serializable {
     @Id
     private String id;                      //统计id
     private String date;                    //统计日期
-    private List<MovieInMongodb> movieList; //top10的电影
+    private List<MovieInfoMongodb> movieList; //top10的电影
 
 }

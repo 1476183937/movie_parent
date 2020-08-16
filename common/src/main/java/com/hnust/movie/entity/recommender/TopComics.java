@@ -23,6 +23,6 @@ public class TopComics implements Serializable {
     @Id
     private String id;                      //统计id
     private String date;                    //统计日期
-    private List<MovieInMongodb> movieList; //动漫top10列表
+    private List<MovieInfoMongodb> movieList; //动漫top10列表
 
 }

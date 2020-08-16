@@ -1,5 +1,6 @@
 package com.hnust.movie.service;
 
+import com.hnust.movie.entity.recommender.*;
 import com.hnust.movie.entity.vo.ResultEntity;
 
 /**
@@ -9,18 +10,20 @@ import com.hnust.movie.entity.vo.ResultEntity;
  */
 public interface RecommendService {
 
-    ResultEntity getTopMovies();
+    ResultEntity<TopMovies> getTopMovies();
 
-    ResultEntity getTopComics();
+    ResultEntity<TopComics> getTopComics();
 
-    ResultEntity getSimilarMovieRecommendation(Long mid);
+    ResultEntity<SimilarMovieRecommendation> getSimilarMovieRecommendation(Long mid);
 
-    ResultEntity getTopMovieOfMonth();
+    ResultEntity<TopMovieOfMonth> getTopMovieOfMonth();
 
-    ResultEntity getTopMovieOfWeek();
+    ResultEntity<TopMovieOfWeek> getTopMovieOfWeek();
 
-    ResultEntity getTopMoviesOfCategory(String category);
+    ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(String category);
 
-    ResultEntity getUserRecommendationDao(Long uid);
+    ResultEntity<UserRecommendation> getUserRecommendationDao(Long uid);
+
+    ResultEntity<MultipleRankings> getMultipleRankings();
 
 }

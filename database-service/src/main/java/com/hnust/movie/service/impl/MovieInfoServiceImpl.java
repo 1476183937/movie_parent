@@ -32,26 +32,30 @@ public class MovieInfoServiceImpl implements MovieInfoService {
     *@updateTime: 2020/5/22 12:22
     **/
     @Override
-    public ResultEntity<List<MovieInfo>> getMovieInfoForIndexPage(int is_comic) {
+//    public ResultEntity<List<MovieInfo>> getMovieInfoForIndexPage(int is_comic) {
+    public ResultEntity<List<MovieInfoInCache>> getMovieInfoForIndexPage(int is_comic) {
 
-        ResultEntity<List<MovieInfo>> resultEntity = new ResultEntity<>();
+        ResultEntity<List<MovieInfoInCache>> resultEntity = new ResultEntity<>();
 
         //获取最新热播动漫
         if (is_comic == 0){
 
-            MovieInfoExample movieInfoExample = new MovieInfoExample();
-            MovieInfoExample.Criteria criteria = movieInfoExample.createCriteria();
+//            MovieInfoExample movieInfoExample = new MovieInfoExample();
+//            MovieInfoExample.Criteria criteria = movieInfoExample.createCriteria();
+//
+//            //类别字段中包含“动画”的
+//            criteria.andCategoriesLike("%动画%");
+//            List<MovieInfo> movieInfos = movieInfoMapper.selectByExample(movieInfoExample);
+//            List<MovieInfo> movieInfoList = movieInfos.subList(0, 33);
 
-            //类别字段中包含“动画”的
-            criteria.andCategoriesLike("%动画%");
-            List<MovieInfo> movieInfos = movieInfoMapper.selectByExample(movieInfoExample);
-            List<MovieInfo> movieInfoList = movieInfos.subList(0, 33);
+//            resultEntity.setData(movieInfoList);
 
-            resultEntity.setData(movieInfoList);
+            List<MovieInfoInCache> latestComics = movieInfoMapper.queryLatestComics(33);
+            resultEntity.setData(latestComics);
 
         }else{ //获取最新热播电影
 
-            MovieInfoExample movieInfoExample = new MovieInfoExample();
+            /*MovieInfoExample movieInfoExample = new MovieInfoExample();
             MovieInfoExample.Criteria criteria = movieInfoExample.createCriteria();
 
             //类别中不包含“动画”的
@@ -59,7 +63,11 @@ public class MovieInfoServiceImpl implements MovieInfoService {
             //取33条结果
             List<MovieInfo> movieInfoList = movieInfoMapper.selectByExample(movieInfoExample).subList(0, 33);
 
-            resultEntity.setData(movieInfoList);
+            resultEntity.setData(movieInfoList);*/
+
+            List<MovieInfoInCache> latestMovies = movieInfoMapper.queryLatestMovies(33);
+
+            resultEntity.setData(latestMovies);
 
         }
 
@@ -73,9 +81,18 @@ public class MovieInfoServiceImpl implements MovieInfoService {
     *@updateTime: 2020/5/14 10:19
     **/
     @Override
-    public ResultEntity<MovieInfo> getDetailByMovieId(Long movieId) {
+//    public ResultEntity<MovieInfo> getDetailByMovieId(Long movieId) {
+    public ResultEntity<MovieInfoInCache> getDetailByMovieId(Long movieId) {
 
-        MovieInfoExample movieInfoExample = new MovieInfoExample();
+        MovieInfoInCache movieInfoInCache = movieInfoMapper.queryMovieByMid(movieId);
+
+        if (movieInfoInCache != null){
+            return ResultEntity.successWithData(movieInfoInCache);
+        }else{
+            return ResultEntity.failed(String.format("get movie info failed:%s", movieId));
+        }
+
+        /*MovieInfoExample movieInfoExample = new MovieInfoExample();
         movieInfoExample.createCriteria().andMidEqualTo(movieId);
 
         List<MovieInfo> movieInfos = movieInfoMapper.selectByExample(movieInfoExample);
@@ -97,9 +114,8 @@ public class MovieInfoServiceImpl implements MovieInfoService {
             }
 
             return resultEntity;
-        }
+        }*/
 
-        return null;
     }
 
     /**
@@ -175,6 +191,24 @@ public class MovieInfoServiceImpl implements MovieInfoService {
         return ResultEntity.successWithData(comicListVO);
     }
 
+    /**
+    *@title:
+    *@description: 获取最新发布的电影数据
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/8/13 12:20
+    **/
+    @Override
+    public ResultEntity<List<MovieInfoInCache>> getLatestMovies(int size) {
+
+        List<MovieInfoInCache> movieInfos = movieInfoMapper.queryLatestAllMovies(size);
+
+        if (movieInfos.size() > 0){
+            return ResultEntity.successWithData(movieInfos);
+        }else{
+            return ResultEntity.failed("get latest movies failed");
+        }
+    }
 
 
 }

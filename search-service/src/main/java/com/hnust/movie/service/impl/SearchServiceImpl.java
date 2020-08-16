@@ -61,7 +61,7 @@ public class SearchServiceImpl implements SearchService {
         //遍历导入es
         for (MovieInfo info : movieInfoList) {
 
-            if (info.getReleaseDate().length()>4 && info.getReleaseDate()!=null){
+            if (info.getReleaseDate().length()==4 && info.getReleaseDate()!=null){
                 MovieInfoVO movieInfoVO = new MovieInfoVO();
                 BeanUtils.copyProperties(info,movieInfoVO);
                 try {

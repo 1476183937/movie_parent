@@ -4,6 +4,7 @@ import com.hnust.movie.entity.po.UserInfo;
 import com.hnust.movie.entity.vo.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,6 +41,7 @@ public interface PassportService {
      **/
     @RequestMapping("/login")
     @ResponseBody
-    public ResultEntity<String> login(UserInfo userInfo);
+//    public ResultEntity<String> login(UserInfo userInfo);
+    public ResultEntity<String> login(@RequestBody UserInfo userInfo, @RequestParam("ip") String ip);
 
-}
+    }

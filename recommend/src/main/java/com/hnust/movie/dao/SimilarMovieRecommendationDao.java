@@ -1,15 +1,7 @@
 package com.hnust.movie.dao;
 
-import com.hnust.movie.entity.recommender.MovieInMongodb;
 import com.hnust.movie.entity.recommender.SimilarMovieRecommendation;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.stereotype.Component;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**

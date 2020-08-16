@@ -1,19 +1,22 @@
 package com.hnust.movie.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hnust.movie.annotation.LoginRequired;
 import com.hnust.movie.entity.SelectedCategoryVO;
-import com.hnust.movie.entity.po.Category;
-import com.hnust.movie.entity.po.Location;
-import com.hnust.movie.entity.po.MovieInfo;
-import com.hnust.movie.entity.po.Year;
+import com.hnust.movie.entity.po.*;
 import com.hnust.movie.entity.recommender.TopComics;
 import com.hnust.movie.entity.recommender.TopMovies;
 import com.hnust.movie.entity.vo.CategorySearchVO;
 import com.hnust.movie.entity.vo.ResultEntity;
 import com.hnust.movie.entity.vo.SearchResultVO;
+import com.hnust.movie.entity.vo.UserActionLog;
 import com.hnust.movie.service.DatabaseService;
+import com.hnust.movie.service.PassportService;
 import com.hnust.movie.service.RecommendService;
 import com.hnust.movie.service.SearchService;
+import com.hnust.movie.util.CommonUtil;
+import com.hnust.movie.util.DateUtil;
+import com.hnust.movie.util.LogUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +24,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -35,6 +41,11 @@ import java.util.stream.Stream;
 @Controller
 public class SearchController {
 
+    private static final org.slf4j.Logger errorLog = org.slf4j.LoggerFactory.getLogger("ErrorLogger");
+    private static final org.slf4j.Logger userActionLog = org.slf4j.LoggerFactory.getLogger("UserActionLogger");
+
+
+
     @Autowired
     private SearchService searchService;
 
@@ -43,6 +54,9 @@ public class SearchController {
 
     @Autowired
     private RecommendService recommendService;
+
+    @Autowired
+    private PassportService passportService;
 
     /**
     *@title:
@@ -59,20 +73,78 @@ public class SearchController {
     public String search(@RequestParam(value = "kw", required = false) String kw,
                          @RequestParam(value = "from", defaultValue = "1", required = false) int from,
                          @RequestParam(value = "size", defaultValue = "10", required = false) int size,
-                         ModelMap modelMap) {
+                         ModelMap modelMap,
+                         HttpServletRequest request) {
 
         if (StringUtils.isNotBlank(kw)) {
 
-            ResultEntity<SearchResultVO> movieInfoByKw = searchService.getMovieInfoByKw(kw, from, size);
+            try {
+                ResultEntity<SearchResultVO> movieInfoByKw = searchService.getMovieInfoByKw(kw, from, size);
 
-            ResultEntity<TopMovies> topMovies = recommendService.getTopMovies();
+                ResultEntity<TopMovies> topMovies = recommendService.getTopMovies();
 
-            ResultEntity<TopComics> topComics = recommendService.getTopComics();
+                ResultEntity<TopComics> topComics = recommendService.getTopComics();
 
-            modelMap.addAttribute("topMovies",topMovies);
-            modelMap.addAttribute("topComics",topComics);
-            modelMap.addAttribute("movieInfoResult", movieInfoByKw);
-            return "search";
+                modelMap.addAttribute("topMovies",topMovies);
+                modelMap.addAttribute("topComics",topComics);
+                modelMap.addAttribute("movieInfoResult", movieInfoByKw);
+
+                //
+                //获取token
+                Cookie[] cookies = request.getCookies();
+                String userToken = "";
+                String userId = "";
+                if (cookies != null){
+                    for (Cookie cookie : cookies) {
+                        if ("userToken".equals(cookie.getName())){
+                            userToken = cookie.getValue();
+                            break;
+                        }
+                    }
+
+
+                    //如果用户登录了就记录观看记录，没有登录就不记录了
+                    if (StringUtils.isNotBlank(userToken)){
+
+                        String ip = CommonUtil.getIpByRequest(request);
+
+                        //验证token
+                        String verify = passportService.verify(userToken, ip);
+                        Map userMap = JSONObject.parseObject(verify, Map.class);
+
+                        //获取用户id
+
+                        if ("success".equals(userMap.get("status"))){
+                            if (userMap != null){
+                                userId = (String) userMap.get("userId");
+                            }
+                        }
+
+
+
+                    }
+
+                }
+                //记录用户行为日志
+                UserActionLog actionLog = new UserActionLog(0L, userId, request.getSession().getId(),
+                        request.getRequestURL().toString(), kw,
+                        "", "", "",
+                        "", "", "",
+                        "", "", "",
+                        "");
+
+                LogUtils.UserActionLog(userActionLog,actionLog);
+
+                return "search";
+            } catch (Exception e) {
+
+                //记录异常日志
+                String data = "{\"kw\":"+kw+",\"from\":"+from+",\"size\":"+size+"}";
+                LogUtils.ErrorLog(errorLog,e,request.getRequestURL().toString(),data);
+                e.printStackTrace();
+                return "error";
+            }
+
         } else {
             return "error";
         }

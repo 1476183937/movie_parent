@@ -37,7 +37,7 @@ public class UserRecommendationDaoImpl implements UserRecommendationDao {
         Update update = new Update();
 
         update.set("date",userRecommendation.getDate());
-        update.set("movieList",userRecommendation.getMovieList());
+        update.set("movieList",userRecommendation.getUserResc());
 
         mongoTemplate.updateFirst(query, update, UserRecommendation.class);
 
@@ -80,7 +80,6 @@ public class UserRecommendationDaoImpl implements UserRecommendationDao {
 
         if (userRecommendationsList.size() > 0){
             return userRecommendationsList.get(0);
-
         }else {
             return null;
         }

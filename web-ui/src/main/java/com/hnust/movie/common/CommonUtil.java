@@ -3,6 +3,7 @@ package com.hnust.movie.common;
 import com.hnust.movie.entity.po.MovieInfo;
 import com.hnust.movie.entity.vo.CommentVO;
 import com.hnust.movie.entity.vo.CommentVO2;
+import com.hnust.movie.entity.vo.MovieInfoInCache;
 import com.hnust.movie.entity.vo.ResultEntity;
 import com.hnust.movie.service.CacheService;
 import com.hnust.movie.service.DatabaseService;
@@ -30,10 +31,13 @@ public class CommonUtil {
             return false;
         } else {
             //获取电影的详情数据
-            ResultEntity<MovieInfo> resultEntity = databaseService.getDetailInfo(movieId);
-            ResultEntity<MovieInfo> movieInfoFromCache = cacheService.getMovieInfoFromCache(movieId);
+//            ResultEntity<MovieInfo> resultEntity = databaseService.getDetailInfo(movieId);
+//            ResultEntity<MovieInfo> movieInfoFromCache = cacheService.getMovieInfoFromCache(movieId);
 
-            MovieInfo movieInfo = resultEntity.getData();
+            ResultEntity<MovieInfoInCache> resultEntity = databaseService.getDetailInfo(movieId);
+            ResultEntity<MovieInfoInCache> movieInfoFromCache = cacheService.getMovieInfoFromCache(movieId);
+
+            MovieInfoInCache movieInfo = resultEntity.getData();
             //将 "导演" 属性中的"|"换成空格
             movieInfo.setDirectors(movieInfo.getDirectors().replace("\\|", " "));
 

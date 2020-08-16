@@ -1,6 +1,6 @@
 package com.hnust.movie.service;
 
-import com.hnust.movie.entity.recommender.SimilarMovieRecommendation;
+import com.hnust.movie.entity.recommender.*;
 import com.hnust.movie.entity.vo.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -19,11 +19,11 @@ public interface RecommendService {
 
     @RequestMapping("/recommend/top/movies")
     @ResponseBody
-    public ResultEntity getTopMovies();
+    public ResultEntity<TopMovies> getTopMovies();
 
     @RequestMapping("/recommend/top/comics")
     @ResponseBody
-    public ResultEntity getTopComics();
+    public ResultEntity<TopComics> getTopComics();
 
     @RequestMapping("/recommend/similar/movies/{mid}")
     @ResponseBody
@@ -31,18 +31,22 @@ public interface RecommendService {
 
     @RequestMapping("/recommend/month/movies")
     @ResponseBody
-    public ResultEntity getTopMovieOfMonth();
+    public ResultEntity<TopMovieOfMonth> getTopMovieOfMonth();
 
     @RequestMapping("/recommend/week/movies")
     @ResponseBody
-    public ResultEntity getTopMovieOfWeek();
+    public ResultEntity<TopMovieOfWeek> getTopMovieOfWeek();
 
     @RequestMapping("/recommend/category/movies/{category}")
     @ResponseBody
-    public ResultEntity getTopMoviesOfCategory(@PathVariable("category") String category);
+    public ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(@PathVariable("category") String category);
 
     @RequestMapping("/recommend/user/movies/{uid}")
     @ResponseBody
-    public ResultEntity getUserRecommendationDao(@PathVariable("uid") Long uid);
+    public ResultEntity<UserRecommendation> getUserRecommendationDao(@PathVariable("uid") Long uid);
+
+    @RequestMapping("/recommend/multiple-ranking")
+    @ResponseBody
+    public ResultEntity<MultipleRankings> getLatestMultipleRankings();
 
 }

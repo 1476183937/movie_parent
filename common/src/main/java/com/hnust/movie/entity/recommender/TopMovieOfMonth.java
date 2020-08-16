@@ -23,6 +23,6 @@ public class TopMovieOfMonth implements Serializable {
     @Id
     private String id;                      //统计id
     private String date;                    //统计日期
-    private List<MovieInMongodb> movieList; //每月的top10电影列表
+    private List<MovieInfoMongodb> movieList; //每月的top10电影列表
 
 }

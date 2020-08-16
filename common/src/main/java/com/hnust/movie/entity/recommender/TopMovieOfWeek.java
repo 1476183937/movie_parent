@@ -23,6 +23,6 @@ public class TopMovieOfWeek implements Serializable {
     @Id
     private String id;                      //统计id
     private String date;                    //统计日期
-    private List<MovieInMongodb> movieList; //每周的top10电影(包含动漫)列表
+    private List<MovieInfoMongodb> movieList; //每周的top10电影(包含动漫)列表
 
 }

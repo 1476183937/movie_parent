@@ -1,5 +1,6 @@
 package com.hnust.movie.util;
 
+import com.hnust.movie.entity.vo.LoginLog;
 import com.hnust.movie.entity.vo.UserActionLog;
 
 /**
@@ -55,5 +56,12 @@ public class LogUtils {
         userActionLog.info(log.toString());
 
     }
+
+    public static void loginLog(org.slf4j.Logger loginLogger, LoginLog loginLog){
+
+        loginLogger.info("{}|{}|{}|{}",loginLog.getUserName(),loginLog.getIp(),loginLog.getResult(),loginLog.getTimeStamp());
+
+    }
+
 
 }

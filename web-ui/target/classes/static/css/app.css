@@ -1094,7 +1094,7 @@ a.v-playBtn:hover i:before {
 }
 
 .detail_top, .iplaytop {
-    background: url(../images/detail_top_bg.jpg) center 0 no-repeat #59467e;
+    background: url(../images/detail_top_bblank.jpg) center 0 no-repeat #59467e;
     padding: 0 0 20px;
 }
 
@@ -1693,7 +1693,7 @@ a.v-playBtn:hover i:before {
 
 .infor_data_list {
     margin: 10px 0 0;
-    background: url(http://343.pc16.cn/template/helen_ten/images/border_dotted_bg.png)
+    background: url(/images/blank.jpg)
 }
 
 .infor_data_list .item {
@@ -1869,7 +1869,8 @@ a.v-playBtn:hover i:before {
     float: left;
     display: inline-flex;
     box-sizing: border-box;
-    width: 50%
+    margin-right: 10px;
+    width: 80px
 }
 
 .play-list li a {
@@ -2088,7 +2089,7 @@ a.v-playBtn:hover i:before {
     top: 0;
     right: 0;
     width: 75pt;
-    background: url(http://343.pc16.cn/template/helen_ten/images/anthology_more_bg.png) no-repeat;
+    background: url(/images/blank.jpg) no-repeat;
     text-align: right
 }
 
@@ -2218,7 +2219,7 @@ a.v-playBtn:hover i:before {
     width: 24px;
     height: 24px;
     font-size: 2.8rem;
-    background: url(../images/rank_icon_bg.png) no-repeat;
+    background: url(../images/blank.jpg) no-repeat;
 }
 
 .rank_list dl dd, .sel_list li dd {
@@ -3101,14 +3102,22 @@ html.show {
 }
 
 .xjul li a {
+    /*color: #999*/
+}
+
+.xjul li span {
     color: #999
 }
 
 .xjul li.cur {
-    border-bottom: 2px solid #00b38b
+    /*border-bottom: 2px solid #00b38b*/
+    border-bottom: 2px solid #0000FF
 }
 
 .fjtab.cur, .xjul li.cur a {
+    color: #00b38b
+}
+.fjtab.cur, .xjul li.cur span {
     color: #00b38b
 }
 
@@ -3156,7 +3165,7 @@ html.show {
     float: left;
     height: 25px;
     position: relative;
-    background: url(http://343.pc16.cn/template/helen_ten/images/star1.png) top left no-repeat
+    background: url(/images/blank.jpg) top left no-repeat
 }
 
 .score ul li {
@@ -3174,7 +3183,7 @@ html.show {
 }
 
 .score ul li a:hover {
-    background: url(http://343.pc16.cn/template/helen_ten/images/star.png) no-repeat;
+    background: url(/images/blank.jpg) no-repeat;
     z-index: 2;
     left: 0;
     cursor: pointer;
@@ -3262,7 +3271,7 @@ html.show {
 }
 
 .star .star_current {
-    background: url(http://343.pc16.cn/template/helen_ten/images/star.png) no-repeat;
+    background: url(/images/blank.jpg) no-repeat;
     position: absolute;
     height: 25px;
     width: 33px;
@@ -3609,39 +3618,39 @@ textarea.form-control {
 }
 
 .comment-item:nth-child(9n) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/a.jpg) no-repeat;
+    background: url(/images/blank.jpg) no-repeat;
 }
 
 .comment-item:nth-child(9n+1) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/b.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+2) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/c.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+3) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/d.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+4) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/e.jpg) no-repeat
+    background: url(/images/e.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+5) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/f.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+6) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/g.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+7) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/h.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item:nth-child(9n+8) .avatar {
-    background: url(http://343.pc16.cn/template/helen_ten/images/i.jpg) no-repeat
+    background: url(/images/blank.jpg) no-repeat
 }
 
 .comment-item .user {

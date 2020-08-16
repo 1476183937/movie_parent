@@ -2,6 +2,7 @@ package com.hnust.movie.controller;
 
 import com.hnust.movie.entity.po.*;
 import com.hnust.movie.entity.vo.*;
+import com.hnust.movie.mapper.MovieInfoMapper;
 import com.hnust.movie.service.*;
 import javafx.geometry.Pos;
 import org.apache.commons.lang.StringUtils;
@@ -46,6 +47,23 @@ public class DataBaseController {
 
     @Autowired
     private UserCollectionService userCollectionService;
+
+    @Autowired
+    private MovieInfoMapper movieInfoMapper;
+
+//    导入数据测试用
+    @RequestMapping("/test")
+    public void insertTest(){
+
+        List<MovieInfo> all = movieInfoMapper.getAll();
+        int cnt = 1;
+        for (MovieInfo movieInfo : all) {
+            movieInfoMapper.insertTest(movieInfo.getMid()+1,movieInfo.getMid(),movieInfo.getPlayUrl());
+            System.out.println("第 "+ cnt++ +" 条"+": "+movieInfo.getMid());
+        }
+
+    }
+
 
     /**
     *@title:
@@ -211,9 +229,9 @@ public class DataBaseController {
     }
 
 
-    @RequestMapping("/index/{is_comic}")
+    @RequestMapping("/db/index/{is_comic}")
     @ResponseBody
-    public ResultEntity<List<MovieInfo>> getMovieInfoForIndexPage(@PathVariable(value = "is_comic") int is_comic){
+    public ResultEntity<List<MovieInfoInCache>> getMovieInfoForIndexPage(@PathVariable(value = "is_comic") int is_comic){
 
         return movieInfoService.getMovieInfoForIndexPage(is_comic);
 
@@ -270,7 +288,7 @@ public class DataBaseController {
     *@author:ggh
     *@updateTime: 2020/5/20 11:05
     **/
-    @RequestMapping("/category/all")
+    @RequestMapping("/db/category/all")
     @ResponseBody
     public ResultEntity<CategorySearchVO> getAllCategoriesInfo(){
 
@@ -298,11 +316,13 @@ public class DataBaseController {
     *@author:ggh
     *@updateTime: 2020/5/14 10:23
     **/
-    @RequestMapping("/detailInfo/{movieId}")
+    @RequestMapping("/db/detailInfo/{movieId}")
     @ResponseBody
-    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId){
+//    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId){
+    public ResultEntity<MovieInfoInCache> getDetailInfo(@PathVariable("movieId") Long movieId){
 
-        ResultEntity<MovieInfo> resultEntity = movieInfoService.getDetailByMovieId(movieId);
+//        ResultEntity<MovieInfo> resultEntity = movieInfoService.getDetailByMovieId(movieId);
+        ResultEntity<MovieInfoInCache> resultEntity = movieInfoService.getDetailByMovieId(movieId);
 
         return resultEntity;
     }
@@ -314,7 +334,7 @@ public class DataBaseController {
     *@author:ggh
     *@updateTime: 2020/5/14 18:29
     **/
-    @RequestMapping("/detailInfo/comment/{movieId}")
+    @RequestMapping("/db/detailInfo/comment/{movieId}")
     @ResponseBody
     public ResultEntity<List<CommentVO>> getCommentByMid(
             @PathVariable("movieId") Long movieId,
@@ -360,7 +380,7 @@ public class DataBaseController {
 
     /**
     *@title:
-    *@description:获取所有电影数据
+    *@description:获取所有电影数据,不做任何过滤
     *@param:
     *@author:ggh
     *@updateTime: 2020/5/18 21:48
@@ -438,5 +458,15 @@ public class DataBaseController {
 
 
     }
+
+    @RequestMapping("/db/get/latest/movies/{size}")
+    @ResponseBody
+    public ResultEntity<List<MovieInfoInCache>> getLatestAllMovies(@PathVariable("size") int size){
+
+        ResultEntity<List<MovieInfoInCache>> latestMovies = movieInfoService.getLatestMovies(size);
+
+        return latestMovies;
+    }
+
 
 }

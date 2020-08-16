@@ -40,7 +40,99 @@
 
     <div class="container">
 
-        <div th:insert="/common/head.html"></div>
+        <!--引入公共头部部分-->
+        <!--        <div th:replace="/common/head.html"></div>-->
+        <div class="site_head site_head_channel" id="new_vs_header">
+            <div class="head_inner">
+
+                <div class="site_channel" style="padding-left: 30px">
+
+                    <a href="/" style="font-size: x-large;" class="channel_nav channel_nav_0 _channel_nav_精选" >首页</a>
+                    <!--            <a href="/movie-list.html" th:class="${category=='movie'}?'current'" style="font-size: x-large;" class="channel_nav channel_nav_0 _channel_nav_精选" >精选</a>-->
+                    <a href="/movie-list.html" th:style="${category=='movie'}?'color:red;font-size: x-large;margin-left: 20px':'font-size: x-large;margin-left: 20px'" style="font-size: x-large" class="channel_nav channel_nav_0 _channel_nav_精选" >精选</a>
+
+
+                    <!--            <a href="/movie-list.html" th:class="${category=='movie'}?'current'" style="font-size: x-large;margin-left: 20px" class="channel_nav channel_nav_2 _channel_nav_电影" >电影</a>-->
+                    <a href="/movie-list.html" th:style="${category=='movie'}?'color:red;font-size: x-large;margin-left: 20px':'font-size: x-large;margin-left: 20px'" style="font-size: x-large;margin-left: 20px" class="channel_nav channel_nav_2 _channel_nav_电影" >电影</a>
+
+                    <a href="/comic-list.html" th:style="${category=='comic'}?'color:red;font-size: x-large;margin-left: 20px':'font-size: x-large;margin-left: 20px'" style="font-size: x-large;margin-left: 20px" class="channel_nav channel_nav_4 _channel_nav_动漫" >动漫</a>
+
+                    <a href="/category/search" class="channel_more _site_channel_more" title="展开更多频道" _stat="顶部导航区:主导航:全部频道">
+                        <span class="icon_text" style="font-size: x-large;margin-left: 20px">全部</span>
+                        <svg class="svg_icon_menu_sm" viewBox="0 0 18 18" width="18" height="18">
+                            <g class="svg_before">
+                                <circle cx="5" cy="5" r="2.4" fill="none" stroke="#ffb821" stroke-width="1.2"></circle>
+                                <circle cx="5" cy="13" r="2.4" fill="none" stroke="#fc5131" stroke-width="1.2"></circle>
+                                <circle cx="13" cy="5" r="2.4" fill="none" stroke="#ff1919" stroke-width="1.2"></circle>
+                                <circle cx="13" cy="13" r="2.4" fill="none" stroke="#ff147c" stroke-width="1.2"></circle>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+
+                <img class="unusual_pic none" data-choice="" data-tv="" data-movie="" data-variety="" data-cartoon=""
+                     data-child="" data-doco="" data-hlw="" data-music="" data-feeds_hotspot=""
+                     src="//puui.qpic.cn/vupload/0/common_blank.png/0" alt="">
+
+                <div class="mod_search">
+                    <form id="searchForm" action="/search.html" method="get" target="_blank" class="search_form cf">
+                        <label class="search_label" for="keyword">搜索关键词</label>
+                        <div class="search_keywords">
+                            <input type="text" name="kw" id="keyword" class="search_input" placeholder="奔跑吧 第4季"  value="奔跑吧 第4季">
+                        </div>
+
+                        <button class="search_btn" id="searchBtn">
+                            <svg class="svg_icon svg_icon_search" viewBox="0 0 18 18" width="18" height="18">
+                                <path d="M4.5 4.5c-1.9 1.9-1.9 5.1 0 7.1s5.1 1.9 7.1 0 1.9-5.1 0-7.1-5.2-2-7.1 0zm10.8 12.2l-3.1-3.1c-2.7 2-6.6 1.9-9.1-.6C.3 10.2.3 5.8 3 3 5.7.3 10.2.3 12.9 3c2.5 2.5 2.7 6.4.6 9.1l3.1 3.1c.4.4.4 1 0 1.4-.3.5-.9.5-1.3.1z"
+                                      fill="currentColor"></path>
+                            </svg>
+                            <span class="btn_inner" >搜索</span>
+                        </button>
+                        <a class="btn_search_hot" href="https://v.qq.com/x/hotlist/search/?channel=555&amp;source=common_nav_vs"
+                           target="_blank" title="热搜榜">
+                            <svg class="svg_icon_fire" width="12" height="15" viewBox="0 0 12 15">
+
+                                <path d="M6.634 17C2.539 14.21 1.905 10.843 4.73 6.898 6.307 4.845 7.253 4.053 7.253 2c.353.183 5.134 2.569 4.024 7.5 1.01-.505 1.684-1.659 2.025-3.463 2.28 3.767 2.264 6.9-.051 9.4-.489.528-1.211 1.05-1.873 1.563-1.33-.625-2.932-1.875-3.573-5.625C6.524 12.833 6.133 14.708 6.634 17z"
+                                      fill="url(#__gradient_fire)" transform="translate(-3 -2)"></path>
+                            </svg>
+                            热搜榜
+                        </a>
+                    </form>
+                </div>
+                <!-- 快捷入口 开始 -->
+                <div class="mod_quick cf">
+
+                    <!-- 历史浮层 -->
+                    <div class="quick_item quick_history" id="modHistory" style="margin-left: 20px;">
+                        <a href="https://v.qq.com/biu/u/history/" th:href="${#httpServletRequest.getAttribute('userId')==null}?'/login.html':'/user/info/'+${#httpServletRequest.getAttribute('userId')}+'/history'" class="quick_link" target="_blank" _stat="顶部导航区:观看历史">
+
+                            <svg class="svg_quick_icon svg_icon_time" viewBox="0 0 26 26" width="26" height="26">
+                                <circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                                <path d="M14 13h3c.6 0 1 .4 1 1s-.4 1-1 1h-4c-.6 0-1-.4-1-1V8c0-.6.4-1 1-1s1 .4 1 1v5z"
+                                      fill="currentColor"></path>
+                            </svg>
+
+                            <span class="quick_text">看过</span></a>
+
+                    </div>
+
+                    <div class="quick_item quick_user" id="mod_head_user" style="margin-left: 40px;margin-right: 30px">
+                        <a href="/login.html" th:href="${#httpServletRequest.getAttribute('userId')==null}?'/login.html':'/user/info/'+${#httpServletRequest.getAttribute('userId')}" class="quick_link _checklogin" id="mod_head_notice_trigger">
+                            <img class="quick_user_avatar" th:src="${#httpServletRequest.getAttribute('face')==null}?'/images/user.jpg':${#httpServletRequest.getAttribute('face')}" style="border-radius: 50%;overflow: hidden" src="/images/user.jpg" >
+
+                        </a>
+
+                    </div>
+                    <!--            <input type="button" value="退出" style="font-size: medium">-->
+                    <a href="/login.html" th:href="${#httpServletRequest.getAttribute('userId')==null}?'/login.html':'/logout'" th:text="${#httpServletRequest.getAttribute('userId')==null}?'请登录':'退出'" style="font-size: medium"></a>
+                    <!--            <input type="button" th:href="${#httpServletRequest.getAttribute('userId')==null}?'/login.html':'/logout'" th:value="${#httpServletRequest.getAttribute('userId')==null}?'请登录':'退出'" value="请登录" style="font-size: medium">-->
+                </div>
+                <!-- 快捷入口 结束 -->
+
+            </div>
+
+        </div>
+
 
     </div>
 </header>
@@ -64,7 +156,7 @@
 <!--                            <a th:href="'/index/detail/'+${movieInfo.mid}+'.html'"></a>-->
                             <img th:src="${movieInfo.imgUrls}"  alt="爱书的下克上 第2季">
                             <span class="v-tips">
-                                <em>更新至2集</em>
+                                <em>高清</em>
                             </span>
                             <a href="javascript:;" th:href="'/index/detail/'+${movieInfo.mid}+'.html'" class="v-playBtn">
                                 <i></i>
@@ -75,9 +167,12 @@
                                 <div class="tit">
                                     <span class="s_score" th:text="${movieInfo.ratingNum} +'分'">1.0分</span>
                                     <span class="s_tit">
-                                        <a href="javascript:;" th:href="'/play/'+${movieInfo.mid}+'.html'">
-                                            <strong style="color: #1b1b1b" th:utext="${movieInfo.movieName}">爱书的下克上 第2季</strong>
-                                        </a>
+                                        <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis;-webkit-line-clamp:1">
+                                            <a href="javascript:;" th:href="'/play/'+${movieInfo.mid}+'.html'">
+                                                <strong style="color: #1b1b1b" th:utext="${movieInfo.movieName}">爱书的下克上 第2季</strong>
+                                            </a>
+                                        </div>
+
                                     </span>
                                     <span class="s_type">[动漫]</span>
                                 </div>
@@ -92,11 +187,13 @@
                                     </li>
                                     <li class="clearfix">
                                         <em class="em_tit">主演：</em>
-                                        <em th:text="${movieInfo.mainActors}">未知</em>
+<!--                                        <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis;-webkit-line-clamp:1">-->
+                                            <em th:text="${movieInfo.mainActors}" >未知</em>
+<!--                                        </div>-->
                                     </li>
                                     <li class="li_intro clearfix">
                                         <em class="em_tit">简介：</em>
-                                        <div class="p_intro" th:text="${movieInfo.summery}">
+                                        <div class="p_intro" th:text="${movieInfo.summery}" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis;-webkit-line-clamp:2">
                                             从小就是个超级书痴的女大学生丽乃，爱书爱到希望在书堆里死去该说是“梦想成真”吗？好不容易应征上图书馆工作的她，没想到却在地震时被掉落的书给活埋……
                                             当她再度醒过来，发现自己竟然转生到了陌生的异世界，变
                                         </div>
@@ -136,10 +233,43 @@
         <div class="col-r">
 
             <!--引入公共电影排行榜模块-->
-            <div th:insert="/common/rankingOfMovie.html"></div>
+<!--            <div th:insert="/common/rankingOfMovie.html"></div>-->
+            <div class="tv-hd">
+                <h2>电影 • 排行榜</h2>
+            </div>
+            <div class="tv-bd">
+                <ul class="v-rank clearfix">
+
+                    <li th:each="movie,movieStat:${topMovies.data.movieList}">
+                        <i class="i-rank_num" th:text="${movieStat.count}">1</i>
+                        <em class="v-num">高清</em>
+                        <span class="v-tit">
+                <a href="334.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:text="${movie.movieName}" title="神都蜜探">神都蜜探</a>
+            </span>
+                    </li>
+
+                </ul>
+            </div>
 
             <!--引入公共动漫排行榜模块-->
-            <div th:insert="/common/rankingOfComic.html"></div>
+<!--            <div th:insert="/common/rankingOfComic.html"></div>-->
+            <div class="tv-hd">
+                <h2>动漫 • 排行榜</h2>
+            </div>
+            <div class="tv-bd">
+                <ul class="v-rank clearfix">
+
+                    <li th:each="comic,comicStat:${topComics.data.movieList}">
+                        <i class="i-rank_num" th:texh="${comicStat.count}">1</i>
+                        <em class="v-num">高清</em>
+                        <span class="v-tit">
+                <a href="334.html" th:href="'/index/detail/'+${comic.mid}+'.html'" th:text="${comic.movieName}" title="神都蜜探">神都蜜探</a>
+            </span>
+                    </li>
+
+
+                </ul>
+            </div>
 
         </div>
 
@@ -149,8 +279,20 @@
     // $('.mac_total').html('388');
 </script>
 <!-- 页脚 -->
-<div th:insert="/common/footer.html"></div>
-
+<!--<div th:insert="/common/footer.html"></div>-->
+<footer class="ifoot">
+    <nav class="bnav">
+        <a href="" title="电影">热播电影</a>
+        <!--        <a href="2.html" title="连续剧">热播连续剧</a>-->
+        <!--        <a href="3.html" title="综艺">热播综艺</a>-->
+        <a href="comic_list.html" title="动漫">热播动漫</a>
+        <!--        <a href="5.html" title="资讯">热播资讯</a>-->
+        <a href="index2.html" title="留言求片">留言求片</a>
+    </nav>
+    <p>免责声明:本网站所有内容均系收集于各大网站，本站只提供WEB页面服务，并不提供影片资源储存也不参与录制与上传，若本站收录内容无意侵犯了贵公司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢合作。</p>
+    <p class="en">343.pc16.cn站长邮箱</p>
+    <p class="en">统计代码</p>
+</footer>
 
 <script src="/js/lazyload.min.js"></script>
 <script src="/js/app.js"></script>

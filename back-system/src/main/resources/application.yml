@@ -13,8 +13,13 @@ spring:
     mode: LEGACYHTML5 # 松校验
   cloud:
     nacos:
-      config:
-        server-addr: localhost:8848
+#      config:
+#        server-addr: http://47.112.148.78:8848
+#        server-addr: 47.112.148.78:8848
+      discovery:
+        server-addr: 47.112.148.78:8848
+        file-extension: yaml #这里我们获取的yaml格式的配置
+
   mvc:
     static-path-pattern: /**
 

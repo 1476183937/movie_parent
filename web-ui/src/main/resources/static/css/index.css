@@ -23,17 +23,17 @@ body .fn-hide{display:none}
 .fn-right{float:right}
 .h-clear{height:8px;clear:both}
 .clear{clear:both}
-.loading{background:url(http://343.pc16.cn/template/helen_ten/jj/images/loading.gif) no-repeat center #f3f3f3; width:100%; height:100%; display:block}
-.lazy{background:url(http://343.pc16.cn/template/helen_ten/jj/images/loading.gif) no-repeat center #f3f3f3}
-.load{width:100%;text-align:center;height:40px;margin-top:20px;margin-bottom:20px;line-height:40px;background:url(http://343.pc16.cn/template/helen_ten/jj/images/load.gif) center no-repeat;text-indent:12%;}
+.loading{background:url(/images/loading.gif) no-repeat center #f3f3f3; width:100%; height:100%; display:block}
+.lazy{background:url(/images/loading.gif) no-repeat center #f3f3f3}
+.load{width:100%;text-align:center;height:40px;margin-top:20px;margin-bottom:20px;line-height:40px;background:url(/images/load.gif) center no-repeat;text-indent:12%;}
 .kong{width:100%;text-align:center;height:40px;margin-top:20px;margin-bottom:20px;line-height:40px;}
 @font-face {
   font-family: 'iconfont';
   src: url('../font/font_1468425873_3733525.eot'); 
-  src: url('http://343.pc16.cn/template/helen_ten/jj/fonts/font_1468425873_3733525.eot') format('embedded-opentype'), 
-  url('http://343.pc16.cn/template/helen_ten/jj/fonts/font_1468425873_3733525.woff') format('woff'), 
-  url('http://343.pc16.cn/template/helen_ten/jj/fonts/font_1468425873_3733525.ttf') format('truetype'), 
-  url('http://343.pc16.cn/template/helen_ten/jj/fonts/font_1468425873_3733525.svg#iconfont') format('svg'); 
+  src: url('/fonts/font_1468425873_3733525.eot') format('embedded-opentype'), 
+  url('/fonts/font_1468425873_3733525.woff') format('woff'), 
+  url('/fonts/font_1468425873_3733525.ttf') format('truetype'), 
+  url('/fonts/font_1468425873_3733525.svg#iconfont') format('svg'); 
 }
                                                                                   
 .iconfont {
@@ -124,7 +124,7 @@ body .fn-hide{display:none}
 .list-img li .picm{float:left;}
 .list-img .ws{ padding:3px 5px; line-height:24px;background:#0094E3;position: absolute;left: 0;top: 0px;color: #fff;overflow: hidden;cursor: pointer;text-shadow: 1px 1px 2px #000;}
 
-.list-img .txt,.list-img .mh3,.star-r-m-list li.imglist .mh3,.star-hot-img .txt,.star-hot-img .mh3,.roleimg .mh3,.news-img .txt,.img215x123 .txt,.img300x150 .txt{ height: 55px;padding-top: 65px;width: 100%;position: absolute;left: 0;bottom: 0px;_bottom: -1px;background: url(http://343.pc16.cn/template/helen_ten/jj/images/mask_txtbg_100.png) 0 bottom repeat-x;color: #fff;overflow: hidden;text-indent: 4px;cursor: pointer;overflow: hidden;_filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#80000000',GradientType=0 );}
+.list-img .txt,.list-img .mh3,.star-r-m-list li.imglist .mh3,.star-hot-img .txt,.star-hot-img .mh3,.roleimg .mh3,.news-img .txt,.img215x123 .txt,.img300x150 .txt{ height: 55px;padding-top: 65px;width: 100%;position: absolute;left: 0;bottom: 0px;_bottom: -1px;background: url(/images/mask_txtbg_100.png) 0 bottom repeat-x;color: #fff;overflow: hidden;text-indent: 4px;cursor: pointer;overflow: hidden;_filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#80000000',GradientType=0 );}
 
 .list-img .mh3,.star-r-m-list li.imglist .mh3,.star-hot-img .mh3,.roleimg  .mh3{text-indent: 8px;font-size: 13px; height: 24px;overflow: hidden;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;}
 .list-img li .txt h3{font-size: 14px; height: 24px;overflow: hidden; font-weight:normal}
@@ -134,7 +134,7 @@ body .fn-hide{display:none}
 .list-img li .txt h3  a,.star-r-m-list li.imglist .mh3  a,.roleimg .mh3  a{ color:#FFF}
 .list-img li .des,.news-img .txt span{font-size: 14px;height: 22px;overflow: hidden;color: #999;}
 .list-img li .js {display: block;filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background: rgba(0,0,0,0.5);text-align: center;padding: 0 5px;overflow: hidden;color: #eee;position: absolute;bottom: 0;right: 0;font-size: 13px;}
-.list-img li a .info,.list-img li a .infos,.roleimg a .info,.img215x123 a .info,.newsplay li .info,.img300x150 a .info,.star-hot-img li a .info{text-indent: 15px;background:url(http://343.pc16.cn/template/helen_ten/jj/images/fillbg.png) 0 0 repeat;position:absolute;top:0;left:0;z-index:20;display:block;height:100%;width:100%;opacity: 0;filter: alpha(opacity=0);-moz-transition:opacity 0.3s;-webkit-transition:opacity 0.3s;-o-transition:opacity 0.3s;transition:opacity 0.3s; color:#FFF}
+.list-img li a .info,.list-img li a .infos,.roleimg a .info,.img215x123 a .info,.newsplay li .info,.img300x150 a .info,.star-hot-img li a .info{text-indent: 15px;background:url(/images/fillbg.png) 0 0 repeat;position:absolute;top:0;left:0;z-index:20;display:block;height:100%;width:100%;opacity: 0;filter: alpha(opacity=0);-moz-transition:opacity 0.3s;-webkit-transition:opacity 0.3s;-o-transition:opacity 0.3s;transition:opacity 0.3s; color:#FFF}
 
 
 .list-img li a:hover .info,.list-img li a:hover .infos,.roleimg a:hover .info,.img215x123 a:hover .info,.newsplay li:hover .info,.img300x150 li:hover .info,.star-hot-img li a:hover .info{background: rgba(0,0,0,0.5);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);opacity: 1;}
@@ -155,7 +155,7 @@ body .fn-hide{display:none}
 .list-img li .mask{width:100%;height:25px; line-height:25px;display:block;overflow:hidden;background-color:#000;position:absolute;left:0;bottom:0px;filter:alpha(opacity=30);opacity:0.3;z-index:1;}
 .list-img li .text{width:100%;height:25px;line-height:25px;display:block;overflow:hidden;font-size:12px;position:absolute;left:0;bottom:0px;padding:0 15px;text-align:right;z-index:2;color:#fff;white-space:nowrap; text-align:left}
 .list-img li .score{display:block;width:30px;height:18px;line-height:16px;padding-right:5px;text-align:center;overflow:hidden;color:#fff;position:absolute;left:0;top:8px;z-index:3;font-weight:700;-webkit-text-size-adjust:none;}
-.list-img li .qx{ padding:5px 8px;background:url(http://343.pc16.cn/template/helen_ten/jj/images/fillbg.png) 0 0 repeat;position:absolute;top:0;right:0;z-index:20;display:block;opacity: 1; color:#FFF;background: rgba(0,0,0,0.3);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);opacity: 1;
+.list-img li .qx{ padding:5px 8px;background:url(/images/fillbg.png) 0 0 repeat;position:absolute;top:0;right:0;z-index:20;display:block;opacity: 1; color:#FFF;background: rgba(0,0,0,0.3);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);opacity: 1;
 }
 
 
@@ -318,8 +318,8 @@ body .fn-hide{display:none}
 .header .nav li a{display:block; color:#fff;}
 .header .nav li.on,.header .nav li:hover{background:#11161F;background-color: rgba(0,0,0,0.3);-webkit-transition: background .3s ease-in-out;transition: background .3s ease-in-out;}
 .header .saerch{font-size: 14px;color: #b9b9b9; float:left; position:relative;text-shadow:none}
-.header .search-input{display: block;width: 180px;height: 28px;font-size: 12px;line-height: 28px;border: 1px solid #4e4e4e;padding: 3px 30px 3px 10px;border-radius: 3px;-webkit-transition: background-position .2s ease-in-out;transition: background-position .2s ease-in-out;color: #fff;*color: #fff;_color: #fff;background:#11161F url(http://343.pc16.cn/template/helen_ten/jj/images/sobtn.png) 190px center no-repeat;background-color: rgba(17,22,31,0.5);}
-.header .search-top{position: absolute;right: 30px;top: 0;display: block;width: 36px;height: 36px;background: url(http://343.pc16.cn/template/helen_ten/jj/images/search-top.png) center center no-repeat;}
+.header .search-input{display: block;width: 180px;height: 28px;font-size: 12px;line-height: 28px;border: 1px solid #4e4e4e;padding: 3px 30px 3px 10px;border-radius: 3px;-webkit-transition: background-position .2s ease-in-out;transition: background-position .2s ease-in-out;color: #fff;*color: #fff;_color: #fff;background:#11161F url(/images/sobtn.png) 190px center no-repeat;background-color: rgba(17,22,31,0.5);}
+.header .search-top{position: absolute;right: 30px;top: 0;display: block;width: 36px;height: 36px;background: url(/images/search-top.png) center center no-repeat;}
 .header .search-button{border: none;cursor: pointer;width: 30px;height: 28px;position: absolute;background-color:transparent;right:0;top:0;}
 .header .header_r{ float:right;}
 .header .header_r a{font-size:14px;color:#F5F5F5;cursor: pointer;}
@@ -335,7 +335,7 @@ body .fn-hide{display:none}
 .m-header a{ color:#FFF; padding:0 8px;}
 .mhs-position{position:fixed;top:0;left:0;z-index:999}
 .mbNone{border-bottom:1px solid #fff}
-.nav_more{background: url(http://343.pc16.cn/template/helen_ten/jj/images/alp2-90.png);position:fixed;left: 0;top: 60px;width: 100%; display:none; z-index:999}
+.nav_more{background: url(/images/alp2-90.png);position:fixed;left: 0;top: 60px;width: 100%; display:none; z-index:999}
 .nav_more ul{height:50px; line-height:50px;width: 1000px;margin: 0 auto; overflow:hidden}
 .nav_more ul li{float:left;*display:inline;margin-right:2px;min-width:65px;}
 .nav_more ul li a{color: #E4E4E4;}

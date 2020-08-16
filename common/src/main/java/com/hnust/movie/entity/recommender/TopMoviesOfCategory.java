@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Title:
+ * @Title:类别统计的实例
  * @Author: ggh
  * @Date: 2020/5/23 9:58
  */
@@ -24,6 +24,6 @@ public class TopMoviesOfCategory implements Serializable {
     private String id;                         //统计id
     private String category;                //统计的类别
     private String date;                    //统计的日期
-    private List<MovieInMongodb> movieList; //该类别的top10电影列表
+    private List<MovieInfoMongodb> movieList; //该类别的top10电影列表
 
 }

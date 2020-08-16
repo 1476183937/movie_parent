@@ -1,5 +1,15 @@
 package com.hnust.movie.controller;
 
+import com.hnust.movie.entity.po.MovieInfo;
+import com.hnust.movie.entity.recommender.MultipleRankings;
+import com.hnust.movie.entity.recommender.UserRecommendation;
+import com.hnust.movie.entity.vo.MovieInfoInCache;
+import com.hnust.movie.entity.vo.ResultEntity;
+import com.hnust.movie.entity.vo.SearchResultVO;
+import com.hnust.movie.service.CacheService;
+import com.hnust.movie.service.DatabaseService;
+import com.hnust.movie.service.RecommendService;
+import com.hnust.movie.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,22 +30,79 @@ import java.util.UUID;
 @Controller
 public class TestController {
 
+    @Autowired
+    private DatabaseService databaseService;
 
-    @Resource
-    private KafkaTemplate<String , Object> kafkaTemplate;
+    @Autowired
+    private CacheService cacheService;
 
-    @Value("${kafka.MovieRating.topic}")
-    private String topic;
+    @Autowired
+    private RecommendService recommendService;
 
-    @RequestMapping("/kafka/test")
+    @Autowired
+    private SearchService searchService;
+
+
+    @RequestMapping("/dbTest")
     @ResponseBody
-    public String kafkaTest(){
+    public ResultEntity<MovieInfoInCache> databaseTest(){
 
-        System.out.println(topic);
-        kafkaTemplate.send(topic,"12|22|33|44");
+        ResultEntity<MovieInfoInCache> detailInfo = databaseService.getDetailInfo(1292348L);
+        return detailInfo;
 
-        return "success";
     }
+
+    @RequestMapping("/cacheTest")
+    @ResponseBody
+    public ResultEntity<MovieInfoInCache> cacheTest(){
+
+        ResultEntity<MovieInfoInCache> detailInfo = cacheService.getMovieInfoFromCache(1292348L);
+        return detailInfo;
+
+    }
+
+    @RequestMapping("/recommendTest")
+    @ResponseBody
+    public ResultEntity recommendTest(){
+
+        ResultEntity topMovies = recommendService.getTopMovies();
+
+        return topMovies;
+
+    }
+
+    @RequestMapping("/searchTest")
+    @ResponseBody
+    public ResultEntity searchTest(){
+
+        ResultEntity<SearchResultVO> infoByKw = searchService.getMovieInfoByKw("火", 1, 10);
+        return infoByKw;
+
+    }
+
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test(){
+
+        return "test test";
+    }
+
+//    @Resource
+//    private KafkaTemplate<String , Object> kafkaTemplate;
+//
+//    @Value("${kafka.MovieRating.topic}")
+//    private String topic;
+
+//    @RequestMapping("/kafka/test")
+//    @ResponseBody
+//    public String kafkaTest(){
+//
+//        System.out.println(topic);
+//        kafkaTemplate.send(topic,"12|22|33|44");
+//
+//        return "success";
+//    }
 
     @RequestMapping("/test1")
     public String test1(@RequestParam(value = "val",required = false) String val, ModelMap modelMap){
@@ -77,6 +144,27 @@ public class TestController {
         modelMap.addAttribute("testVal",UUID.randomUUID().toString()+"val");
 
         return "test3";
+    }
+
+    @RequestMapping("/test4")
+    public String test4(){
+
+        return "test4";
+    }
+
+    @RequestMapping("/user/recommend/test")
+    @ResponseBody
+    public ResultEntity<UserRecommendation> userTest(){
+
+        return recommendService.getUserRecommendationDao(570140L);
+
+    }
+
+    @RequestMapping("/multiple/test")
+    @ResponseBody
+    public ResultEntity<MultipleRankings> multipleTest(){
+
+        return recommendService.getLatestMultipleRankings();
     }
 
 }

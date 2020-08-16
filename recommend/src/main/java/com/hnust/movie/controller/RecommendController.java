@@ -1,6 +1,6 @@
 package com.hnust.movie.controller;
 
-import com.hnust.movie.entity.recommender.SimilarMovieRecommendation;
+import com.hnust.movie.entity.recommender.*;
 import com.hnust.movie.entity.vo.ResultEntity;
 import com.hnust.movie.service.RecommendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +29,9 @@ public class RecommendController {
     **/
     @RequestMapping("/recommend/top/movies")
     @ResponseBody
-    public ResultEntity getTopMovies(){
+    public ResultEntity<TopMovies> getTopMovies(){
 
-        ResultEntity resultEntity = recommendService.getTopMovies();
+        ResultEntity<TopMovies> resultEntity = recommendService.getTopMovies();
 
         return resultEntity;
     }
@@ -45,9 +45,9 @@ public class RecommendController {
     **/
     @RequestMapping("/recommend/top/comics")
     @ResponseBody
-    public ResultEntity getTopComics(){
+    public ResultEntity<TopComics> getTopComics(){
 
-        ResultEntity resultEntity = recommendService.getTopComics();
+        ResultEntity<TopComics> resultEntity = recommendService.getTopComics();
 
         return resultEntity;
     }
@@ -77,9 +77,9 @@ public class RecommendController {
     **/
     @RequestMapping("/recommend/month/movies")
     @ResponseBody
-    public ResultEntity getTopMovieOfMonth(){
+    public ResultEntity<TopMovieOfMonth> getTopMovieOfMonth(){
 
-        ResultEntity resultEntity = recommendService.getTopMovieOfMonth();
+        ResultEntity<TopMovieOfMonth> resultEntity = recommendService.getTopMovieOfMonth();
 
         return resultEntity;
     }
@@ -93,9 +93,9 @@ public class RecommendController {
     **/
     @RequestMapping("/recommend/week/movies")
     @ResponseBody
-    public ResultEntity getTopMovieOfWeek(){
+    public ResultEntity<TopMovieOfWeek> getTopMovieOfWeek(){
 
-        ResultEntity resultEntity = recommendService.getTopMovieOfWeek();
+        ResultEntity<TopMovieOfWeek> resultEntity = recommendService.getTopMovieOfWeek();
 
         return resultEntity;
     }
@@ -109,9 +109,9 @@ public class RecommendController {
     **/
     @RequestMapping("/recommend/category/movies/{category}")
     @ResponseBody
-    public ResultEntity getTopMoviesOfCategory(@PathVariable("category") String category){
+    public ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(@PathVariable("category") String category){
 
-        ResultEntity resultEntity = recommendService.getTopMoviesOfCategory(category);
+        ResultEntity<TopMoviesOfCategory> resultEntity = recommendService.getTopMoviesOfCategory(category);
 
         return resultEntity;
     }
@@ -125,11 +125,26 @@ public class RecommendController {
     **/
     @RequestMapping("/recommend/user/movies/{uid}")
     @ResponseBody
-    public ResultEntity getUserRecommendationDao(@PathVariable("uid") Long uid){
+    public ResultEntity<UserRecommendation> getUserRecommendationDao(@PathVariable("uid") Long uid){
 
-        ResultEntity resultEntity = recommendService.getUserRecommendationDao(uid);
+        ResultEntity<UserRecommendation> resultEntity = recommendService.getUserRecommendationDao(uid);
 
         return resultEntity;
+    }
+
+    /**
+    *@title:
+    *@description: 获取最新的复合电影排行榜：大陆榜、北美榜、好评榜、热播榜
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/8/13 11:15
+    **/
+    @RequestMapping("/recommend/multiple-ranking")
+    @ResponseBody
+    public ResultEntity<MultipleRankings> getLatestMultipleRankings(){
+
+        ResultEntity<MultipleRankings> multipleRankings = recommendService.getMultipleRankings();
+        return multipleRankings;
     }
 
 }

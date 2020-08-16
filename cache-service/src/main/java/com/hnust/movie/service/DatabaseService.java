@@ -3,6 +3,7 @@ package com.hnust.movie.service;
 import com.hnust.movie.entity.po.Comment;
 import com.hnust.movie.entity.po.MovieInfo;
 import com.hnust.movie.entity.vo.CommentVO;
+import com.hnust.movie.entity.vo.MovieInfoInCache;
 import com.hnust.movie.entity.vo.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -26,9 +27,10 @@ public interface DatabaseService {
     *@author:ggh
     *@updateTime: 2020/5/14 18:32
     **/
-    @RequestMapping("/detailInfo/{movieId}")
+    @RequestMapping("/db/detailInfo/{movieId}")
     @ResponseBody
-    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId);
+//    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId);
+    public ResultEntity<MovieInfoInCache> getDetailInfo(@PathVariable("movieId") Long movieId);
 
     /**
     *@title:
@@ -36,7 +38,7 @@ public interface DatabaseService {
     *@author:ggh
     *@updateTime: 2020/5/14 18:32
     **/
-    @RequestMapping("/detailInfo/comment/{movieId}")
+    @RequestMapping("/db/detailInfo/comment/{movieId}")
     @ResponseBody
     public ResultEntity<List<CommentVO>> getCommentByMid(@PathVariable("movieId") Long movieId,
                                                          @RequestParam(value = "startPage", required = false, defaultValue = "1") int startPage);

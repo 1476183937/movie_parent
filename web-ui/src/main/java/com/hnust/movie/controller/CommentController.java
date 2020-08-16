@@ -6,10 +6,12 @@ import com.hnust.movie.entity.po.Comment;
 import com.hnust.movie.entity.vo.CommentVO;
 import com.hnust.movie.entity.vo.CommentVO2;
 import com.hnust.movie.entity.vo.ResultEntity;
+import com.hnust.movie.entity.vo.UserActionLog;
 import com.hnust.movie.service.DatabaseService;
 import com.hnust.movie.service.PassportService;
 import com.hnust.movie.util.CommonUtil;
 import com.hnust.movie.util.CookieUtil;
+import com.hnust.movie.util.LogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -91,9 +93,8 @@ public class CommentController {
             @RequestBody Comment comment,
             HttpServletRequest request,
             ModelMap modelMap){
-        String userId = null;
+        String userId = "";
         CommentVO2 commentVO2 = null;
-
 
         try {
             //获取uid
@@ -144,48 +145,15 @@ public class CommentController {
             //记录异常信息
             String jsonStr = JSONObject.toJSONString(comment);
             errorLog.error("Exception:{}",e);
-            errorLog.error("URL : {}, data: {}",request.getRequestURL(),jsonStr,e);
+            errorLog.error("URL : {}, data: {}",request.getRequestURL(),jsonStr);
             e.printStackTrace();
         }
 
-
         //记录用户行为日志
-        long time = System.currentTimeMillis();
-        StringBuffer log = new StringBuffer();
+        UserActionLog actionLog = new UserActionLog(0L, userId, request.getSession().getId(), request.getRequestURL().toString(), "", "", "", "", "0", "", "", "", "", comment.getMid() + "", "");
+        LogUtils.UserActionLog(userActionLog,actionLog);
 
-        String sessionId = request.getSession().getId();
 
-        StringBuffer url = request.getRequestURL();
-
-        String pageId = url.toString();
-        String searchKeyWord = "";
-        String clickCategory = "";
-        String collectCategory = "";
-        String ratingCategory = "";
-        String commentCategory = "0";
-        String playCategory = "";
-        String cilckMovieId = "";
-        String collectMovieId = "";
-        String ratingMovieId = "";
-        String commentMovieId = comment.getMid()+"";
-        String playMovieId = "";
-
-        log.append(time).append("|")
-                .append(userId).append("|")
-                .append(sessionId).append("|")
-                .append(pageId).append("|")
-                .append(searchKeyWord).append("|")
-                .append(clickCategory).append("|")
-                .append(collectCategory).append("|")
-                .append(ratingCategory).append("|")
-                .append(commentCategory).append("|")
-                .append(playCategory).append("|")
-                .append(cilckMovieId).append("|")
-                .append(collectMovieId).append("|")
-                .append(ratingMovieId).append("|")
-                .append(commentMovieId).append("|")
-                .append(playMovieId).append("|");
-        userActionLog.info(log.toString());
 
 //        return commentByMid;
         return ResultEntity.successWithData(commentVO2);

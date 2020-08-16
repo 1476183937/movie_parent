@@ -24,6 +24,6 @@ public class SimilarMovieRecommendation implements Serializable {
     private String id;                      //统计id
     private Long mid;                       //电影id
     private String date;                    //统计日期
-    private List<MovieInMongodb> simliarMovies; //该电影的top30相似电影
+    private List<MovieInfoMongodb> simliarMovies; //该电影的top30相似电影
 
 }

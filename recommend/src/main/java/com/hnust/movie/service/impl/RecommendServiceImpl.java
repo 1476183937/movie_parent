@@ -37,6 +37,9 @@ public class RecommendServiceImpl implements RecommendService {
     @Autowired
     private UserRecommendationDao userRecommendationDao;
 
+    @Autowired
+    private MultipleRankingDao multipleRankingDao;
+
     /**
     *@title:
     *@description: 获取电影(包含动漫)排行榜
@@ -45,7 +48,7 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:00
     **/
     @Override
-    public ResultEntity getTopMovies() {
+    public ResultEntity<TopMovies> getTopMovies() {
 
         TopMovies topMovies = topMoviesDao.findLatest();
 
@@ -65,7 +68,7 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:02
     **/
     @Override
-    public ResultEntity getTopComics() {
+    public ResultEntity<TopComics> getTopComics() {
 
         TopComics topComics = topComicsDao.findLatest();
 
@@ -79,13 +82,13 @@ public class RecommendServiceImpl implements RecommendService {
 
     /**
     *@title:
-    *@description: 获取相似电影
+    *@description: 根据电影id获取相似电影
     *@param:
     *@author:ggh
     *@updateTime: 2020/5/23 18:03
     **/
     @Override
-    public ResultEntity getSimilarMovieRecommendation(Long mid) {
+    public ResultEntity<SimilarMovieRecommendation> getSimilarMovieRecommendation(Long mid) {
 
         SimilarMovieRecommendation movieRecommendation = similarMovieRecommendationDao.findLatestByMid(mid);
 
@@ -105,7 +108,7 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:05
     **/
     @Override
-    public ResultEntity getTopMovieOfMonth() {
+    public ResultEntity<TopMovieOfMonth> getTopMovieOfMonth() {
 
         TopMovieOfMonth topMovieOfMonth = topMovieOfMonthDao.findLatest();
 
@@ -125,7 +128,7 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:06
     **/
     @Override
-    public ResultEntity getTopMovieOfWeek() {
+    public ResultEntity<TopMovieOfWeek> getTopMovieOfWeek() {
 
         TopMovieOfWeek movieOfWeek = topMovieOfWeekDao.findLatest();
 
@@ -145,7 +148,7 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:07
     **/
     @Override
-    public ResultEntity getTopMoviesOfCategory(String category) {
+    public ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(String category) {
 
         TopMoviesOfCategory latestByCategory = topMoviesOfCategoryDao.findLatestByCategory(category);
 
@@ -165,7 +168,7 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:08
     **/
     @Override
-    public ResultEntity getUserRecommendationDao(Long uid) {
+    public ResultEntity<UserRecommendation> getUserRecommendationDao(Long uid) {
 
         UserRecommendation userRecommendation = userRecommendationDao.findLatestByUid(uid);
 
@@ -173,6 +176,25 @@ public class RecommendServiceImpl implements RecommendService {
             return ResultEntity.successWithData(userRecommendation);
         }else{
             return ResultEntity.failed("get failed");
+        }
+
+    }
+
+    /**
+    *@title:
+    *@description: 获取最新的复合排行榜数据
+    *@param:
+    *@author:ggh
+    *@updateTime: 2020/8/13 11:13
+    **/
+    public ResultEntity<MultipleRankings> getMultipleRankings(){
+
+        MultipleRankings multipleRankings = multipleRankingDao.findLatest();
+        if (multipleRankings.getMultipleRankings().size() > 0){
+
+            return ResultEntity.successWithData(multipleRankings);
+        }else{
+            return ResultEntity.failed("get multipleRanking failed");
         }
 
     }

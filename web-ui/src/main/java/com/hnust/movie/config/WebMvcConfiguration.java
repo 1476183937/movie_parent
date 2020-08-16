@@ -3,10 +3,7 @@ package com.hnust.movie.config;
 import com.hnust.movie.interceptor.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * @Title:springmvc的配置类，原本继承WebMvcConfigurerAdapter类，但过时了，用WebMvcConfigurationSupport来替换
@@ -49,5 +46,14 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         registry.addViewController("/login.html").setViewName("login");
 
         super.addViewControllers(registry);
+    }
+
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowCredentials(true)
+                .allowedMethods("GET", "POST", "DELETE", "PUT")
+                .maxAge(3600);
     }
 }

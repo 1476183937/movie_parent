@@ -4,15 +4,18 @@ server:
 spring:
   application:
     name: recommender-server
-  cloud:
-    nacos:
-      config:
-        server-addr: localhost:8848
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: localhost:8848
   data:
     mongodb:
-      host: localhost
+#      host: localhost
+      host: 39.105.36.4
       database: recommender
       port: 27017
+#      username: admin
+#      password: admin
 
 #设置feign客户端超时时间（OpenFeign默认支持ribbon）
 ribbon:

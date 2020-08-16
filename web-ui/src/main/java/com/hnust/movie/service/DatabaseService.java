@@ -1,10 +1,7 @@
 package com.hnust.movie.service;
 
 import com.hnust.movie.entity.po.*;
-import com.hnust.movie.entity.vo.CategorySearchVO;
-import com.hnust.movie.entity.vo.CommentVO;
-import com.hnust.movie.entity.vo.ResultEntity;
-import com.hnust.movie.entity.vo.UserCollectionVO;
+import com.hnust.movie.entity.vo.*;
 import com.sun.org.apache.regexp.internal.RE;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -23,9 +20,9 @@ import java.util.List;
 @FeignClient(value = "database-server")
 public interface DatabaseService {
 
-    @RequestMapping("/index/{is_comic}")
+    @RequestMapping("/db/index/{is_comic}")
     @ResponseBody
-    public ResultEntity<List<MovieInfo>> getMovieInfoForIndexPage(@PathVariable("is_comic") int is_comic);
+    public ResultEntity<List<MovieInfoInCache>> getMovieInfoForIndexPage(@PathVariable("is_comic") int is_comic);
 
 
     /**
@@ -122,9 +119,10 @@ public interface DatabaseService {
     *@author:ggh
     *@updateTime: 2020/5/14 18:32
     **/
-    @RequestMapping("/detailInfo/{movieId}")
+    @RequestMapping("/db/detailInfo/{movieId}")
     @ResponseBody
-    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId);
+//    public ResultEntity<MovieInfo> getDetailInfo(@PathVariable("movieId") Long movieId);
+    public ResultEntity<MovieInfoInCache> getDetailInfo(@PathVariable("movieId") Long movieId);
 
     /**
     *@title:
@@ -132,7 +130,7 @@ public interface DatabaseService {
     *@author:ggh
     *@updateTime: 2020/5/14 18:32
     **/
-    @RequestMapping("/detailInfo/comment/{movieId}")
+    @RequestMapping("/db/detailInfo/comment/{movieId}")
     @ResponseBody
     public ResultEntity<List<CommentVO>> getCommentByMid(@PathVariable("movieId") Long movieId,
                                                          @RequestParam(value = "startPage",required = false,defaultValue = "1") int startPage);
@@ -155,7 +153,7 @@ public interface DatabaseService {
      *@author:ggh
      *@updateTime: 2020/5/20 11:05
      **/
-    @RequestMapping("/category/all")
+    @RequestMapping("/db/category/all")
     @ResponseBody
     public ResultEntity<CategorySearchVO> getAllCategoriesInfo();
 
@@ -182,5 +180,8 @@ public interface DatabaseService {
     @ResponseBody
     public ResultEntity isScored(@RequestParam("uid") Long uid, @RequestParam("mid") Long mid);
 
+    @RequestMapping("/db/get/latest/movies/{size}")
+    @ResponseBody
+    public ResultEntity<List<MovieInfoInCache>> getLatestAllMovies(@PathVariable("size") int size);
 
 }
