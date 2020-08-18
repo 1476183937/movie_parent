@@ -20,7 +20,12 @@ import java.util.List;
 @FeignClient(value = "database-server")
 public interface DatabaseService {
 
-    @RequestMapping("/db/index/{is_comic}")
+    //获取评分较高的电影信息，可用于用户未登陆时或有的电影还未生产推荐列表，可以暂时作为获取推荐列表使用
+    @RequestMapping("/db/get/top/rating/movies")
+    @ResponseBody
+    public ResultEntity<List<MovieInfoInCache>> getTopRatingMovies(@RequestParam("start") int start,@RequestParam("size") int size);
+
+        @RequestMapping("/db/index/{is_comic}")
     @ResponseBody
     public ResultEntity<List<MovieInfoInCache>> getMovieInfoForIndexPage(@PathVariable("is_comic") int is_comic);
 

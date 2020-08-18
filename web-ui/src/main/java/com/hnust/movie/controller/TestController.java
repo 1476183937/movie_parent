@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -59,6 +60,13 @@ public class TestController {
         ResultEntity<MovieInfoInCache> detailInfo = cacheService.getMovieInfoFromCache(1292348L);
         return detailInfo;
 
+    }
+
+    @RequestMapping("/top/test")
+    @ResponseBody
+    public ResultEntity<List<MovieInfoInCache>> getTopRatingMovies(){
+
+        return databaseService.getTopRatingMovies(20,20);
     }
 
     @RequestMapping("/recommendTest")

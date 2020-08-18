@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.hnust.movie.annotation.LoginRequired;
 import com.hnust.movie.config.IdGeneratorSnowflake;
 import com.hnust.movie.entity.po.*;
+import com.hnust.movie.entity.recommender.MovieInfoMongodb;
 import com.hnust.movie.entity.recommender.UserRecommendation;
 import com.hnust.movie.entity.vo.*;
 import com.hnust.movie.service.CacheService;
@@ -14,8 +15,10 @@ import com.hnust.movie.util.CommonUtil;
 import com.hnust.movie.util.CookieUtil;
 import com.hnust.movie.util.DateUtil;
 import com.hnust.movie.util.LogUtils;
+import com.hnust.movie.webUtils.WebUtils;
 import org.apache.catalina.User;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -28,10 +31,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.rmi.server.UID;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Title:电影详情页的controller
@@ -66,6 +66,7 @@ public class detailController {
     @Value("${kafka.MovieRating.topic}")
     private String topic;
 
+    private Random random = new Random();
 
     /**
     *@title:
@@ -192,17 +193,28 @@ public class detailController {
                 if (StringUtils.isNotBlank(userId)){
                     //如果用户id不为空，就获取该用户对象的推荐电影数据
                     ResultEntity<UserRecommendation> userRecommendation = recommendService.getUserRecommendationDao(Long.parseLong(userId));
-                    modelMap.addAttribute("userRecommendation",userRecommendation.getData().getUserResc());
+
+                    if (null == userRecommendation.getData()){
+                        //如果还没有生成该用户的推荐列表，就随机获取一些评分较高的电影
+                        List<MovieInfoMongodb> userRescList = WebUtils.getTopRankingMovies(databaseService);
+
+                        modelMap.addAttribute("userRecommendation",userRescList);
+                    }else{
+                        modelMap.addAttribute("userRecommendation",userRecommendation.getData().getUserResc());
+                    }
 
                 }else{
-                    //如果该用户没有登录，就默认推荐最新电影给他
+                    //如果该用户没有登录，就随机获取一些评分较高的电影推荐给他
+                    List<MovieInfoMongodb> userRescList = WebUtils.getTopRankingMovies(databaseService);
+
                     ResultEntity<List<MovieInfoInCache>> latestAllMovies = databaseService.getLatestAllMovies(12);
-                    modelMap.addAttribute("userRecommendation",latestAllMovies.getData());
+//                    modelMap.addAttribute("userRecommendation",latestAllMovies.getData());
+                    modelMap.addAttribute("userRecommendation",userRescList);
                 }
 
                 //生成集数相关的链接信息
                 String playUrls = movieInfoFromCache.getData().getPlayUrls();
-                String[] playUrlsSplit = playUrls.split("-");
+                String[] playUrlsSplit = playUrls.split("##");
 
                 String urlPrefix="";//前缀
                 String urlSuffix="";//前缀
@@ -214,7 +226,13 @@ public class detailController {
                         urlList.add(s);
                     }
                     urlSuffix = playUrlsSplit[2];
-                }else if (playUrlsSplit.length == 1){
+                }else if (playUrlsSplit.length == 2){
+
+                    urlPrefix=playUrlsSplit[0];
+                    for (String s : playUrlsSplit[1].split("\\|")) {
+                        urlList.add(s);
+                    }
+                }else{
                     //只有一集的情况：如是电影的话就算一集的情况
                     urlList.add(playUrlsSplit[0]);
                 }
@@ -246,8 +264,9 @@ public class detailController {
         }
 
 
-
     }
+
+
 
     /**
     *@title:

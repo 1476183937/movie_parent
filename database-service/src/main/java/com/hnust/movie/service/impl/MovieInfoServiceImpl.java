@@ -24,6 +24,16 @@ public class MovieInfoServiceImpl implements MovieInfoService {
     @Resource
     private MovieInfoMapper movieInfoMapper;
 
+
+    //获取评分较高的电影信息，可用于用户未登陆时或有的电影还未生产推荐列表，可以暂时作为获取推荐列表使用
+    public List<MovieInfoInCache> getTopRatingMovies(int start,int size){
+
+        List<MovieInfoInCache> topRatingMovies = movieInfoMapper.getTopRatingMovies(start, size);
+
+        return topRatingMovies;
+
+    }
+
     /**
     *@title:
     *@description: 为首页获取数据

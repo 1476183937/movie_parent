@@ -30,6 +30,7 @@ public class MovieInfo implements Serializable {
     private Integer hotDegree;      //热度
     private Long viewNum;           //观看人数
     private String playUrl;         //视频播放地址
+    private Integer isEnd;         //是否完结 0：未完结 1：已完结
     private String extend2;         //扩展字段
 
 }

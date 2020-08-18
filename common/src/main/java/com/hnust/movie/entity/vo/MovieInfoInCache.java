@@ -20,12 +20,14 @@ public class MovieInfoInCache implements Serializable {
     private String movieName;
     private String imgUrls;
     private String categories;
+    private String runTime;  //时长或集数
     private String directors;
     private String mainActors;
     private String ratingNum;
     private String location;
     private String summery;
     private String playUrl;
+//    private Integer is_end;
     private String playUrls;  //存放所有集数的播放链接
 
 }

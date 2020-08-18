@@ -147,7 +147,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.latestMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.latestMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -174,7 +174,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                 th:src="${multipleMoviesList.data.latestMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.latestMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -196,7 +196,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.latestMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.latestMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -222,7 +222,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.latestMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.latestMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -244,7 +244,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.latestMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.latestMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -269,7 +269,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.latestMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.latestMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.latestMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -301,7 +301,7 @@
 
                         <li th:each="movie,movieStat:${topMovies.data.movieList}">
                             <i class="i-rank_num" th:text="${movieStat.count}">1</i>
-                            <em class="v-num">高清</em>
+                            <em class="v-num" >高清</em>
                             <span class="v-tit">
                 <a href="334.html" th:href="'/index/detail/'+${movie.mid}+'.html'" th:text="${movie.movieName}" title="神都蜜探">神都蜜探</a>
             </span>
@@ -349,23 +349,7 @@
                     <a href="124.html" th:href="'/category/search?category=警匪'">警匪</a>
                     <a href="125.html" th:href="'/category/search?category=犯罪'">犯罪</a>
                     <a href="126.html" th:href="'/category/search?category=动画'">动画</a>
-                    <!--<a href="127.html" th:href="'/category/search?category=奇幻'">奇幻</a>
-                    <a href="128.html" th:href="'/category/search?category=武侠'">武侠</a>
-                    <a href="129.html" th:href="'/category/search?category=冒险'">冒险</a>
-                    <a href="130.html" th:href="'/category/search?category=枪战'">枪战</a>
-                    <a href="119.html" th:href="'/category/search?category=恐怖'">恐怖</a>
-                    <a href="131.html" th:href="'/category/search?category=悬疑'">悬疑</a>
-                    <a href="132.html" th:href="'/category/search?category=惊悚'">惊悚</a>
-                    <a href="133.html" th:href="'/category/search?category=经典'">经典</a>
-                    <a href="134.html" th:href="'/category/search?category=青春'">青春</a>
-                    <a href="135.html" th:href="'/category/search?category=文艺'">文艺</a>
-                    <a href="136.html" th:href="'/category/search?category=微电影'">微电影</a>
-                    <a href="137.html" th:href="'/category/search?category=古装'">古装</a>
-                    <a href="1381.html" th:href="'/category/search?category=历史'">历史</a>
-                    <a href="1391.html" th:href="'/category/search?category=运动'">运动</a>
-                    <a href="140.html" th:href="'/category/search?category=农村'">农村</a>
-                    <a href="1411.html" th:href="'/category/search?category=儿童'">儿童</a>
-                    <a href="142.html" th:href="'/category/search?category=网络电影'">网络电影</a>-->
+
                 </dd>
             </dl>
 
@@ -417,7 +401,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.actionMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.actionMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -443,7 +427,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.actionMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.actionMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -465,7 +449,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.actionMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.actionMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -491,7 +475,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.actionMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.actionMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -513,7 +497,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.actionMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.actionMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -538,7 +522,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.actionMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.actionMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.actionMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -602,7 +586,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.comedyMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.comedyMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -628,7 +612,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.comedyMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.comedyMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -650,7 +634,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.comedyMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.comedyMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -676,7 +660,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.comedyMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.comedyMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -698,7 +682,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.comedyMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.comedyMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -723,7 +707,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.comedyMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.comedyMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.comedyMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -788,7 +772,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.loveMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.loveMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -814,7 +798,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.loveMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.loveMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -836,7 +820,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.loveMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.loveMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -862,7 +846,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.loveMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.loveMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -884,7 +868,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.loveMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.loveMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -909,7 +893,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.loveMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.loveMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.loveMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -970,7 +954,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.scienceMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.scienceMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -996,7 +980,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.scienceMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.scienceMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1018,7 +1002,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.scienceMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.scienceMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1044,7 +1028,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.scienceMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.scienceMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1066,7 +1050,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.scienceMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.scienceMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1091,7 +1075,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.scienceMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.scienceMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.scienceMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1153,7 +1137,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.terrorMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.terrorMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1179,7 +1163,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.terrorMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.terrorMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1201,7 +1185,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.terrorMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.terrorMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1227,7 +1211,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.terrorMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.terrorMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1249,7 +1233,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.terrorMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.terrorMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1274,7 +1258,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.terrorMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.terrorMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.terrorMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1337,7 +1321,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.featureMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.featureMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1363,7 +1347,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.featureMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.featureMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1385,7 +1369,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.featureMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.featureMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1411,7 +1395,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.featureMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.featureMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1433,7 +1417,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.featureMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.featureMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1458,7 +1442,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.featureMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.featureMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.featureMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1517,7 +1501,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/8a7edb5bd21b6cc41a4d4aa9d659aab8.jpg"
                                              th:src="${multipleMoviesList.data.warMovies[0].imgUrls}" class="thumb" alt="益西卓玛">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.warMovies[0].runTime}">超清</div>
                                         <a href="163.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[0].mid}+'.html'" title="益西卓玛" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1543,7 +1527,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.warMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.warMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1565,7 +1549,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/6e4da2aeeff27e785f01c8ed3322af40.jpg"
                                              th:src="${multipleMoviesList.data.warMovies[11].imgUrls}" class="thumb" alt="龙咁威">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.warMovies[11].runTime}">高清</div>
                                         <a href="391.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[11].mid}+'.html'" title="龙咁威" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1591,7 +1575,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.warMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.warMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">
@@ -1613,7 +1597,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/a23229d4c70db035e59a7bec7544abc8.jpg"
                                              th:src="${multipleMoviesList.data.warMovies[22].imgUrls}" class="thumb" alt="左情右义">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${multipleMoviesList.data.warMovies[22].runTime}">超清</div>
                                         <a href="207.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[22].mid}+'.html'" title="左情右义" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1638,7 +1622,7 @@
                                         <div class="v-pic">
                                             <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                                  th:src="${multipleMoviesList.data.warMovies[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                            <div class="v-tips">高清</div>
+                                            <div class="v-tips" th:text="${multipleMoviesList.data.warMovies[index].runTime}">高清</div>
                                             <a href="329.html" th:href="'/index/detail/'+${multipleMoviesList.data.warMovies[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                         </div>
                                         <div class="v-txt">

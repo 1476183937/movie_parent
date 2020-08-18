@@ -26,7 +26,7 @@ public class MovieInfoVO {
     private String language;        //语言
     private int releaseDate;     //发布时间
 //    private int time;     //发布时间
-    private String runTime;         //时长
+    private String runTime;         //时长或集数
     private String alias;           //别名
     private String summery;         //简介
     private Float ratingNum;        //评分值
@@ -34,5 +34,6 @@ public class MovieInfoVO {
     private Integer hotDegree;      //热度
     private Long viewNum;           //观看人数
     private String playUrl;         //视频播放地址
+    private Integer isEnd;         //是否完结 0：未完结 1：已完结
 
 }

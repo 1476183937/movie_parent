@@ -2,9 +2,7 @@ package com.hnust.movie.service;
 
 import com.hnust.movie.entity.po.Comment;
 import com.hnust.movie.entity.po.MovieInfo;
-import com.hnust.movie.entity.vo.CommentVO;
-import com.hnust.movie.entity.vo.MovieInfoInCache;
-import com.hnust.movie.entity.vo.ResultEntity;
+import com.hnust.movie.entity.vo.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -46,10 +44,10 @@ public interface DatabaseService {
 
     @RequestMapping("/db/movies/list")
     @ResponseBody
-    public ResultEntity getMovieListByMultipleCategory();
+    public ResultEntity<MovieListVO> getMovieListByMultipleCategory();
 
     @RequestMapping("/db/comics/list")
     @ResponseBody
-    public ResultEntity getComicListByMultipleCategory();
+    public ResultEntity<ComicListVO> getComicListByMultipleCategory();
 
 }

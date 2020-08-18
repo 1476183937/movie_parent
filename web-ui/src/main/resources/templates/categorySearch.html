@@ -228,7 +228,7 @@
 								<li th:each="movieInfo:${movieInfoList.data.movieInfoList}">
 
 									<div class="v-pic">
-										<img src="/image/03.jpg" th:src="${movieInfo.imgUrls}" class="thumb" alt="杀入警察局"> <span class="v-tips">蓝光</span>
+										<img src="/image/03.jpg" th:src="${movieInfo.imgUrls}" class="thumb" alt="杀入警察局"> <span class="v-tips" th:text="${movieInfo.runTime}">蓝光</span>
 										<a class="v-playBtn" href="detail.html" th:href="'/index/detail/'+${movieInfo.mid}+'.html'" title="杀入警察局"><i></i></a>
 									</div>
 									<div class="v-txt">

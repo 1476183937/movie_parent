@@ -24,6 +24,10 @@ public interface MovieInfoService {
 //    ResultEntity<MovieInfo> getDetailByMovieId(Long movieId);
     ResultEntity<MovieInfoInCache> getDetailByMovieId(Long movieId);
 
+    //获取评分较高的电影信息，可用于用户未登陆时或有的电影还未生产推荐列表，可以暂时作为获取推荐列表使用
+    List<MovieInfoInCache> getTopRatingMovies(int start,int size);
+
+
     List<MovieInfo> getAll();
 
     ResultEntity<MovieListVO> getMovieInfoByCategory();

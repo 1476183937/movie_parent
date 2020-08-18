@@ -208,7 +208,7 @@
 
                                     <img th:src="${movieLeft01.imgUrls}" class="thumb" th:alt="${movieLeft01.movieName}"
                                          style="display: block;">
-                                    <div class="v-tips">蓝光</div>
+                                    <div class="v-tips" th:text="${movieLeft01.runTime}">蓝光</div>
                                     <a th:href="'/index/detail/'+${movieLeft01.mid} + '.html'" th:title="${movieLeft01.movieName}" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -231,7 +231,7 @@
                                     <div class="v-pic">
                                         <img th:src="${movieInfo01.imgUrls}" class="thumb"
                                              th:alt="${movieInfo01.movieName}" style="display: block;">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${movieInfo01.runTime}">超清</div>
                                         <a th:href="'/index/detail/'+${movieInfo01.mid} + '.html'" th:title="${movieInfo01.movieName}"
                                            class="v-playBtn"><i></i></a>
                                     </div>
@@ -253,7 +253,7 @@
                                 <div class="v-pic">
                                     <img th:src="${movieLeft02.imgUrls}" class="thumb"
                                          th:alt="${movieLeft02.movieName}">
-                                    <div class="v-tips">高清</div>
+                                    <div class="v-tips" th:text="${movieLeft02.runTime}">高清</div>
                                     <a th:href="'/index/detail/'+${movieLeft02.mid} + '.html'" th:title="${movieLeft02.movieName}" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -285,7 +285,7 @@
                                     <div class="v-pic">
                                         <img th:src="${movieInfo02.imgUrls}" class="thumb"
                                              th:alt="${movieInfo02.movieName}" style="display: block;">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${movieInfo02.runTime}">超清</div>
                                         <a th:href="'/index/detail/'+${movieInfo02.mid} + '.html'" th:title="${movieInfo02.movieName}"
                                            class="v-playBtn"><i></i></a>
                                     </div>
@@ -306,7 +306,7 @@
                                 <div class="v-pic">
                                     <img th:src="${movieLeft03.imgUrls}" class="thumb"
                                          th:alt="${movieLeft03.movieName}">
-                                    <div class="v-tips">超清</div>
+                                    <div class="v-tips" th:text="${movieLeft03.runTime}">超清</div>
                                     <a th:href="'/index/detail/'+${movieLeft03.mid} + '.html'" th:title="${movieLeft03.movieName}" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -333,7 +333,7 @@
                                     <div class="v-pic">
                                         <img th:src="${movieInfo03.imgUrls}" class="thumb"
                                              th:alt="${movieInfo03.movieName}" style="display: block;">
-                                        <div class="v-tips">超清</div>
+                                        <div class="v-tips" th:text="${movieInfo03.runTime}">超清</div>
                                         <a th:href="'/index/detail/'+${movieInfo03.mid} + '.html'" th:title="${movieInfo03.movieName}"
                                            class="v-playBtn"><i></i></a>
                                     </div>
@@ -401,7 +401,7 @@
                             <div class="tvhots">
                                 <div class="v-pic">
                                     <img th:src="${comicLeft01.imgUrls}" class="thumb" th:alt="${comicLeft01.movieName}" style="display: block;">
-                                    <div class="v-tips">高清</div>
+                                    <div class="v-tips" th:text="${comicLeft01.runTime}">高清</div>
                                     <a th:href="'/index/detail/'+${comicLeft01.mid} + '.html'"
                                        th:title="${comicLeft01.movieName}" class="v-playBtn"><i></i>
                                     </a>
@@ -427,7 +427,7 @@
                                     <div class="v-pic">
                                         <img th:src="${comicInfo01.imgUrls}" class="thumb" th:alt="${comicInfo01.movieName}"
                                              style="display: block;">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${comicInfo01.runTime}">高清</div>
                                         <a th:href="'/index/detail/'+${comicInfo01.mid} + '.html'" th:title="${comicInfo01.movieName}" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -448,7 +448,7 @@
                             <div class="tvhots">
                                 <div class="v-pic">
                                     <img th:src="${comicLeft02.imgUrls}" class="thumb" th:alt="${comicLeft02.movieName}" style="display: block;">
-                                    <div class="v-tips">高清</div>
+                                    <div class="v-tips" th:text="${comicLeft02.runTime}">高清</div>
                                     <a th:href="'/index/detail/'+${comicLeft02.mid} + '.html'" th:title="${comicLeft02.movieName}" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -470,7 +470,7 @@
                                     <div class="v-pic">
                                         <img th:src="${comicInfo02.imgUrls}" class="thumb" th:alt="${comicInfo02.movieName}"
                                              style="display: block;">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${comicInfo02.runTime}">高清</div>
                                         <a th:href="'/index/detail/'+${comicInfo02.mid} + '.html'"  th:title="${comicInfo02.movieName}" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -490,7 +490,7 @@
                             <div class="tvhots">
                                 <div class="v-pic">
                                     <img th:src="${comicLeft03.imgUrls}" class="thumb" th:alt="${comicLeft03.movieName}" style="display: block;">
-                                    <div class="v-tips">高清</div>
+                                    <div class="v-tips" th:text="${comicLeft03.runTime}">高清</div>
                                     <a th:href="'/index/detail/'+${comicLeft03.mid} + '.html'" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -512,7 +512,7 @@
                                     <div class="v-pic">
                                         <img th:src="${comicInfo03.imgUrls}" class="thumb" th:alt="${comicInfo03.movieName}"
                                              style="display: block;">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${comicInfo03.runTime}">高清</div>
                                         <a th:href="'/index/detail/'+${comicInfo03.mid} + '.html'" th:title="${comicInfo03.movieName}" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">

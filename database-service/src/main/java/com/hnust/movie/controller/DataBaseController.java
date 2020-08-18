@@ -65,6 +65,21 @@ public class DataBaseController {
     }
 
 
+    //获取评分较高的电影信息，可用于用户未登陆时或有的电影还未生产推荐列表，可以暂时作为获取推荐列表使用
+    @RequestMapping("/db/get/top/rating/movies")
+    @ResponseBody
+    public ResultEntity<List<MovieInfoInCache>> getTopRatingMovies(@RequestParam("start") int start,@RequestParam("size") int size){
+
+        List<MovieInfoInCache> topRatingMovies = movieInfoService.getTopRatingMovies(start, size);
+
+        if (topRatingMovies.size() >0){
+            return ResultEntity.successWithData(topRatingMovies);
+        }else{
+            return ResultEntity.failed("get top rating movies fail");
+        }
+    }
+
+
     /**
     *@title:
     *@description: 查询用户收藏记录
@@ -404,7 +419,7 @@ public class DataBaseController {
     **/
     @RequestMapping("/db/movies/list")
     @ResponseBody
-    public ResultEntity getMovieListByMultipleCategory(){
+    public ResultEntity<MovieListVO> getMovieListByMultipleCategory(){
 
         ResultEntity<MovieListVO> movieInfoByCategory = movieInfoService.getMovieInfoByCategory();
 
@@ -426,7 +441,7 @@ public class DataBaseController {
     **/
     @RequestMapping("/db/comics/list")
     @ResponseBody
-    public ResultEntity getComicListByMultipleCategory(){
+    public ResultEntity<ComicListVO> getComicListByMultipleCategory(){
 
         ResultEntity<ComicListVO> comicByCategpry = movieInfoService.getComicByCategpry();
 

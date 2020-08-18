@@ -156,7 +156,7 @@
 <!--                            <a th:href="'/index/detail/'+${movieInfo.mid}+'.html'"></a>-->
                             <img th:src="${movieInfo.imgUrls}"  alt="爱书的下克上 第2季">
                             <span class="v-tips">
-                                <em>高清</em>
+                                <em th:text="${movieInfo.runTime}">高清</em>
                             </span>
                             <a href="javascript:;" th:href="'/index/detail/'+${movieInfo.mid}+'.html'" class="v-playBtn">
                                 <i></i>

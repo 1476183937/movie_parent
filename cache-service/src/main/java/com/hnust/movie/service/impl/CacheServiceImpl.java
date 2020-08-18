@@ -68,7 +68,7 @@ public class CacheServiceImpl implements CacheService {
                 if ("OK".equals(lock)){
                     //获取到了锁，接着从数据库里获取相应数据
 
-                    ResultEntity moviesResult = databaseService.getMovieListByMultipleCategory();
+                    ResultEntity<MovieListVO> moviesResult = databaseService.getMovieListByMultipleCategory();
 
                     if (moviesResult.getData() == null){
                         //数据库有没有获取到数据，就在缓存中存入一个空值

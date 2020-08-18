@@ -52,12 +52,12 @@ public class SearchServiceImpl implements SearchService {
         String indexName = "movieinfo_index";
         String typeName = "movieInfo";
 
-
         ResultEntity<List<MovieInfo>> allMovieInfo = databaseService.getAllMovieInfo();
         List<MovieInfo> movieInfoList = allMovieInfo.getData();
 
         Random random = new Random();
 
+        int success=0,fail=0;
         //遍历导入es
         for (MovieInfo info : movieInfoList) {
 
@@ -77,16 +77,22 @@ public class SearchServiceImpl implements SearchService {
 
                 try {
                     jestClient.execute(index);
+                    success+=1;
                 } catch (IOException e) {
                     e.printStackTrace();
+                    fail+=1;
                     System.out.println("数据导入失败："+info);
                     continue;
                 }
             }else{
+                fail+=1;
+                System.out.println("跳过数据未导入:"+info);
                 continue;
             }
 
         }
+        System.out.println("成功导入："+success);
+        System.out.println("失败导入："+fail);
 
         return true;
     }

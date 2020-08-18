@@ -2,6 +2,7 @@ package com.hnust.movie.service;
 
 import com.hnust.movie.entity.po.MovieInfo;
 import com.hnust.movie.entity.vo.MovieInfoInCache;
+import com.hnust.movie.entity.vo.MovieListVO;
 import com.hnust.movie.entity.vo.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -50,6 +51,6 @@ public interface CacheService {
      **/
     @RequestMapping("/cache/movie/list")
     @ResponseBody
-    public ResultEntity getMultipleMoviesList();
+    public ResultEntity<MovieListVO> getMultipleMoviesList();
 
 }

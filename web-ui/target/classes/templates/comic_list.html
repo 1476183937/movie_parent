@@ -159,7 +159,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.latestComics[0].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -188,7 +188,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.latestComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.latestComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -211,7 +211,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.latestComics[11].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -240,7 +240,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.latestComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.latestComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -264,7 +264,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.latestComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.latestComics[22].runTime}">更新至2集</div>
                                             <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -293,7 +293,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.latestComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.latestComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -479,7 +479,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.chineseComics[0].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -508,7 +508,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.chineseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.chineseComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -531,7 +531,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.chineseComics[11].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -560,7 +560,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.chineseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.chineseComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -584,7 +584,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.chineseComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.chineseComics[22].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -613,7 +613,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.chineseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.chineseComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -732,7 +732,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.japaneseComics[0].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -761,7 +761,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.japaneseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.japaneseComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -784,7 +784,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.japaneseComics[11].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -813,7 +813,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.japaneseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.japaneseComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -837,7 +837,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.japaneseComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.japaneseComics[22].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -866,7 +866,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.japaneseComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.japaneseComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -984,7 +984,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[0].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.europeanAndAmericanComics[0].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[0].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -1013,7 +1013,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.europeanAndAmericanComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.europeanAndAmericanComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1036,7 +1036,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[11].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.europeanAndAmericanComics[11].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[11].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -1065,7 +1065,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.europeanAndAmericanComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.europeanAndAmericanComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">
@@ -1089,7 +1089,7 @@
                                 <div class="v-pic">
                                     <!--                                    <img data-src="images/11.jpg" class="thumb" alt="快把我哥带走">-->
                                     <img src="image/11.jpg" th:src="${multipleComicList.data.europeanAndAmericanComics[22].imgUrls}" class="thumb" alt="快把我哥带走">
-                                    <div class="v-tips">更新至2集</div>
+                                    <div class="v-tips" th:text="${multipleComicList.data.europeanAndAmericanComics[22].runTime}">更新至2集</div>
                                     <a href="./detail.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[22].mid}+'.html'" title="快把我哥带走" class="v-playBtn"><i></i></a>
                                 </div>
                                 <div class="v-txt">
@@ -1118,7 +1118,7 @@
                                     <div class="v-pic">
                                         <img data-src="/picture/2146a5a5b41d9b531818447b4808f523.jpg"
                                              th:src="${multipleComicList.data.europeanAndAmericanComics[index].imgUrls}" class="thumb" alt="终结者：黑暗命运">
-                                        <div class="v-tips">高清</div>
+                                        <div class="v-tips" th:text="${multipleComicList.data.europeanAndAmericanComics[index].runTime}">高清</div>
                                         <a href="329.html" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" title="终结者：黑暗命运" class="v-playBtn"><i></i></a>
                                     </div>
                                     <div class="v-txt">

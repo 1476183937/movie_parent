@@ -11,6 +11,7 @@ import com.hnust.movie.service.PassportService;
 import com.hnust.movie.service.RecommendService;
 import com.hnust.movie.util.CommonUtil;
 import com.hnust.movie.util.LogUtils;
+import com.hnust.movie.webUtils.WebUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -272,9 +274,21 @@ public class IndexController {
                     List<MovieInfoMongodb> collect = simliarMovies.stream().limit(12).collect(Collectors.toList());
                     similarMovieRecommendation.getData().setSimliarMovies(collect);
 
+                    //TODO:暂时只显示前12条数据
+                    modelMap.addAttribute("similarMovie",similarMovieRecommendation);
+                }else{
+                    //随机获取一些评分较高的电影
+                    List<MovieInfoMongodb> userRescList = WebUtils.getTopRankingMovies(databaseService);
+
+                    SimilarMovieRecommendation recommendation = new SimilarMovieRecommendation();
+                    recommendation.setMid(movieId);
+                    recommendation.setSimliarMovies(userRescList);
+                    ResultEntity<SimilarMovieRecommendation> resultEntity = new ResultEntity<>();
+                    resultEntity.setData(recommendation);
+                    modelMap.addAttribute("similarMovie",resultEntity);
+
                 }
-                //TODO:暂时只显示前12条数据
-                modelMap.addAttribute("similarMovie",similarMovieRecommendation);
+
 
                 //判断用户是否登录
                 //获取token
