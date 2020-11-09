@@ -48,7 +48,7 @@ public class TestController {
     @ResponseBody
     public ResultEntity<MovieInfoInCache> databaseTest(){
 
-        ResultEntity<MovieInfoInCache> detailInfo = databaseService.getDetailInfo(1292348L);
+        ResultEntity<MovieInfoInCache> detailInfo = databaseService.getDetailInfo(110000076L);
         return detailInfo;
 
     }
@@ -57,7 +57,7 @@ public class TestController {
     @ResponseBody
     public ResultEntity<MovieInfoInCache> cacheTest(){
 
-        ResultEntity<MovieInfoInCache> detailInfo = cacheService.getMovieInfoFromCache(1292348L);
+        ResultEntity<MovieInfoInCache> detailInfo = cacheService.getMovieInfoFromCache(110000076L);
         return detailInfo;
 
     }

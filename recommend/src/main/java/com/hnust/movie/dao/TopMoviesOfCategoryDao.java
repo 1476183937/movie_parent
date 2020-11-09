@@ -21,6 +21,6 @@ public interface TopMoviesOfCategoryDao {
 
     void delete(String id);
 
-    TopMoviesOfCategory findLatestByCategory(String category);
+    List<TopMoviesOfCategory> findLatestByCategories(String categories);
 
 }

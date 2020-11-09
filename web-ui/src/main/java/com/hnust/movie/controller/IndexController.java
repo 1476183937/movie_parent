@@ -370,26 +370,25 @@ public class IndexController {
             //获取侧边栏显示的电影排行榜
             ResultEntity<TopMovies> topMovies = recommendService.getTopMovies();
 
+            StringBuffer categories = new StringBuffer("");
+            categories.append("动作-").append("喜剧-").append("爱情-").append("科幻-").append("恐怖-")
+            .append("剧情-").append("战争");
+
             //获取侧边栏显示的动作片排行榜
-            ResultEntity actionTopMovies = recommendService.getTopMoviesOfCategory("动作");
+            ResultEntity<List<TopMoviesOfCategory>> allCategoryTopMovies = recommendService.getTopMoviesOfCategories(categories.toString());
 
             //获取侧边栏显示的喜剧片排行榜
-            ResultEntity comedyTopMovies = recommendService.getTopMoviesOfCategory("喜剧");
-
+//            ResultEntity comedyTopMovies = recommendService.getTopMoviesOfCategory("喜剧");
             //获取侧边栏显示的爱情片排行榜
-            ResultEntity loveTopMovies = recommendService.getTopMoviesOfCategory("爱情");
-
+//            ResultEntity loveTopMovies = recommendService.getTopMoviesOfCategory("爱情");
             //获取侧边栏显示的科幻片排行榜
-            ResultEntity scienceTopMovies = recommendService.getTopMoviesOfCategory("科幻");
-
+//            ResultEntity scienceTopMovies = recommendService.getTopMoviesOfCategory("科幻");
             //获取侧边栏显示的恐怖片排行榜
-            ResultEntity terrorTopMovies = recommendService.getTopMoviesOfCategory("恐怖");
-
+//            ResultEntity terrorTopMovies = recommendService.getTopMoviesOfCategory("恐怖");
             //获取侧边栏显示的剧情片排行榜
-            ResultEntity plotTopMovies = recommendService.getTopMoviesOfCategory("剧情");
-
+//            ResultEntity plotTopMovies = recommendService.getTopMoviesOfCategory("剧情");
             //获取侧边栏显示的战争片排行榜
-            ResultEntity warTopMovies = recommendService.getTopMoviesOfCategory("战争");
+//            ResultEntity warTopMovies = recommendService.getTopMoviesOfCategory("战争");
 
             //获取复合排行榜的电影数据：热播榜(hot_ranking)、北美榜(north_america)、好评榜(good_ranking)、大陆榜(mainland_ranking)
             ResultEntity<MultipleRankings> multipleRankings = recommendService.getLatestMultipleRankings();
@@ -406,13 +405,44 @@ public class IndexController {
             modelMap.addAttribute("multipleMoviesList",multipleMoviesList);
 
             //放入侧边栏要显示的数据
-            modelMap.addAttribute("actionTopMovies",actionTopMovies);
-            modelMap.addAttribute("comedyTopMovies",comedyTopMovies);
-            modelMap.addAttribute("loveTopMovies",loveTopMovies);
-            modelMap.addAttribute("scienceTopMovies",scienceTopMovies);
-            modelMap.addAttribute("terrorTopMovies",terrorTopMovies);
-            modelMap.addAttribute("plotTopMovies",plotTopMovies);
-            modelMap.addAttribute("warTopMovies",warTopMovies);
+            for (TopMoviesOfCategory movie : allCategoryTopMovies.getData()) {
+
+                if ("动作".equals(movie.getCategory())){
+                    modelMap.addAttribute("actionTopMovies",ResultEntity.successWithData(movie));
+                }
+
+                if ("喜剧".equals(movie.getCategory())){
+                    modelMap.addAttribute("comedyTopMovies",ResultEntity.successWithData(movie));
+                }
+
+                if ("爱情".equals(movie.getCategory())){
+                    modelMap.addAttribute("loveTopMovies",ResultEntity.successWithData(movie));
+                }
+
+                if ("科幻".equals(movie.getCategory())){
+                    modelMap.addAttribute("scienceTopMovies",ResultEntity.successWithData(movie));
+                }
+
+                if ("恐怖".equals(movie.getCategory())){
+                    modelMap.addAttribute("terrorTopMovies",ResultEntity.successWithData(movie));
+                }
+
+                if ("剧情".equals(movie.getCategory())){
+                    modelMap.addAttribute("plotTopMovies",ResultEntity.successWithData(movie));
+                }
+
+                if ("战争".equals(movie.getCategory())){
+                    modelMap.addAttribute("warTopMovies",ResultEntity.successWithData(movie));
+                }
+
+            }
+
+//            modelMap.addAttribute("comedyTopMovies",comedyTopMovies);
+//            modelMap.addAttribute("loveTopMovies",loveTopMovies);
+//            modelMap.addAttribute("scienceTopMovies",scienceTopMovies);
+//            modelMap.addAttribute("terrorTopMovies",terrorTopMovies);
+//            modelMap.addAttribute("plotTopMovies",plotTopMovies);
+//            modelMap.addAttribute("warTopMovies",warTopMovies);
 
         } catch (Exception e) {
 

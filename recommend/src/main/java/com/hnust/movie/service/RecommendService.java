@@ -3,6 +3,8 @@ package com.hnust.movie.service;
 import com.hnust.movie.entity.recommender.*;
 import com.hnust.movie.entity.vo.ResultEntity;
 
+import java.util.List;
+
 /**
  * @Title:
  * @Author: ggh
@@ -20,7 +22,7 @@ public interface RecommendService {
 
     ResultEntity<TopMovieOfWeek> getTopMovieOfWeek();
 
-    ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(String category);
+    ResultEntity<List<TopMoviesOfCategory>> getTopMoviesOfCategory(String categories);
 
     ResultEntity<UserRecommendation> getUserRecommendationDao(Long uid);
 

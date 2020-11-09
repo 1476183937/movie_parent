@@ -16,7 +16,7 @@ spring:
   #配置redis
   redis:
 #    host: localhost
-    host: 39.105.36.4
+    host: 123.57.157.97
     port: 6379
     database: 0
 

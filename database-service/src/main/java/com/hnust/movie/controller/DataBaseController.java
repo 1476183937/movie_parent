@@ -483,5 +483,45 @@ public class DataBaseController {
         return latestMovies;
     }
 
+    /**
+    *@title:
+    *@description: 用户注册
+    *@param: userInfo
+    *@author:ggh
+    *@updateTime: 2020/8/19 9:45
+    **/
+    @PostMapping("/db/registy")
+    @ResponseBody
+    public ResultEntity registy(@RequestBody UserInfo userInfo){
+
+        int result = userInfoService.registyUser(userInfo);
+        if (result > 0){
+            return ResultEntity.successNoData();
+        }else{
+            return ResultEntity.failed("registy failed: "+userInfo.getUsername());
+        }
+
+    }
+
+
+    /**
+     *@title:
+     *@description: 检查指定用户名是否存在
+     *@param: userName
+     *@author:ggh
+     *@updateTime: 2020/8/19 10:21
+     **/
+    @RequestMapping("/db/exist/username")
+    @ResponseBody
+    public ResultEntity existUserName(@RequestParam("username") String userName){
+
+        UserInfo userInfo = userInfoService.existUserName(userName);
+        if (userInfo != null ){
+            return ResultEntity.successWithData(userInfo);
+        }else{
+            return ResultEntity.successNoData();
+        }
+
+    }
 
 }

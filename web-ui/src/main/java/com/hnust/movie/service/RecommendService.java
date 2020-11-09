@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * @Title:
  * @Author: ggh
@@ -37,9 +39,9 @@ public interface RecommendService {
     @ResponseBody
     public ResultEntity<TopMovieOfWeek> getTopMovieOfWeek();
 
-    @RequestMapping("/recommend/category/movies/{category}")
+    @RequestMapping("/recommend/category/movies/{categories}")
     @ResponseBody
-    public ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(@PathVariable("category") String category);
+    public ResultEntity<List<TopMoviesOfCategory>> getTopMoviesOfCategories(@PathVariable("categories") String categories);
 
     @RequestMapping("/recommend/user/movies/{uid}")
     @ResponseBody

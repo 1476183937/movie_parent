@@ -41,4 +41,36 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     }
 
+    /**
+    *@title:
+    *@description: 注册用户
+    *@param: userInfo
+    *@author:ggh
+    *@updateTime: 2020/8/19 9:40
+    **/
+    @Override
+    public int registyUser(UserInfo userInfo) {
+
+        //result为成功数
+        int result = userInfoMapper.registyUser(userInfo);
+
+        return result;
+    }
+
+    /**
+    *@title:
+    *@description: 检查指定用户名是否存在
+    *@param: userName
+    *@author:ggh
+    *@updateTime: 2020/8/19 9:41
+    **/
+    @Override
+    public UserInfo existUserName(String userName) {
+
+        //返回指定用户名的用户id
+        UserInfo UserInfo = userInfoMapper.existUserName(userName);
+
+        return UserInfo;
+    }
+
 }

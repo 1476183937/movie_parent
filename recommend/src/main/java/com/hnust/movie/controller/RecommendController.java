@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * @Title:
  * @Author: ggh
@@ -102,16 +104,16 @@ public class RecommendController {
 
     /**
     *@title:
-    *@description: 获取指定类别的电影排行榜
+    *@description: 获取指定类别的电影排行榜,多个类别用"-"分割
     *@param: category:类别
     *@author:ggh
     *@updateTime: 2020/6/18 18:01
     **/
-    @RequestMapping("/recommend/category/movies/{category}")
+    @RequestMapping("/recommend/category/movies/{categories}")
     @ResponseBody
-    public ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(@PathVariable("category") String category){
+    public ResultEntity<List<TopMoviesOfCategory>> getTopMoviesOfCategories(@PathVariable("categories") String categories){
 
-        ResultEntity<TopMoviesOfCategory> resultEntity = recommendService.getTopMoviesOfCategory(category);
+        ResultEntity<List<TopMoviesOfCategory>> resultEntity = recommendService.getTopMoviesOfCategory(categories);
 
         return resultEntity;
     }

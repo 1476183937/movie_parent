@@ -23,6 +23,7 @@ import java.util.UUID;
 @Service
 public class CacheServiceImpl implements CacheService {
 
+
     @Autowired
     private RedisUtil redisUtil;
 
@@ -119,8 +120,7 @@ public class CacheServiceImpl implements CacheService {
     *@param:
     *@author:ggh
     *@updateTime: 2020/5/22 11:23
-    *
-     * @return*/
+    ** @return*/
     @Override
     public ResultEntity getMultipleComicList() {
 
@@ -222,4 +222,5 @@ public class CacheServiceImpl implements CacheService {
 
         return ResultEntity.failed("get fail");
     }
+
 }

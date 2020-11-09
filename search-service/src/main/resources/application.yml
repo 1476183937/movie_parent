@@ -11,7 +11,8 @@ spring:
   elasticsearch:
     jest:
 #      uris: http://192.168.177.102:9200
-      uris: http://47.112.148.78:9200
+#      uris: http://47.112.148.78:9200
+      uris: http://123.57.157.97:9200
 #    rest:
 #      uris: http://192.168.177.102:9200
 #      username: es

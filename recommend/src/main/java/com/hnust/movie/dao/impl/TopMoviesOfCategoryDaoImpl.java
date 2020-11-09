@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,20 +72,55 @@ public class TopMoviesOfCategoryDaoImpl implements TopMoviesOfCategoryDao {
     *@updateTime: 2020/5/23 12:48
     **/
     @Override
-    public TopMoviesOfCategory findLatestByCategory(String category) {
+    public List<TopMoviesOfCategory> findLatestByCategories(String categories) {
 
-        Query query = new Query(Criteria.where("category").is(category));
+        String[] categoriesSplit = categories.split("-");
+
+        Criteria[] criterias = new Criteria[categoriesSplit.length];
+        Criteria criteria = new Criteria();
+
+        for (int i = 0; i < categoriesSplit.length; i++) {
+            criterias[i]=Criteria.where("category").is(categoriesSplit[i]);
+        }
+
+        criteria.orOperator(criterias);
+
+        /*for (String category : categoriesSplit) {
+            criterias[0]=Criteria.where("category").is(category);
+            criteria.orOperator(criterias);
+//            criteria.orOperator(Criteria.where("category").is(category));
+        }*/
+//        criteria.orOperator(Criteria.where("category").is("恐怖"),Criteria.where("category").is("奇幻"),Criteria.where("category").is("历史"));
+
+        Query query = new Query(criteria);
 
         List<TopMoviesOfCategory> categoryList = mongoTemplate.find(query, TopMoviesOfCategory.class);
 
-        List<TopMoviesOfCategory> moviesOfCategoryList = categoryList.stream().sorted((a, b) -> b.getDate().compareTo(a.getDate())).limit(1).collect(Collectors.toList());
+//        List<TopMoviesOfCategory> moviesOfCategoryList = categoryList.stream().sorted((a, b) -> b.getDate().compareTo(a.getDate())).limit(1).collect(Collectors.toList());
+        List<TopMoviesOfCategory> moviesOfCategoryList = categoryList.stream().sorted((a, b) -> b.getDate().compareTo(a.getDate())).collect(Collectors.toList());
+//        categoryList.stream().sorted((a,b)->a.getMovieList())
 
-        if (moviesOfCategoryList.size() > 0){
-            return moviesOfCategoryList.get(0);
+        List<TopMoviesOfCategory> resultList = new ArrayList<>();
+
+        //记录已经取过的类别
+        HashSet<String> existCategory = new HashSet<>();
+
+        for (TopMoviesOfCategory topMoviesOfCategory : moviesOfCategoryList) {
+            //是指定需要查询的类别并且还没有取过该类别就添加到结果集里
+            if (!existCategory.contains(topMoviesOfCategory.getCategory()) && categories.contains(topMoviesOfCategory.getCategory())){
+                resultList.add(topMoviesOfCategory);
+            }
+
+        }
+
+        if (resultList.size() > 0){
+            return moviesOfCategoryList;
 
         }else {
             return null;
         }
 
     }
+
+
 }

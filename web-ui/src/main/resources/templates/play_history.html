@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="HandheldFriendly" content="true">
     <title>观看历史</title>
+    <link rel="shortcut icon " type="images/x-icon" href="/images/icon.jpg">
     <link rel="stylesheet" href="/css/user_base.css">
 
     <link href="/css/app.87b0.css" rel="stylesheet">
@@ -54,7 +55,7 @@
             <form id="searchForm" action="/search.html" method="get" target="_blank" class="search_form cf">
                 <label class="search_label" for="keyword">搜索关键词</label>
                 <div class="search_keywords">
-                    <input type="text" name="kw" id="keyword" class="search_input" placeholder="奔跑吧 第4季"  value="奔跑吧 第4季">
+                    <input type="text" name="kw" id="keyword" class="search_input" placeholder="斗罗大陆"  value="斗罗大陆">
                 </div>
 
                 <button class="search_btn" id="searchBtn">
@@ -64,7 +65,7 @@
                     </svg>
                     <span class="btn_inner" >搜索</span>
                 </button>
-                <a class="btn_search_hot" href="https://v.qq.com/x/hotlist/search/?channel=555&amp;source=common_nav_vs"
+                <a class="btn_search_hot" href="#"
                    target="_blank" title="热搜榜">
                     <svg class="svg_icon_fire" width="12" height="15" viewBox="0 0 12 15">
 
@@ -268,7 +269,7 @@
                     <div th:each="history:${todayHistory.data}" class="history_item item_size ">
                         <a href="//v.qq.com/x/cover/x3xbffcj3amwwz1/b038169b2g9.html" th:href="'/index/detail/'+${history.mid}+'.html'" class="history_item_top del_par">
                             <img class="history_item_pic" th:src="${history.image}" style="width: 190px;height: 170px" src="//puui.qpic.cn/qqvideo_ori/0/b038169b2g9_360_204/0">
-                            <span class="history_item_update">全13集</span>
+<!--                            <span class="history_item_update">全13集</span>-->
                             <div class="hover_mask">
                                 <div class="hover_mask_play"></div>
                                 <svg data-del="x3xbffcj3amwwz1" class="del_x">
@@ -283,7 +284,8 @@
                             <svg viewBox="0 0 16 16" width="16" height="16">
                                 <use xlink:href="#svg_view_pc"></use>
                             </svg>
-                            <span>观看不足1%</span></p>
+<!--                            <span>观看不足1%</span>-->
+                        </p>
 
                     </div>
                 </div>
@@ -299,7 +301,7 @@
                     <div th:each="history:${yesterdayHistory.data}" class="history_item item_size ">
                         <a href="//v.qq.com/x/cover/x3xbffcj3amwwz1/b038169b2g9.html" th:href="'/index/detail/'+${history.mid}+'.html'" class="history_item_top del_par">
                             <img class="history_item_pic" th:src="${history.image}" style="width: 190px;height: 170px" src="//puui.qpic.cn/qqvideo_ori/0/b038169b2g9_360_204/0">
-                            <span class="history_item_update">全13集</span>
+<!--                            <span class="history_item_update">全13集</span>-->
                             <div class="hover_mask">
                                 <div class="hover_mask_play"></div>
                                 <svg data-del="x3xbffcj3amwwz1" class="del_x">
@@ -314,7 +316,8 @@
                             <svg viewBox="0 0 16 16" width="16" height="16">
                                 <use xlink:href="#svg_view_pc"></use>
                             </svg>
-                            <span>观看不足1%</span></p>
+<!--                            <span>观看不足1%</span>-->
+                        </p>
 
                     </div>
 
@@ -334,7 +337,7 @@
                     <div th:each="history:${earlierHistory.data}" class="history_item item_size ">
                         <a href="//v.qq.com/x/cover/x3xbffcj3amwwz1/b038169b2g9.html" th:href="'/index/detail/'+${history.mid}+'.html'" class="history_item_top del_par">
                             <img class="history_item_pic" th:src="${history.image}" style="width: 190px;height: 170px" src="//puui.qpic.cn/qqvideo_ori/0/b038169b2g9_360_204/0">
-                            <span class="history_item_update">全13集</span>
+<!--                            <span class="history_item_update">全13集</span>-->
                             <div class="hover_mask">
                                 <div class="hover_mask_play"></div>
                                 <svg data-del="x3xbffcj3amwwz1" class="del_x">
@@ -349,219 +352,11 @@
                             <svg viewBox="0 0 16 16" width="16" height="16">
                                 <use xlink:href="#svg_view_pc"></use>
                             </svg>
-                            <span>观看不足1%</span></p>
+<!--                            <span>观看不足1%</span>-->
+                        </p>
 
                     </div>
 
-                    <!--<div class="history_item item_size ">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" class="history_item_top del_par">
-                            <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/g0027gix4dm_360_204/0">
-                            <span class="history_item_update">更新至92集</span>
-                            <div class="hover_mask">
-                                <div class="hover_mask_play"></div>
-                                <svg data-del="ipmc5u3dwb48mv2" class="del_x">
-                                    <use xlink:href="#svg_clear_item"></use>
-                                </svg>
-                            </div>
-                        </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" title="武庚纪 第70话" >武庚纪 第70话</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看至17%</span></p>
-                    </div>
-
-                    <div class="history_item item_size " style="display: none;">
-                        <a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" target="_blank"
-                            class="history_item_top del_par">
-                        <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/t0012eihh4w_360_204/0">
-                        <div class="hover_mask">
-                            <div class="hover_mask_play"></div>
-                            <svg data-del="d2dqpxticntawvr" class="del_x">
-                                <use xlink:href="#svg_clear_item"></use>
-                            </svg>
-                        </div>
-                    </a><strong class="history_item_title nowrap_two"><a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" title="李米的猜想" target="_blank">李米的猜想</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_phone"></use>
-                            </svg>
-                            <span>观看不足1%</span></p>
-                    </div>
-
-                    <div class="history_item item_size ">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" class="history_item_top del_par">
-                            <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/g0027gix4dm_360_204/0">
-                            <span class="history_item_update">更新至92集</span>
-                            <div class="hover_mask">
-                                <div class="hover_mask_play"></div>
-                                <svg data-del="ipmc5u3dwb48mv2" class="del_x">
-                                    <use xlink:href="#svg_clear_item"></use>
-                                </svg>
-                            </div>
-                        </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" title="武庚纪 第70话" >武庚纪 第70话</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看至17%</span></p>
-                    </div>
-                    <div class="history_item item_size " style="display: none;">
-                        <a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" target="_blank"
-                            class="history_item_top del_par">
-                        <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/t0012eihh4w_360_204/0">
-                        <div class="hover_mask">
-                            <div class="hover_mask_play"></div>
-                            <svg data-del="d2dqpxticntawvr" class="del_x">
-                                <use xlink:href="#svg_clear_item"></use>
-                            </svg>
-                        </div>
-                    </a><strong class="history_item_title nowrap_two"><a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" title="李米的猜想" target="_blank">李米的猜想</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_phone"></use>
-                            </svg>
-                            <span>观看不足1%</span></p>
-                    </div>
-
-                    <div class="history_item item_size ">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" class="history_item_top del_par">
-                            <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/g0027gix4dm_360_204/0">
-                            <span class="history_item_update">更新至92集</span>
-                            <div class="hover_mask">
-                                <div class="hover_mask_play"></div>
-                                <svg data-del="ipmc5u3dwb48mv2" class="del_x">
-                                    <use xlink:href="#svg_clear_item"></use>
-                                </svg>
-                            </div>
-                        </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" title="武庚纪 第70话" >武庚纪 第70话</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看至17%</span></p>
-                    </div>
-                    <div class="history_item item_size " style="display: none;">
-                        <a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" target="_blank"
-                            class="history_item_top del_par">
-                        <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/t0012eihh4w_360_204/0">
-                        <div class="hover_mask">
-                            <div class="hover_mask_play"></div>
-                            <svg data-del="d2dqpxticntawvr" class="del_x">
-                                <use xlink:href="#svg_clear_item"></use>
-                            </svg>
-                        </div>
-                    </a><strong class="history_item_title nowrap_two"><a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" title="李米的猜想" target="_blank">李米的猜想</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_phone"></use>
-                            </svg>
-                            <span>观看不足1%</span></p>
-                    </div>
-
-                    <div class="history_item item_size ">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" class="history_item_top del_par">
-                            <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/g0027gix4dm_360_204/0">
-                            <span class="history_item_update">更新至92集</span>
-                            <div class="hover_mask">
-                                <div class="hover_mask_play"></div>
-                                <svg data-del="ipmc5u3dwb48mv2" class="del_x">
-                                    <use xlink:href="#svg_clear_item"></use>
-                                </svg>
-                            </div>
-                        </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" title="武庚纪 第70话" >武庚纪 第70话</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看至17%</span></p>
-                    </div>
-
-                    <div class="history_item item_size " style="display: none;">
-                        <a
-                            href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" target="_blank"
-                            class="history_item_top del_par">
-                        <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/t0012eihh4w_360_204/0">
-                        <div class="hover_mask">
-                            <div class="hover_mask_play"></div>
-                            <svg data-del="d2dqpxticntawvr" class="del_x">
-                                <use xlink:href="#svg_clear_item"></use>
-                            </svg>
-                        </div>
-                    </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/d2dqpxticntawvr/t0012eihh4w.html" title="李米的猜想" target="_blank">李米的猜想</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_phone"></use>
-                            </svg>
-                            <span>观看不足1%</span></p>
-                    </div>
-
-                    <div class="history_item item_size ">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" class="history_item_top del_par">
-                            <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/g0027gix4dm_360_204/0">
-                            <span class="history_item_update">更新至92集</span>
-                            <div class="hover_mask">
-                                <div class="hover_mask_play"></div>
-                                <svg data-del="ipmc5u3dwb48mv2" class="del_x">
-                                    <use xlink:href="#svg_clear_item"></use>
-                                </svg>
-                            </div>
-                        </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/ipmc5u3dwb48mv2/g0027gix4dm.html" title="武庚纪 第70话" >武庚纪 第70话</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看至17%</span></p>
-                    </div>
-                    <div class="history_item item_size " style="display: none;">
-                        <a
-                            href="//v.qq.com/x/cover/mzc00200opqzg5p/y0032z3dxq2.html" target="_blank"
-                            class="history_item_top del_par"><img class="history_item_pic"
-                                                                  src="//puui.qpic.cn/qqvideo_ori/0/y0032z3dxq2_360_204/0">
-                        <div class="hover_mask">
-                            <div class="hover_mask_play"></div>
-                            <svg data-del="mzc00200opqzg5p" class="del_x">
-                                <use xlink:href="#svg_clear_item"></use>
-                            </svg>
-                        </div>
-                    </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/mzc00200opqzg5p/y0032z3dxq2.html" title="余生，请多指教 《余生，请多指教》先导预告片 余生宿命篇" target="_blank">余生，请多指教 《余生，请多指教》先导预告片
-                            余生宿命篇</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看至46%</span></p>
-                    </div>
-                    <div class="history_item item_size ">
-                        <a href="//v.qq.com/x/cover/m5zzglrbt5zdv6d/v0033476tnr.html" class="history_item_top del_par">
-                            <img class="history_item_pic" src="//puui.qpic.cn/qqvideo_ori/0/v0033476tnr_360_204/0">
-                            <div class="hover_mask">
-                                <div class="hover_mask_play"></div>
-                                <svg data-del="m5zzglrbt5zdv6d" class="del_x">
-                                    <use xlink:href="#svg_clear_item"></use>
-                                </svg>
-                            </div>
-                        </a><strong class="history_item_title nowrap_two">
-                        <a href="//v.qq.com/x/cover/m5zzglrbt5zdv6d/v0033476tnr.html" title="叶问4(普通话版)" >叶问4(普通话版)</a></strong>
-                        <p class="history_item_time nowrap">
-                            <svg viewBox="0 0 16 16" width="16" height="16">
-                                <use xlink:href="#svg_view_pc"></use>
-                            </svg>
-                            <span>观看不足1%</span></p>
-                    </div>-->
 
                 </div>
 
@@ -578,7 +373,6 @@
 <link rel="stylesheet" href="//vm.gtimg.cn/tencentvideo/vstyle/web/v6/style/css/footer.ie.css"/>
 <![endif]-->
 
-<!--<iframe style="display:none;" src="//video.qq.com/getcookie/cookie.html" frameborder="0"></iframe>-->
 
 </body>
 </html>

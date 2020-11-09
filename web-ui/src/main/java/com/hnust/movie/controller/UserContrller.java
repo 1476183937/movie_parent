@@ -13,8 +13,6 @@ import com.hnust.movie.entity.vo.UserCollectionVO;
 import com.hnust.movie.service.DatabaseService;
 import com.hnust.movie.service.PassportService;
 import com.hnust.movie.util.*;
-import com.sun.org.apache.bcel.internal.generic.FADD;
-import com.sun.org.apache.regexp.internal.RE;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -93,6 +91,34 @@ public class UserContrller {
 
         return "login02";
     }
+
+
+    @RequestMapping(value = "/registy")
+    @ResponseBody
+    public ResultEntity registy(UserInfo userInfo){
+
+        //检查该用户名是否已存在
+        ResultEntity resultEntity = databaseService.existUserName(userInfo.getUsername());
+        if ("NO_DATA".equals(resultEntity.getData())){
+            //该用户名不存在，继续注册
+            String date = DateUtil.format(new Date(), "yyyy-MM-dd");
+            userInfo.setRegisterTime(date);
+
+            ResultEntity registy = databaseService.registy(userInfo);
+            if ("SUCCESS".equals(registy.getResult())){
+                //注册成功
+                return ResultEntity.successNoData();
+            }else{
+                return ResultEntity.failed("注册失败，请稍后重试");
+            }
+
+        }else{
+            //该用户名已存在
+            return ResultEntity.failed("该用户名已存在");
+        }
+
+    }
+
 
 
     /**

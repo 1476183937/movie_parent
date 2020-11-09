@@ -14,4 +14,10 @@ public interface UserInfoService {
     //添加token到缓存
 //    void addTokenToCache(String token,String userId);
 
+    //注册用户
+    int registyUser(UserInfo userInfo);
+
+    //检查用户吗是否存在
+    UserInfo existUserName(String userName);
+
 }

@@ -5,12 +5,12 @@
 		<title>详情介绍</title>
 		<meta name="keywords" content="详情介绍">
 		<meta name="description" content="详情介绍">
-<!--		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">-->
 
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+		<link rel="shortcut icon " type="images/x-icon" href="/images/icon.jpg">
 		<link href="/css/app.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/top.css">
 
@@ -18,7 +18,6 @@
 		<script src="/js/jquery.js"></script>
 		<script src="/js/iconfont.js"></script>
 		<script src="/layer/layer.js"></script>
-		<script>var maccms={"path":"","mid":"1","url":"343.pc16.cn","wapurl":"343.pc16.cn","mob_status":"2"};</script>
 
 	</head>
 	<body>
@@ -37,8 +36,6 @@
 						<!--            <a href="/movie-list.html" th:class="${category=='movie'}?'current'" style="font-size: x-large;" class="channel_nav channel_nav_0 _channel_nav_精选" >精选</a>-->
 						<a href="/movie-list.html" th:style="${category=='movie'}?'color:red;font-size: x-large;margin-left: 20px':'font-size: x-large;margin-left: 20px'" style="font-size: x-large" class="channel_nav channel_nav_0 _channel_nav_精选" >精选</a>
 
-
-						<!--            <a href="/movie-list.html" th:class="${category=='movie'}?'current'" style="font-size: x-large;margin-left: 20px" class="channel_nav channel_nav_2 _channel_nav_电影" >电影</a>-->
 						<a href="/movie-list.html" th:style="${category=='movie'}?'color:red;font-size: x-large;margin-left: 20px':'font-size: x-large;margin-left: 20px'" style="font-size: x-large;margin-left: 20px" class="channel_nav channel_nav_2 _channel_nav_电影" >电影</a>
 
 						<a href="/comic-list.html" th:style="${category=='comic'}?'color:red;font-size: x-large;margin-left: 20px':'font-size: x-large;margin-left: 20px'" style="font-size: x-large;margin-left: 20px" class="channel_nav channel_nav_4 _channel_nav_动漫" >动漫</a>
@@ -64,7 +61,7 @@
 						<form id="searchForm" action="/search.html" method="get" target="_blank" class="search_form cf">
 							<label class="search_label" for="keyword">搜索关键词</label>
 							<div class="search_keywords">
-								<input type="text" name="kw" id="keyword" class="search_input" placeholder="奔跑吧 第4季"  value="奔跑吧 第4季">
+								<input type="text" name="kw" id="keyword" class="search_input" placeholder="斗罗大陆"  value="斗罗大陆">
 							</div>
 
 							<button class="search_btn" id="searchBtn">
@@ -74,7 +71,7 @@
 								</svg>
 								<span class="btn_inner" >搜索</span>
 							</button>
-							<a class="btn_search_hot" href="https://v.qq.com/x/hotlist/search/?channel=555&amp;source=common_nav_vs"
+							<a class="btn_search_hot" href="#"
 							   target="_blank" title="热搜榜">
 								<svg class="svg_icon_fire" width="12" height="15" viewBox="0 0 12 15">
 
@@ -388,13 +385,12 @@
 		<!-- 页脚 -->
 		<footer class="ifoot">
 			<nav class="bnav">
-				<a href="movie_list.html" title="电影">热播电影</a>
-				<a href="comic_list.html" title="动漫">热播动漫</a>
-				<a href="index2.html" title="留言求片">留言求片</a>
+				<a href="/movie_list.html" title="电影">热播电影</a>
+				<a href="/comic_list.html" title="动漫">热播动漫</a>
+				<a href="javascript:(void);" title="留言求片">留言求片</a>
 			</nav>
 			<p>免责声明:本网站所有内容均系收集于各大网站，本站只提供WEB页面服务，并不提供影片资源储存也不参与录制与上传，若本站收录内容无意侵犯了贵公司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢合作。</p>
-			<p class="en">343.pc16.cn站长邮箱</p>
-			<p class="en">统计代码</p>
+			<p class="en">站长邮箱：123456@qq.com</p>
 		</footer>
 
 

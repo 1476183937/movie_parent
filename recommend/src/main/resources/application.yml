@@ -11,9 +11,10 @@ spring:
   data:
     mongodb:
 #      host: localhost
-      host: 39.105.36.4
+      host: 123.57.157.97
       database: recommender
-      port: 27017
+#      port: 27017
+      port: 28018
 #      username: admin
 #      password: admin
 

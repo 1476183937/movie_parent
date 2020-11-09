@@ -2,8 +2,6 @@ package com.hnust.movie.service;
 
 import com.hnust.movie.entity.po.*;
 import com.hnust.movie.entity.vo.*;
-import com.sun.org.apache.regexp.internal.RE;
-import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +27,27 @@ public interface DatabaseService {
     @ResponseBody
     public ResultEntity<List<MovieInfoInCache>> getMovieInfoForIndexPage(@PathVariable("is_comic") int is_comic);
 
+    /**
+     *@title:
+     *@description: 用户注册
+     *@param: userInfo
+     *@author:ggh
+     *@updateTime: 2020/8/19 9:45
+     **/
+    @PostMapping("/db/registy")
+    @ResponseBody
+    public ResultEntity registy(@RequestBody UserInfo userInfo);
+
+    /**
+    *@title:
+    *@description: 检查指定用户名是否存在
+    *@param: userName
+    *@author:ggh
+    *@updateTime: 2020/8/19 10:21
+    **/
+    @RequestMapping("/db/exist/username")
+    @ResponseBody
+    public ResultEntity existUserName(@RequestParam("username") String userName);
 
     /**
      *@title:

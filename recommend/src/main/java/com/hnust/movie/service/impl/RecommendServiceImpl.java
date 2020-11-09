@@ -7,6 +7,8 @@ import com.hnust.movie.service.RecommendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Title:
  * @Author: ggh
@@ -148,9 +150,9 @@ public class RecommendServiceImpl implements RecommendService {
     *@updateTime: 2020/5/23 18:07
     **/
     @Override
-    public ResultEntity<TopMoviesOfCategory> getTopMoviesOfCategory(String category) {
+    public ResultEntity<List<TopMoviesOfCategory>> getTopMoviesOfCategory(String categories) {
 
-        TopMoviesOfCategory latestByCategory = topMoviesOfCategoryDao.findLatestByCategory(category);
+        List<TopMoviesOfCategory> latestByCategory = topMoviesOfCategoryDao.findLatestByCategories(categories);
 
         if (latestByCategory != null){
             return ResultEntity.successWithData(latestByCategory);

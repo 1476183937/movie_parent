@@ -2,14 +2,11 @@
 <html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" name="referrer" content="no-referrer">
-    <title>迷你酷影</title>
-    <meta name="keywords" content="动漫,动漫大全,最新动漫,好看的动漫,日本动漫,动漫排行榜 - 免费在线电影">
-    <meta name="description"
-          content="为您提供新动漫、好看的动漫排行榜，免费高清在线观看热血动漫、卡通动漫、新番动漫、百合动漫、搞笑动漫、国产动漫、动漫电影等热门动漫。 - 提供最新最快的影视资讯和在线播放">
+    <title>动漫</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
+    <link rel="shortcut icon " type="images/x-icon" href="/images/icon.jpg">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
-<!--    <link rel="stylesheet" href="/css/user_base.css">-->
     <link rel="stylesheet" href="/css/top.css">
 
     <script src="/js/jquery.js"></script>
@@ -17,15 +14,6 @@
     <script src="/js/swiper.min.js"></script>
     <script src="/js/iconfont.js"></script>
 
-    <script>
-        var maccms = {
-            "path": "",
-            "mid": "1",
-            "url": "343.pc16.cn",
-            "wapurl": "343.pc16.cn",
-            "mob_status": "2"
-        };
-    </script>
 
     <script src="/js/home.js"></script>
 </head>
@@ -71,7 +59,7 @@
                     <form id="searchForm" action="/search.html" method="get" target="_blank" class="search_form cf">
                         <label class="search_label" for="keyword">搜索关键词</label>
                         <div class="search_keywords">
-                            <input type="text" name="kw" id="keyword" class="search_input" placeholder="奔跑吧 第4季"  value="奔跑吧 第4季">
+                            <input type="text" name="kw" id="keyword" class="search_input" placeholder="斗罗大陆"  value="斗罗大陆">
                         </div>
 
                         <button class="search_btn" id="searchBtn">
@@ -81,7 +69,7 @@
                             </svg>
                             <span class="btn_inner" >搜索</span>
                         </button>
-                        <a class="btn_search_hot" href="https://v.qq.com/x/hotlist/search/?channel=555&amp;source=common_nav_vs"
+                        <a class="btn_search_hot" href="#"
                            target="_blank" title="热搜榜">
                             <svg class="svg_icon_fire" width="12" height="15" viewBox="0 0 12 15">
 
@@ -320,66 +308,15 @@
                 </div>
                 <div class="tv-bd">
                     <ul class="v-rank-zy clearfix">
-                        <li>
+
+                        <li th:each="index:${#numbers.sequence(23,32)}">
                             <span class="s_tit">
-                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                                <a href="javascript:;" title="飞翔的魔女" th:href="'/index/detail/'+${multipleComicList.data.latestComics[index].mid}+'.html'" th:text="${multipleComicList.data.latestComics[index].movieName}">飞翔的魔女</a>
                             </span>
-                            <span class="s_des">全12集</span>
+                            <span class="s_des" th:text="${multipleComicList.data.latestComics[index].runTime}">全12集</span>
                         </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
-                            </span>
-                            <span class="s_des">更新至5集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
-                            </span>
-                            <span class="s_des">更新至8集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
-                            </span>
-                            <span class="s_des">更新到14集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
-                            </span>
-                            <span class="s_des">更新至16集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="战国无双">战国无双</a>
-                            </span>
-                            <span class="s_des">更新至01集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
-                            </span>
-                            <span class="s_des">更新至7集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
-                            </span>
-                            <span class="s_des">全20集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
-                            </span>
-                            <span class="s_des">更新至17集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
-                            </span>
-                            <span class="s_des">更新至09集</span>
-                        </li>
+
+
                     </ul>
                 </div>
             </div>
@@ -641,66 +578,14 @@
 
                 <div class="tv-bd">
                     <ul class="v-rank-zy clearfix">
-                        <li>
+
+                        <li th:each="index:${#numbers.sequence(23,32)}">
                             <span class="s_tit">
-                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                                <a href="javascript:;" title="飞翔的魔女" th:href="'/index/detail/'+${multipleComicList.data.chineseComics[index].mid}+'.html'" th:text="${multipleComicList.data.chineseComics[index].movieName}">飞翔的魔女</a>
                             </span>
-                            <span class="s_des">全12集</span>
+                            <span class="s_des" th:text="${multipleComicList.data.chineseComics[index].runTime}">全12集</span>
                         </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
-                            </span>
-                            <span class="s_des">更新至5集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
-                            </span>
-                            <span class="s_des">更新至8集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
-                            </span>
-                            <span class="s_des">更新到14集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
-                            </span>
-                            <span class="s_des">更新至16集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="战国无双">战国无双</a>
-                            </span>
-                            <span class="s_des">更新至01集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
-                            </span>
-                            <span class="s_des">更新至7集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
-                            </span>
-                            <span class="s_des">全20集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
-                            </span>
-                            <span class="s_des">更新至17集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
-                            </span>
-                            <span class="s_des">更新至09集</span>
-                        </li>
+
                     </ul>
                 </div>
 
@@ -894,66 +779,15 @@
 
                 <div class="tv-bd">
                     <ul class="v-rank-zy clearfix">
-                        <li>
+
+                        <li th:each="index:${#numbers.sequence(23,32)}">
                             <span class="s_tit">
-                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                                <a href="javascript:;" title="飞翔的魔女" th:href="'/index/detail/'+${multipleComicList.data.japaneseComics[index].mid}+'.html'" th:text="${multipleComicList.data.japaneseComics[index].movieName}">飞翔的魔女</a>
                             </span>
-                            <span class="s_des">全12集</span>
+                            <span class="s_des" th:text="${multipleComicList.data.japaneseComics[index].runTime}">全12集</span>
                         </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
-                            </span>
-                            <span class="s_des">更新至5集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
-                            </span>
-                            <span class="s_des">更新至8集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
-                            </span>
-                            <span class="s_des">更新到14集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
-                            </span>
-                            <span class="s_des">更新至16集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="战国无双">战国无双</a>
-                            </span>
-                            <span class="s_des">更新至01集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
-                            </span>
-                            <span class="s_des">更新至7集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
-                            </span>
-                            <span class="s_des">全20集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
-                            </span>
-                            <span class="s_des">更新至17集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
-                            </span>
-                            <span class="s_des">更新至09集</span>
-                        </li>
+
+
                     </ul>
                 </div>
 
@@ -1145,66 +979,15 @@
 
                 <div class="tv-bd">
                     <ul class="v-rank-zy clearfix">
-                        <li>
+
+                        <li th:each="index:${#numbers.sequence(23,32)}">
                             <span class="s_tit">
-                                <a href="javascript:;" title="飞翔的魔女">飞翔的魔女</a>
+                                <a href="javascript:;" title="飞翔的魔女" th:href="'/index/detail/'+${multipleComicList.data.europeanAndAmericanComics[index].mid}+'.html'" th:text="${multipleComicList.data.europeanAndAmericanComics[index].movieName}">飞翔的魔女</a>
                             </span>
-                            <span class="s_des">全12集</span>
+                            <span class="s_des" th:text="${multipleComicList.data.europeanAndAmericanComics[index].runTime}">全12集</span>
                         </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="邪君宠-貂蝉">邪君宠-貂蝉</a>
-                            </span>
-                            <span class="s_des">更新至5集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="恋爱云书">恋爱云书</a>
-                            </span>
-                            <span class="s_des">更新至8集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="冷王神妃：医手遮天">冷王神妃：医手遮天</a>
-                            </span>
-                            <span class="s_des">更新到14集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="师父又掉线了">师父又掉线了</a>
-                            </span>
-                            <span class="s_des">更新至16集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="战国无双">战国无双</a>
-                            </span>
-                            <span class="s_des">更新至01集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="肥猫大战三小强之世界环游记">肥猫大战三小强之世界环游记</a>
-                            </span>
-                            <span class="s_des">更新至7集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="动态漫画·恋是樱草色">动态漫画·恋是樱草色</a>
-                            </span>
-                            <span class="s_des">全20集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="首席爱人 第1季 救个恶魔放身边">首席爱人 第1季 救个恶魔放身边</a>
-                            </span>
-                            <span class="s_des">更新至17集</span>
-                        </li>
-                        <li>
-                            <span class="s_tit">
-                                <a href="javascript:;" title="魔王新娘太难了 第1季 怼上大魔王">魔王新娘太难了 第1季 怼上大魔王</a>
-                            </span>
-                            <span class="s_des">更新至09集</span>
-                        </li>
+
+
                     </ul>
                 </div>
 
@@ -1221,8 +1004,7 @@
         <a href="javascript:(void)" title="留言求片">留言求片</a>
     </nav>
     <p>免责声明:本网站所有内容均系收集于各大网站，本站只提供WEB页面服务，并不提供影片资源储存也不参与录制与上传，若本站收录内容无意侵犯了贵公司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢合作。</p>
-    <p class="en">站长邮箱:123456@maccms.com</p>
-<!--    <p class="en">统计代码</p>-->
+    <p class="en">站长邮箱:123456@qq.com</p>
 </footer>
 <script src="/js/lazyload.min.js"></script>
 <script src="/js/app.js"></script>
